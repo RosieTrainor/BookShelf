@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p>Title: {{ review.book.title }}</p>
+<p>Author: {{ review.book.authors.all|join:", " }}</p>
+<p>Review: {{ review.content }}</p>
+
+{% endblock %}

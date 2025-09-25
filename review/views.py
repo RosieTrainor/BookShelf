@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Review
@@ -20,3 +20,16 @@ class UserReviewList(LoginRequiredMixin, generic.ListView):
     
     template_name = "review/user_review_list.html"
     paginate_by = 6
+
+
+def review_detail(request, pk):
+
+    queryset = Review.objects.all()
+    review = get_object_or_404(queryset, pk=pk)
+
+    return render(
+        request,
+        'review/review_detail.html',
+        {'review': review}
+    )
+

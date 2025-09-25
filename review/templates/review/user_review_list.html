@@ -2,8 +2,10 @@
 
 {% block content %}
     {% for review in review_list %}
-    <p>Title: {{ review.book.title }}</p>
+    <a href="{% url 'review_detail' review.pk %}">
+        <p>Title: {{ review.book.title }}</p>
+    </a>
     <p>Author: {{ review.book.authors.all|join:", " }}</p>
-    <p>Review: {{ review.content }}</p>
+    <p>Review: {{ review.content_preview }}...</p>
     {% endfor %}
 {% endblock %}
