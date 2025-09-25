@@ -42,6 +42,10 @@ class Review(models.Model):
         )
     book = models.ForeignKey(Book, on_delete=models.PROTECT)
     content = models.TextField(max_length=2000)
+  
+    def content_preview(self):
+        return self.content[:200]
+   
     rating = models.DecimalField(
         max_digits=2,
         decimal_places=1,
