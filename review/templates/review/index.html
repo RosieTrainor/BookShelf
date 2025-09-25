@@ -1,11 +1,20 @@
 {% extends "base.html" %}
 
+
 {% block content %}
+<div class="row">
     {% for review in review_list %}
-    <a href="{% url 'review_detail' review.pk %}">
-        <p>Title: {{ review.book.title }}</p>
-    </a>
-    <p>Author: {{ review.book.authors.all|join:", " }}</p>
-    <p>Review: {{ review.content_preview }}...</p>
+    <div class="col-12 col-md-4">
+        <div class="card my-2">
+            <div class="card-body">
+                <h5 class="card-title"><a href="{% url 'review_detail' review.pk %}">
+                        <p>{{ review.book.title }}</p>
+                    </a></h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">{{ review.book.authors.all|join:", " }}</h6>
+                <p class="card-text">{{ review.content_preview }}...</p>
+            </div>
+        </div>
+    </div>
     {% endfor %}
+</div>
 {% endblock %}
