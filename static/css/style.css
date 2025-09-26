@@ -2,6 +2,8 @@
 /* CSS Variables */
 
 :root {
+    --title-font: 'Caveat', cursive;
+    --body-font: 'Crimson Pro', sans-serif;
     --parchment-color: #dbc8a4;
     --background-color: #9b2626;
     --accent-color: #b8860b;
@@ -44,6 +46,8 @@ header {
     border: 4px solid #5E3722;
     min-height: 12vh;
     color: var(--parchment-color);
+    font-family: 'Macondo', serif;
+    font-size: 2.5rem; 
 }
 
 /* Cards */
@@ -57,4 +61,12 @@ header {
             var(--parchment-color)
         );
         border: 1px solid var(--accent-color);
+}
+
+.card-title, .card-subtitle {
+    font-family: var(--title-font);
+}
+
+.card-text {
+    font-family: 'Crimson Pro', sans-serif;
 }
