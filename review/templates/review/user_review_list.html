@@ -15,6 +15,7 @@
                         <p>{{ review.book.title }}</p>
                     </a></h5>
                 <h6 class="card-subtitle mb-2 text-body-secondary">{{ review.book.authors.all|join:", " }}</h6>
+                <h6 class="card-subtitle mb-2 text-body-secondary">{{ review.rating }}</h6>
                 <p class="card-text">{{ review.content_preview }}...</p>
             </div>
         </div>

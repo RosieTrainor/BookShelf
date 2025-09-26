@@ -25,7 +25,7 @@ h6 {
     background-color: #f6efe4;
     background-image: 
         url('../images/scroll.svg'), 
-        url('../images/paper.svg');
+        url('../images/parchment.svg');
     background-repeat: repeat-y, no-repeat;
     background-size: contain, cover; 
     background-position: center, center; 
@@ -43,7 +43,7 @@ h6 {
 
 header {
     background-color: #452819;
-    background-image: url('../images/woodpattern.svg');
+    background-image: url('../images/woodpattern1.svg');
     border: 4px solid #452819;
     min-height: 12vh;
     color: var(--parchment-color);
