@@ -1,8 +1,40 @@
 .scrollwork {
-    border: 2px solid black;
-    background-color: grey;
+    background-color: #f6efe4;
+    background-image: 
+        url('../images/scroll.svg'), 
+        linear-gradient(
+            to top,
+            #f6efe4, 
+            #e8dcc5 50%, 
+            #d9c8a8 
+        );
+    background-repeat: repeat-y; 
+    background-size: contain; 
+    background-position: center; 
+    height: 100vh; 
 }
 
+body {
+    background-color: #9b2626;
+}
+
+/* #f6efe4; parchment */
+/* background-color: #6B3E26; */
+
 header {
-    background-color: #3a2620;
+
+    background-color: #6B3E26;
+    background-image: repeating-linear-gradient(85deg,
+            rgba(255, 255, 255, 0.03),
+            rgba(255, 255, 255, 0.03) 2px,
+            rgba(0, 0, 0, 0.03) 2px,
+            rgba(0, 0, 0, 0.03) 4px);
+    border: 3px solid #5E3722;
+    min-height: 10vh;
+    color: #f6efe4;
+
+}
+
+.card {
+    background-color: #f6efe4;
 }
