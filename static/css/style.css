@@ -9,21 +9,26 @@
     --accent-color: #b8860b;
 }
 
+/*  Global Styles */
+
+h5 {
+    font-size: 2rem;
+}
+
+h6 {
+    font-size: 1.5rem;
+}
+
 /* Background */
 
 .scrollwork {
     background-color: #f6efe4;
     background-image: 
         url('../images/scroll.svg'), 
-        linear-gradient(
-            to top,
-            #f6efe4, 
-            #e8dcc5 50%, 
-            var(--parchment-color)
-        );
-    background-repeat: repeat-y; 
-    background-size: contain; 
-    background-position: center; 
+        url('../images/paper.svg');
+    background-repeat: repeat-y, no-repeat;
+    background-size: contain, cover; 
+    background-position: center, center; 
     height: 100vh; 
 }
 
@@ -37,13 +42,9 @@
 /* Header */
 
 header {
-    background-color: #6B3E26;
-    background-image: repeating-linear-gradient(89deg,
-            rgba(255, 255, 255, 0.001),
-            rgba(255, 255, 255, 0.001) 2px,
-            rgba(0, 0, 0, 0.06) 4px,
-            rgba(0, 0, 0, 0.06) 5px);
-    border: 4px solid #5E3722;
+    background-color: #452819;
+    background-image: url('../images/woodpattern.svg');
+    border: 4px solid #452819;
     min-height: 12vh;
     color: var(--parchment-color);
     font-family: 'Macondo', serif;

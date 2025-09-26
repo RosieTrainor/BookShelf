@@ -5,7 +5,7 @@
 <div class="row">
     {% for review in review_list %}
     <div class="col-12 col-md-4">
-        <div class="card my-2 shadow p-3 mb-5 bg-white rounded">
+        <div class="card my-2 shadow p-2 mb-5 bg-white rounded">
             <div class="card-body">
                 <h5 class="card-title text-center"><a href="{% url 'review_detail' review.pk %}">
                         <p>{{ review.book.title }}</p>

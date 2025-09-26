@@ -1,9 +1,16 @@
 {% extends "base.html" %}
 
+
 {% block content %}
-
-<p>Title: {{ review.book.title }}</p>
-<p>Author: {{ review.book.authors.all|join:", " }}</p>
-<p>Review: {{ review.content }}</p>
-
+<div class="row">
+    <div class="col-12">
+        <div class="card my-2 shadow p-2 mb-5 bg-white rounded">
+            <div class="card-body">
+                <h5 class="card-title text-center">{{ review.book.title }}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">{{ review.book.authors.all|join:", " }}</h6>
+                <p class="card-text">{{ review.content }}...</p>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
