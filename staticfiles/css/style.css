@@ -1,0 +1,73 @@
+
+/* CSS Variables */
+
+:root {
+    --title-font: 'Caveat', cursive;
+    --body-font: 'Crimson Pro', sans-serif;
+    --parchment-color: #dbc8a4;
+    --background-color: #9b2626;
+    --accent-color: #b8860b;
+}
+
+/*  Global Styles */
+
+h5 {
+    font-size: 2rem;
+}
+
+h6 {
+    font-size: 1.5rem;
+}
+
+/* Background */
+
+.scrollwork {
+    background-color: #f6efe4;
+    background-image: 
+        url('../images/scroll.svg'), 
+        url('../images/paper.svg');
+    background-repeat: repeat-y, no-repeat;
+    background-size: contain, cover; 
+    background-position: center, center; 
+    height: 100vh; 
+}
+
+.journal-center {
+    background-color: var(--background-color);
+    background-image: linear-gradient(to bottom right, var(--background-color), #972525);;
+    border-left: 4px solid var(--accent-color);
+    border-right: 4px solid var(--accent-color);
+}
+
+/* Header */
+
+header {
+    background-color: #452819;
+    background-image: url('../images/woodpattern.svg');
+    border: 4px solid #452819;
+    min-height: 12vh;
+    color: var(--parchment-color);
+    font-family: 'Macondo', serif;
+    font-size: 2.5rem; 
+}
+
+/* Cards */
+
+.card {
+     background-image: 
+        linear-gradient(
+            to top,
+            #f6efe4, 
+            #e8dcc5 50%, 
+            var(--parchment-color)
+        );
+        border: 1px solid var(--accent-color);
+}
+
+.card-title, .card-subtitle {
+    font-family: var(--title-font);
+}
+
+.card-text {
+    font-family: 'Crimson Pro', sans-serif;
+}
