@@ -17,7 +17,7 @@ class UserReviewList(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         return Review.objects.filter(reviewer=self.request.user)
-    
+   
     template_name = "review/user_review_list.html"
     paginate_by = 6
 
@@ -26,10 +26,12 @@ def review_detail(request, pk):
 
     queryset = Review.objects.all()
     review = get_object_or_404(queryset, pk=pk)
-
+    is_own_review = False
+    if review.reviewer == request.user:
+        is_own_review = True
     return render(
         request,
         'review/review_detail.html',
-        {'review': review}
+        {'review': review,
+         'is_own_review': is_own_review}
     )
-

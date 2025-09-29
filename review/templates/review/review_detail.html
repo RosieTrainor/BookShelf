@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 
 {% block title %}
+{% if is_own_review %}
 {{ user.username }}'s BookShelf
+{% else %}
+The BookShelf
+{% endif %}
 {% endblock %}
 
 {% block content %}
