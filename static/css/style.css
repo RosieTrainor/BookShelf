@@ -26,10 +26,10 @@ h6 {
     background-image: 
         url('../images/scroll.svg'), 
         url('../images/parchment.svg');
-    background-repeat: repeat-y, no-repeat;
+    background-repeat: repeat-y, repeat-y;
     background-size: contain, cover; 
     background-position: center, center; 
-    height: 100vh; 
+    min-height: 100vh; 
 }
 
 .journal-center {
