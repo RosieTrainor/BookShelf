@@ -1,26 +1,29 @@
 {% extends "base.html" %}
 {% load allauth i18n %}
 {% block title %}
-    {% trans "Sign Out" %}
+{% trans "Sign Out" %}
 {% endblock title %}
 {% block content %}
-    {% element h1 %}
-        {% trans "Sign Out" %}
-    {% endelement %}
-    {% element p %}
-        {% trans 'Are you sure you want to sign out?' %}
-    {% endelement %}
-    {% url 'account_logout' as action_url %}
-    {% element form method="post" action=action_url no_visible_fields=True %}
-        {% slot body %}
-            {% csrf_token %}
-            {{ redirect_field }}
-        {% endslot %}
-        {% slot actions %}
-            {% element button type="submit" %}
-                {% trans 'Sign Out' %}
-            {% endelement %}
-        {% endslot %}
-    {% endelement %}
-    <p>I'm using this template</p>
+<div class="row">
+    <div class="col-12">
+        <div class="card my-2 shadow p-2 mb-5 bg-white rounded">
+            <div class="card-body">
+                <h5 class="card-title text-center">{% trans "Sign Out" %}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">{% trans 'Are you sure you want to sign out?' %}</h6>
+                <div class="card-text">{% url 'account_logout' as action_url %}
+                    {% element form method="post" action=action_url no_visible_fields=True %}
+                    {% slot body %}
+                    {% csrf_token %}
+                    {{ redirect_field }}
+                    {% endslot %}
+                    {% slot actions %}
+                    {% element button type="submit" %}
+                    {% trans 'Sign Out' %}
+                    {% endelement %}
+                    {% endslot %}
+                    {% endelement %}</div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}
