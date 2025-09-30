@@ -53,14 +53,23 @@ def add_review(request):
                 name = name.strip().title()
                 author, created = Author.objects.get_or_create(name=name)
                 authors.append(author)
-            # cleans book names - retrieved or created book object
+            # clean book names
             book_title = review_form.cleaned_data['book'].strip().title()
-            book, created = Book.objects.get_or_create(title=book_title)
+            # if book with those authors already exists, use that book object
+            # if not, create it and set authors
+            book = None
+            books_with_same_title = Book.objects.filter(title=book_title)
+            for existing_book in books_with_same_title:
+                # convert to sets so list and queryset can be compared
+                if set(existing_book.authors.all()) == set(authors):
+                    book = existing_book
+                else:
+                    book = book = Book.objects.create(title=book_title)
+                    book.authors.set(authors)
             # add reviewer, associate book and authors with review
             review = review_form.save(commit=False)
             review.reviewer = request.user
             review.book = book
-            review.book.authors.set(authors)
             try:
                 review.save()
             except IntegrityError:
