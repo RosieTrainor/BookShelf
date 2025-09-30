@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ user.username }}'s BookShelf
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="card my-2 shadow p-2 mb-5 bg-white rounded">
+            <div class="card-body">
+                <h5 class="card-title text-center">Add a Book Review</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">Record your thoughts</h6>
+                <p class="card-text">
+                    <form id="reviewForm" method="post" style="margin-top: 1.3em;">
+                        {{ review_form }}
+                        {% csrf_token %}
+                        <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
+                    </form>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
