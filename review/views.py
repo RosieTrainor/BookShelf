@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
+from django.db import IntegrityError
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Review, Author, Book
 from .forms import ReviewForm
@@ -18,7 +19,7 @@ class UserReviewList(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         return Review.objects.filter(reviewer=self.request.user)
- 
+
     template_name = "review/user_review_list.html"
     paginate_by = 6
 
@@ -60,8 +61,17 @@ def add_review(request):
             review.reviewer = request.user
             review.book = book
             review.book.authors.set(authors)
-            review.save()
-            return redirect('user_review_list')
+            try:
+                review.save()
+            except IntegrityError:
+                review_form.add_error(
+                    None,
+                    ("You have already created a review for this book. "
+                     "Please edit your previous review instead of adding a"
+                     " new one.")
+                )
+            else:
+                return redirect('user_review_list')
 
     else:
         review_form = ReviewForm()
