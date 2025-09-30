@@ -1,7 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Review
+from .models import Review, Author, Book
+from .forms import ReviewForm
 
 # Create your views here.
 
@@ -34,4 +35,39 @@ def review_detail(request, pk):
         'review/review_detail.html',
         {'review': review,
          'is_own_review': is_own_review}
+    )
+
+
+def add_review(request):
+
+    if request.method == "POST":
+        review_form = ReviewForm(data=request.POST)
+        if review_form.is_valid():
+            # cleans author names, splits - each is then
+            # retrieved or created as an author object, list is used to set
+            # relationship with book
+            author_names = review_form.cleaned_data['authors'].split(',')
+            authors = []
+            for name in author_names:
+                name = name.strip().title()
+                author, created = Author.objects.get_or_create(name=name)
+                authors.append(author)
+            # cleans book names - retrieved or created book object
+            book_title = review_form.cleaned_data['book'].strip().title()
+            book, created = Book.objects.get_or_create(title=book_title)
+            # add reviewer, associate book and authors with review
+            review = review_form.save(commit=False)
+            review.reviewer = request.user
+            review.book = book
+            review.book.authors.set(authors)
+            review.save()
+            return redirect('user_review_list')
+
+    else:
+        review_form = ReviewForm()
+
+    return render(
+        request,
+        'review/add_review.html',
+        {'review_form': review_form}
     )
