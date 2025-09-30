@@ -79,3 +79,11 @@ h6 {
 .card-text {
     font-family: 'Crimson Pro', sans-serif;
 }
+
+/* Login */
+
+/* allauth template has a link to an email based password reset 
+- app doesn't have this functionality so just hide the link rather than make a custom view*/
+.helptext {
+    visibility: hidden;
+}
