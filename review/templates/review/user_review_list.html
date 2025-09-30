@@ -8,17 +8,25 @@
     {% for review in review_list %}
     <div class="col-12 col-md-4">
         <div class="card my-2 shadow p-2 mb-5 bg-white rounded"">
-            <div class="card-body">
-                <h5 class="card-title text-center"><a href="{% url 'review_detail' review.pk %}">
-                        <p>{{ review.book.title }}</p>
-                    </a></h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">{{ review.book.authors.all|join:", " }}</h6>
-                <h6 class="card-subtitle mb-2 text-body-secondary">{{ review.rating }}</h6>
-                <p class="card-text">{{ review.content_preview }}...</p>
-            </div>
+            <div class=" card-body">
+            <h5 class="card-title text-center"><a href="{% url 'review_detail' review.pk %}">
+                    <p>{{ review.book.title }}</p>
+                </a></h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">{{ review.book.authors.all|join:", " }}</h6>
+            <h6 class="card-subtitle mb-2 text-body-secondary">{{ review.rating }}</h6>
+            <p class="card-text">{{ review.content_preview }}...</p>
         </div>
     </div>
-    {% endfor %}
+</div>
+{% empty %}
+<div class="col-12">
+    <div class="card my-2 shadow p-2 mb-5 bg-white rounded"">
+            <div class=" card-body">
+        <h5 class="card-title text-center mb-5">You haven't written any reviews yet.</h5>
+        <p class="card-text">Use the 'Add Review' button above to begin. Happy Reading!</p>
+    </div>
+</div>
+</div>
+{% endfor %}
 </div>
 {% endblock %}
-
