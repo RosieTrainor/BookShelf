@@ -282,3 +282,38 @@ class ReviewFormTests(TestCase):
         form = ReviewForm(data=form_data)
         self.assertFalse(form.is_valid())
         self.assertIn('rating', form.errors)
+
+    def test_single_author_valid(self):
+        form_data = {
+            'authors': 'George Orwell',
+            'book': '1984',
+            'content': 'A great read!',
+            'rating': 4.0,
+        }
+        form = ReviewForm(data=form_data)
+        self.assertTrue(form.is_valid())
+
+    def test_multiple_authors_with_commas_valid(self):
+        form_data = {
+            'authors': 'George Orwell, Aldous Huxley',
+            'book': '1984',
+            'content': 'A great read!',
+            'rating': 4.0,
+        }
+        form = ReviewForm(data=form_data)
+        self.assertTrue(form.is_valid())
+
+    def test_multiple_authors_without_commas_invalid(self):
+        form_data = {
+            'authors': 'George Orwell Aldous Huxley',
+            'book': '1984',
+            'content': 'A great read!',
+            'rating': 4.0,
+        }
+        form = ReviewForm(data=form_data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('authors', form.errors)
+        self.assertEqual(
+            form.errors['authors'][0],
+            "Please separate multiple authors with commas."
+        )

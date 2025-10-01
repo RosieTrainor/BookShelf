@@ -15,7 +15,15 @@ class ReviewForm(forms.ModelForm):
             }),
     )
 
+    def clean_authors(self):
+        authors = self.cleaned_data.get('authors', '').strip()
+        # Allow single author or comma-separated authors
+        if ',' not in authors and len(authors.split()) > 2:
+            raise forms.ValidationError(
+                "Please separate multiple authors with commas."
+            )
+        return authors
+
     class Meta:
         model = Review
         fields = ('content', 'rating',)
-       
