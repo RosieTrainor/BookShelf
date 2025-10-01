@@ -13,6 +13,30 @@ class ReviewFormTests(TestCase):
         self.user1 = User.objects.create_user(username='testuser1', password='password1')
         self.user2 = User.objects.create_user(username='testuser2', password='password2')
 
+    def process_authors_and_book(self, form):
+        """
+        Utility function to process authors and book from form data.
+        Simulates the view logic for associating authors and books.
+        """
+        author_names = form.cleaned_data['authors'].split(',')
+        authors = []
+        for name in author_names:
+            name = name.strip().title()
+            author, created = Author.objects.get_or_create(name=name)
+            authors.append(author)
+
+        book_title = form.cleaned_data['book'].strip().title()
+        book = None
+        books_with_same_title = Book.objects.filter(title=book_title)
+        for existing_book in books_with_same_title:
+            if set(existing_book.authors.all()) == set(authors):
+                book = existing_book
+                break
+        if not book:
+            book = Book.objects.create(title=book_title)
+            book.authors.set(authors)
+        return book
+    
     def test_no_duplicate_book_or_author(self):
         # Create an author and book
         author = Author.objects.create(name="George Orwell")
@@ -33,9 +57,12 @@ class ReviewFormTests(TestCase):
         print(form.errors)
         self.assertTrue(form.is_valid())
 
+        book = self.process_authors_and_book(form)
+
         # Save the review
         review = form.save(commit=False)
         review.reviewer = self.user2
+        review.book = book
         review.save()
 
         # Check that no duplicate book or author is created
@@ -60,6 +87,14 @@ class ReviewFormTests(TestCase):
         print(form.errors)
         self.assertTrue(form.is_valid())
 
+        book = self.process_authors_and_book(form)
+
+        # Save the review
+        review = form.save(commit=False)
+        review.reviewer = self.user1
+        review.book = book
+        review.save()
+
         # Check that no duplicate author or book is created
         self.assertEqual(Author.objects.count(), 1)
         self.assertEqual(Book.objects.count(), 1)
@@ -81,6 +116,14 @@ class ReviewFormTests(TestCase):
         print(form.errors)
         self.assertTrue(form.is_valid())
 
+        book = self.process_authors_and_book(form)
+
+        # Save the review
+        review = form.save(commit=False)
+        review.reviewer = self.user1
+        review.book = book
+        review.save()
+
         # Check that no duplicate author or book is created
         self.assertEqual(Author.objects.count(), 1)
         self.assertEqual(Book.objects.count(), 1)
@@ -97,9 +140,12 @@ class ReviewFormTests(TestCase):
         print(form.errors)
         self.assertTrue(form.is_valid())
 
+        book = self.process_authors_and_book(form)
+
         # Save the review
         review = form.save(commit=False)
         review.reviewer = self.user1
+        review.book = book
         review.save()
 
         # Check that the author is associated with the book
@@ -119,9 +165,12 @@ class ReviewFormTests(TestCase):
         print(form.errors)
         self.assertTrue(form.is_valid())
 
+        book = self.process_authors_and_book(form)
+
         # Save the review
         review = form.save(commit=False)
         review.reviewer = self.user1
+        review.book = book
         review.save()
 
         # Check that the review is associated with the book
@@ -147,12 +196,15 @@ class ReviewFormTests(TestCase):
         print(form.errors)
         self.assertTrue(form.is_valid())
 
+        book = self.process_authors_and_book(form)
+
         # Save the review and check for duplicates
         with self.assertRaises(IntegrityError):
             review = form.save(commit=False)
             review.reviewer = self.user1
+            review.book = book
             review.save()
-
+        
     def test_author_does_not_change_if_same_title_different_author(self):
         # Create a book with one author
         author1 = Author.objects.create(name="George Orwell")
@@ -170,9 +222,12 @@ class ReviewFormTests(TestCase):
         print(form.errors)
         self.assertTrue(form.is_valid())
 
+        book = self.process_authors_and_book(form)
+
         # Save the review
         review = form.save(commit=False)
-        review.reviewer = self.user2
+        review.reviewer = self.user1
+        review.book = book
         review.save()
 
         # Check that a new book is created
@@ -183,3 +238,47 @@ class ReviewFormTests(TestCase):
         book2 = Book.objects.get(title="Animal Farm", authors__name="Aldous Huxley")
         self.assertEqual(book1.authors.first().name, "George Orwell")
         self.assertEqual(book2.authors.first().name, "Aldous Huxley")
+
+    def test_missing_authors(self):
+        form_data = {
+            'authors': '',
+            'book': '1984',
+            'content': 'A great read!',
+            'rating': 4.0,
+        }
+        form = ReviewForm(data=form_data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('authors', form.errors)
+
+    def test_missing_book(self):
+        form_data = {
+            'authors': 'George Orwell',
+            'book': '',
+            'content': 'A great read!',
+            'rating': 4.0,
+        }
+        form = ReviewForm(data=form_data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('book', form.errors)
+    
+    def test_missing_content(self):
+        form_data = {
+            'authors': 'George Orwell',
+            'book': '1984',
+            'content': '',
+            'rating': 4.0,
+        }
+        form = ReviewForm(data=form_data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('content', form.errors)
+
+    def test_missing_rating(self):
+        form_data = {
+            'authors': 'George Orwell',
+            'book': '1984',
+            'content': 'A great read!',
+            'rating': None,
+        }
+        form = ReviewForm(data=form_data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('rating', form.errors)
