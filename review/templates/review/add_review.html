@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 
 {% block title %}
 {{ user.username }}'s BookShelf
@@ -13,7 +14,7 @@
                 <h6 class="card-subtitle mb-2 text-body-secondary">Record your thoughts</h6>
                 <p class="card-text">
                     <form id="reviewForm" method="post" style="margin-top: 1.3em;">
-                        {{ review_form }}
+                        {{ review_form | crispy }}
                         {% csrf_token %}
                         <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
                     </form>
