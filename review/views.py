@@ -65,9 +65,10 @@ def add_review(request):
                 # convert to sets so list and queryset can be compared
                 if set(existing_book.authors.all()) == set(authors):
                     book = existing_book
-                else:
-                    book = book = Book.objects.create(title=book_title)
-                    book.authors.set(authors)
+                    break
+            if not book:
+                book = book = Book.objects.create(title=book_title)
+                book.authors.set(authors)
             # add reviewer, associate book and authors with review
             review = review_form.save(commit=False)
             review.reviewer = request.user

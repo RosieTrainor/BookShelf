@@ -9,13 +9,13 @@ class ReviewForm(forms.ModelForm):
             'required': True
         })
     )
-
-    class Meta:
-        model = Review
-        fields = ('book', 'content', 'rating',)
-        widgets = {
-            'book': forms.TextInput(attrs={
+    book = forms.CharField(widget=forms.TextInput(attrs={
                 'placeholder': 'Enter book title',
                 'required': True
             }),
-        }
+    )
+
+    class Meta:
+        model = Review
+        fields = ('content', 'rating',)
+       
