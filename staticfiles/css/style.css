@@ -26,10 +26,10 @@ h6 {
     background-image: 
         url('../images/scroll.svg'), 
         url('../images/parchment.svg');
-    background-repeat: repeat-y, no-repeat;
+    background-repeat: repeat-y, repeat-y;
     background-size: contain, cover; 
     background-position: center, center; 
-    height: 100vh; 
+    min-height: 100vh; 
 }
 
 .journal-center {
@@ -46,9 +46,17 @@ h6 {
     background-image: url('../images/woodpattern1.svg');
     border: 4px solid #452819;
     min-height: 12vh;
-    color: var(--parchment-color);
     font-family: 'Macondo', serif;
-    font-size: 2.5rem; 
+}
+
+.navbar-brand {
+    color: var(--parchment-color);
+    font-size: 2rem;
+}
+
+.nav-link {
+    color: var(--parchment-color);
+    font-size: 1.5rem;
 }
 
 /* Cards */
@@ -70,4 +78,32 @@ h6 {
 
 .card-text {
     font-family: 'Crimson Pro', sans-serif;
+}
+
+/* Login */
+
+/* allauth template has a link to an email based password reset 
+- app doesn't have this functionality so just hide the link rather than make a custom view*/
+.helptext {
+    visibility: hidden;
+}
+
+/* Buttons */
+
+#add-review {
+    background-color: var(--accent-color);
+    font-family: var(--title-font);
+    font-size: 1.5rem;
+}
+
+#add-review:focus {
+    background-color: #c6971a;
+}
+
+#add-review:hover {
+    background-color: #c6971a;
+}
+
+#add-review:focus-visible {
+    background-color: #c6971a;
 }
