@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
 from django.db import IntegrityError
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 from .models import Review, Author, Book
 from .forms import ReviewForm
 
@@ -39,6 +40,7 @@ def review_detail(request, pk):
     )
 
 
+@login_required
 def add_review(request):
 
     if request.method == "POST":
