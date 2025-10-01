@@ -55,7 +55,7 @@ def add_review(request):
                 name = name.strip().title()
                 author, created = Author.objects.get_or_create(name=name)
                 authors.append(author)
-            return authors
+            
             # clean book names
             book_title = review_form.cleaned_data['book'].strip().title()
             # if book with those authors already exists, use that book object
