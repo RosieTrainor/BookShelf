@@ -3,6 +3,13 @@
 {% block title %}
 {{ user.username }}'s BookShelf
 {% endblock %}
+
+{% block buttons %}
+    {% if user.is_authenticated %}
+        <button type="button" id="add-review" class="btn m-2">Add Review</button>
+    {% endif %}
+{% endblock %}
+
 {% block content %}
 <div class="row">
     {% for review in review_list %}

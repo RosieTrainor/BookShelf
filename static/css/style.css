@@ -87,3 +87,23 @@ h6 {
 .helptext {
     visibility: hidden;
 }
+
+/* Buttons */
+
+#add-review {
+    background-color: var(--accent-color);
+    font-family: var(--title-font);
+    font-size: 1.5rem;
+}
+
+#add-review:focus {
+    background-color: #c6971a;
+}
+
+#add-review:hover {
+    background-color: #c6971a;
+}
+
+#add-review:focus-visible {
+    background-color: #c6971a;
+}
