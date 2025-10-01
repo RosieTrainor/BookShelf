@@ -10,8 +10,13 @@ from .forms import ReviewForm
 class ReviewFormTests(TestCase):
     def setUp(self):
         # Create two test users
-        self.user1 = User.objects.create_user(username='testuser1', password='password1')
-        self.user2 = User.objects.create_user(username='testuser2', password='password2')
+        self.user1 = User.objects.create_user(
+            username='testuser1',
+            password='password1'
+        )
+        self.user2 = User.objects.create_user(
+            username='testuser2', password='password2'
+        )
 
     def process_authors_and_book(self, form):
         """
@@ -36,7 +41,89 @@ class ReviewFormTests(TestCase):
             book = Book.objects.create(title=book_title)
             book.authors.set(authors)
         return book
-    
+
+# Tests for form validation
+
+    def test_missing_authors(self):
+        form_data = {
+            'authors': '',
+            'book': '1984',
+            'content': 'A great read!',
+            'rating': 4.0,
+        }
+        form = ReviewForm(data=form_data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('authors', form.errors)
+
+    def test_missing_book(self):
+        form_data = {
+            'authors': 'George Orwell',
+            'book': '',
+            'content': 'A great read!',
+            'rating': 4.0,
+        }
+        form = ReviewForm(data=form_data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('book', form.errors)
+   
+    def test_missing_content(self):
+        form_data = {
+            'authors': 'George Orwell',
+            'book': '1984',
+            'content': '',
+            'rating': 4.0,
+        }
+        form = ReviewForm(data=form_data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('content', form.errors)
+
+    def test_missing_rating(self):
+        form_data = {
+            'authors': 'George Orwell',
+            'book': '1984',
+            'content': 'A great read!',
+            'rating': None,
+        }
+        form = ReviewForm(data=form_data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('rating', form.errors)
+
+    def test_single_author_valid(self):
+        form_data = {
+            'authors': 'George Orwell',
+            'book': '1984',
+            'content': 'A great read!',
+            'rating': 4.0,
+        }
+        form = ReviewForm(data=form_data)
+        self.assertTrue(form.is_valid())
+
+    def test_multiple_authors_with_commas_valid(self):
+        form_data = {
+            'authors': 'George Orwell, Aldous Huxley',
+            'book': '1984',
+            'content': 'A great read!',
+            'rating': 4.0,
+        }
+        form = ReviewForm(data=form_data)
+        self.assertTrue(form.is_valid())
+
+    def test_multiple_authors_without_commas_invalid(self):
+        form_data = {
+            'authors': 'George Orwell Aldous Huxley',
+            'book': '1984',
+            'content': 'A great read!',
+            'rating': 4.0,
+        }
+        form = ReviewForm(data=form_data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('authors', form.errors)
+        self.assertEqual(
+            form.errors['authors'][0],
+            "Please separate multiple authors with commas."
+        )
+
+# Tests for db interaction with submitted reviews
     def test_no_duplicate_book_or_author(self):
         # Create an author and book
         author = Author.objects.create(name="George Orwell")
@@ -44,7 +131,12 @@ class ReviewFormTests(TestCase):
         book.authors.add(author)
 
         # User 1 submits a review for the book
-        Review.objects.create(book=book, reviewer=self.user1, content="Loved it!", rating=5.0)
+        Review.objects.create(
+            book=book,
+            reviewer=self.user1,
+            content="Loved it!",
+            rating=5.0
+        )
 
         # User 2 submits a review for the same book and author
         form_data = {
@@ -183,7 +275,12 @@ class ReviewFormTests(TestCase):
         book.authors.add(author)
 
         # Create a review for the book
-        Review.objects.create(book=book, reviewer=self.user1, content="Good", rating=3.5)
+        Review.objects.create(
+            book=book,
+            reviewer=self.user1,
+            content="Good",
+            rating=3.5
+        )
 
         # Submit a form for the same book and user
         form_data = {
@@ -235,85 +332,15 @@ class ReviewFormTests(TestCase):
         self.assertEqual(Author.objects.count(), 2)
 
         # Check that each book is associated with the correct author
-        book2 = Book.objects.get(title="Animal Farm", authors__name="Aldous Huxley")
-        self.assertEqual(book1.authors.first().name, "George Orwell")
-        self.assertEqual(book2.authors.first().name, "Aldous Huxley")
-
-    def test_missing_authors(self):
-        form_data = {
-            'authors': '',
-            'book': '1984',
-            'content': 'A great read!',
-            'rating': 4.0,
-        }
-        form = ReviewForm(data=form_data)
-        self.assertFalse(form.is_valid())
-        self.assertIn('authors', form.errors)
-
-    def test_missing_book(self):
-        form_data = {
-            'authors': 'George Orwell',
-            'book': '',
-            'content': 'A great read!',
-            'rating': 4.0,
-        }
-        form = ReviewForm(data=form_data)
-        self.assertFalse(form.is_valid())
-        self.assertIn('book', form.errors)
-    
-    def test_missing_content(self):
-        form_data = {
-            'authors': 'George Orwell',
-            'book': '1984',
-            'content': '',
-            'rating': 4.0,
-        }
-        form = ReviewForm(data=form_data)
-        self.assertFalse(form.is_valid())
-        self.assertIn('content', form.errors)
-
-    def test_missing_rating(self):
-        form_data = {
-            'authors': 'George Orwell',
-            'book': '1984',
-            'content': 'A great read!',
-            'rating': None,
-        }
-        form = ReviewForm(data=form_data)
-        self.assertFalse(form.is_valid())
-        self.assertIn('rating', form.errors)
-
-    def test_single_author_valid(self):
-        form_data = {
-            'authors': 'George Orwell',
-            'book': '1984',
-            'content': 'A great read!',
-            'rating': 4.0,
-        }
-        form = ReviewForm(data=form_data)
-        self.assertTrue(form.is_valid())
-
-    def test_multiple_authors_with_commas_valid(self):
-        form_data = {
-            'authors': 'George Orwell, Aldous Huxley',
-            'book': '1984',
-            'content': 'A great read!',
-            'rating': 4.0,
-        }
-        form = ReviewForm(data=form_data)
-        self.assertTrue(form.is_valid())
-
-    def test_multiple_authors_without_commas_invalid(self):
-        form_data = {
-            'authors': 'George Orwell Aldous Huxley',
-            'book': '1984',
-            'content': 'A great read!',
-            'rating': 4.0,
-        }
-        form = ReviewForm(data=form_data)
-        self.assertFalse(form.is_valid())
-        self.assertIn('authors', form.errors)
+        book2 = Book.objects.get(
+            title="Animal Farm",
+            authors__name="Aldous Huxley"
+        )
         self.assertEqual(
-            form.errors['authors'][0],
-            "Please separate multiple authors with commas."
+            book1.authors.first().name,
+            "George Orwell"
+        )
+        self.assertEqual(
+            book2.authors.first().name,
+            "Aldous Huxley"
         )
