@@ -27,3 +27,5 @@ class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
         fields = ('content', 'rating',)
+    
+    field_order = ['book', 'authors', 'content', 'rating']
