@@ -110,7 +110,7 @@ def add_review(request):
 
 @login_required
 def edit_review(request, pk):
-   
+
     review = get_object_or_404(Review, pk=pk)
 
     if review.reviewer != request.user:
@@ -128,7 +128,7 @@ def edit_review(request, pk):
                 review.save()
                 messages.add_message(
                     request, messages.SUCCESS,
-                    'You have edited your review'
+                    'You have edited your review.'
                 )
             except ValidationError as e:
                 review_form.add_error(None, (str(e)))
