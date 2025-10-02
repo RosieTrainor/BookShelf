@@ -128,4 +128,3 @@ def edit_review(request, pk):
         'review/edit_review.html',
         {'review_form': review_form, 'review': review}
     )
-

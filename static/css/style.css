@@ -90,7 +90,7 @@ h6 {
 
 /* Buttons */
 
-#add-review, #submitButton {
+#add-review, #submitButton, #edit-review {
     background-color: var(--accent-color);
     font-family: var(--title-font);
     font-size: 1.5rem;
