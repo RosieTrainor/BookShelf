@@ -5,6 +5,7 @@ from django.db import IntegrityError
 from django.core.exceptions import ValidationError
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from .models import Review, Author, Book
 from .forms import ReviewForm
 
@@ -77,12 +78,22 @@ def add_review(request):
             review.book = book
             try:
                 review.save()
+                messages.add_message(request, messages.SUCCESS,
+                                     'You have added a new review!')
             except IntegrityError:
                 review_form.add_error(
                     None,
                     ("You have already created a review for this book. "
                      "Please edit your previous review instead of adding a"
                      " new one.")
+                )
+                messages.add_message(
+                    request,
+                    messages.ERROR,
+                    (
+                        'You cannot have multiple reviews for the same book. '
+                        'Please edit your previous review.'
+                    )
                 )
             else:
                 return redirect('user_review_list')
@@ -103,8 +114,11 @@ def edit_review(request, pk):
     review = get_object_or_404(Review, pk=pk)
 
     if review.reviewer != request.user:
+        messages.add_message(
+            request, messages.WARNING,
+            'You can only edit your own reviews.'
+        )
         return redirect('review_detail', pk=review.pk)
-    # add message here - only allowed to edit own reviews
 
     if request.method == "POST":
         review_form = ReviewForm(data=request.POST, instance=review)
@@ -112,8 +126,20 @@ def edit_review(request, pk):
             review = review_form.save(commit=False)
             try:
                 review.save()
+                messages.add_message(
+                    request, messages.SUCCESS,
+                    'You have edited your review'
+                )
             except ValidationError as e:
                 review_form.add_error(None, (str(e)))
+                messages.add_message(
+                    request,
+                    messages.WARNING,
+                    (
+                        'There was an error saving your review. '
+                        'Please fix the issues below.'
+                    )
+                )
 
         return redirect('review_detail', pk=review.pk)
     
@@ -141,9 +167,11 @@ def delete_review(request, pk):
     review = get_object_or_404(Review, pk=pk)
 
     if review.reviewer != request.user:
+        messages.add_message(request, messages.WARNING,
+                             'You can only delete your own reviews.')
         return redirect('review_detail', pk=review.pk)
-    # add message here - only allowed to delete own reviews
 
     review.delete()
-    # add message
+    messages.add_message(request, messages.SUCCESS,
+                         'You have deleted your review.')
     return redirect('user_review_list')
