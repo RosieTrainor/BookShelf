@@ -31,7 +31,31 @@ The BookShelf
 <div class="row">
     <div class="col-12 col-md-4">
         <button type="button" id="edit-review" data-review-pk="{{ review.pk }}" class="btn m-2">Edit Review</button>
+        <button type="button" id="delete-review" data-review-pk="{{ review.pk }}" class="btn m-2">Delete Review</button>
     </div>
 </div>
+<div class="modal fade" id="delete-modal" tabindex="-1"
+  aria-labelledby="delete-modal-label">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"
+          id="delete-modal-label">Delete Review?</h5>
+        <button type="button" class="btn-close"
+          data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete your review?
+        This action cannot be undone.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn"
+          data-bs-dismiss="modal">Close</button>
+        <a id="delete-confirm" href="#" class="btn">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 {% endif %}
 {% endblock %}
