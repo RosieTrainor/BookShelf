@@ -99,9 +99,12 @@ def add_review(request):
 
 @login_required
 def edit_review(request, pk):
+   
+    review = get_object_or_404(Review, pk=pk)
 
-    queryset = Review.objects.filter(reviewer=request.user)
-    review = get_object_or_404(queryset, pk=pk)
+    if review.reviewer != request.user:
+        return redirect('review_detail', pk=review.pk)
+    # add message here - only allowed to edit own reviews
 
     if request.method == "POST":
         review_form = ReviewForm(data=request.POST, instance=review)
