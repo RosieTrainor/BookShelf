@@ -90,18 +90,32 @@ h6 {
 
 /* Buttons */
 
-#add-review, #submit-button, #edit-review {
+.btn {
     background-color: var(--accent-color);
     font-family: var(--title-font);
     font-size: 1.5rem;
 }
 
-#add-review:focus, #submit-button:focus {
+.btn:focus {
     background-color: #c6971a;
 }
 
-#add-review:hover, #submit-button:hover {
+.btn:hover {
     background-color: #c6971a;
 }
 
+/* For allauth template buttons */
+button[type="submit"] {
+    background-color: var(--accent-color);
+    font-family: var(--title-font);
+    font-size: 1.5rem;
+}
+
+button[type="submit"]:focus {
+    background-color: #c6971a;
+}
+
+button[type="submit"]:hover {
+    background-color: #c6971a;
+}
 
