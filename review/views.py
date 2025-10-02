@@ -112,7 +112,7 @@ def edit_review(request, pk):
                 review.save()
             except ValidationError as e:
                 review_form.add_error(None, (str(e)))
-        return redirect('review_detail')
+        return redirect('review_detail', pk=review.pk)
     else:
         review_form = ReviewForm(instance=review)
         review_form.fields['book'].disabled = True
