@@ -29,7 +29,7 @@ The BookShelf
 </div>
 {% if user.is_authenticated and is_own_review %}
 <div class="row">
-    <div class="col-12 col-md-4">
+    <div class="col-12 col-md-6">
         <button type="button" id="edit-review" data-review-pk="{{ review.pk }}" class="btn m-2">Edit Review</button>
         <button type="button" id="delete-review" data-review-pk="{{ review.pk }}" class="btn m-2">Delete Review</button>
     </div>
