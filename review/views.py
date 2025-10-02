@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
 from django.db import IntegrityError
+from django.core.exceptions import ValidationError
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from .models import Review, Author, Book
@@ -93,3 +94,34 @@ def add_review(request):
         'review/add_review.html',
         {'review_form': review_form}
     )
+
+
+@login_required
+def edit_review(request, pk):
+
+    queryset = Review.objects.filter(reviewer=request.user)
+    review = get_object_or_404(queryset, pk=pk)
+    if request.method == "POST":
+        review_form = ReviewForm(data=request.POST, instance=review)
+        if review_form.is_valid():
+            book = review.book
+            review = review_form.save(commit=False)
+            review.reviewer = request.user
+            review.book = book
+            try:
+                review.save()
+            except ValidationError as e:
+                review_form.add_error(None, (str(e)))
+        return redirect('review_detail')
+    else:
+        review_form = ReviewForm(instance=review)
+        review_form.fields['book'].disabled = True
+        review_form.fields['authors'].disabled = True
+    # add message - why/how to edit authors, title
+
+    return render(
+        request,
+        'review/edit_review.html',  # placeholder
+        {'review_form': review_form, 'review': review}
+    )
+
