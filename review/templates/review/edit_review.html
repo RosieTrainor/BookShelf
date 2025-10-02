@@ -15,13 +15,13 @@
                 <h6 class="card-subtitle text-center">{{ review.book.authors.all|join:", " }}</h6>
                 <h6 class="card-subtitle my-2 text-body-secondary">
                     You cannot amend the author or book title on a review. If you have made a mistake, please delete
-                    this review and create a new one.
+                    the review and create a new one.
                 </h6>
                 <div class="card-text">
                     <form id="reviewForm" method="post" style="margin-top: 1.3em;">
                         {{ review_form | crispy }}
                         {% csrf_token %}
-                        <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Update</button>
+                        <button id="submit-button" type="submit" class="btn btn-signup btn-lg">Update</button>
                     </form>
                 </div>
             </div>

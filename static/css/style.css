@@ -90,17 +90,17 @@ h6 {
 
 /* Buttons */
 
-#add-review, #submitButton, #edit-review {
+#add-review, #submit-button, #edit-review {
     background-color: var(--accent-color);
     font-family: var(--title-font);
     font-size: 1.5rem;
 }
 
-#add-review:focus, #submitButton:focus {
+#add-review:focus, #submit-button:focus {
     background-color: #c6971a;
 }
 
-#add-review:hover, #submitButton:hover {
+#add-review:hover, #submit-button:hover {
     background-color: #c6971a;
 }
 
