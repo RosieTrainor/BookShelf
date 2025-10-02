@@ -104,4 +104,18 @@ h6 {
     background-color: #c6971a;
 }
 
+/* For allauth template buttons */
+button[type="submit"] {
+    background-color: var(--accent-color);
+    font-family: var(--title-font);
+    font-size: 1.5rem;
+}
+
+button[type="submit"]:focus {
+    background-color: #c6971a;
+}
+
+button[type="submit"]:hover {
+    background-color: #c6971a;
+}
 
