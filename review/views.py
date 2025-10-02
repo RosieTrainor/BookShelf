@@ -132,3 +132,18 @@ def edit_review(request, pk):
         {'review_form': review_form, 'review': review}
     )
 
+
+@login_required
+def delete_review(request, pk):
+    """
+    view to a delete a review
+    """
+    review = get_object_or_404(Review, pk=pk)
+
+    if review.reviewer != request.user:
+        return redirect('review_detail', pk=review.pk)
+    # add message here - only allowed to delete own reviews
+
+    review.delete()
+    # add message
+    return redirect('user_review_list')
