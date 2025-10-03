@@ -16,7 +16,7 @@ class AllReviewList(generic.ListView):
 
     queryset = Review.objects.all()
     template_name = "review/index.html"
-    paginate_by = 6
+    paginate_by = 12
 
 
 class UserReviewList(LoginRequiredMixin, generic.ListView):
@@ -25,7 +25,7 @@ class UserReviewList(LoginRequiredMixin, generic.ListView):
         return Review.objects.filter(reviewer=self.request.user)
 
     template_name = "review/user_review_list.html"
-    paginate_by = 6
+    paginate_by = 12
 
 
 def review_detail(request, pk):
