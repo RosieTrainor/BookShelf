@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     handleAddReviewButton();
     handleEditReviewButton();
-    handleDeleteModal();
+    if (document.querySelector('#delete-review')) {
+        handleDeleteModal();
+    }
 })
 
 // Add-review button
@@ -31,7 +33,7 @@ function handleDeleteModal() {
     const deleteModal = new bootstrap.Modal(document.querySelector('#delete-modal'));
     const deleteConfirmButton = document.querySelector('#delete-confirm');
 
-    if (deleteModalButton) {
+    if (deleteModalButton && deleteModal) {
         const reviewPk = deleteModalButton.dataset.reviewPk;
         deleteModalButton.addEventListener('click', function() {
             deleteConfirmButton.setAttribute('href', `/my-reviews/delete/${reviewPk}/`);
