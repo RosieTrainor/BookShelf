@@ -5,6 +5,11 @@
 {% trans "Sign In" %}
 {% endblock title %}
 {% block content %}
+{% if request.GET.next %}
+    <div class="alert alert-warning">
+        You must log in to access this page.
+    </div>
+{% endif %}
 <div class="row">
     <div class="col-12">
         <div class="card my-2 shadow p-2 mb-5 bg-white rounded">
