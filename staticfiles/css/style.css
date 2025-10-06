@@ -3,7 +3,7 @@
 
 :root {
     --title-font: 'Caveat', cursive;
-    --body-font: 'Crimson Pro', sans-serif;
+    --body-font: 'Source Sans 3', sans-serif;
     --parchment-color: #dbc8a4;
     --background-color: #9b2626;
     --accent-color: #b8860b;
@@ -17,6 +17,10 @@ h5 {
 
 h6 {
     font-size: 1.5rem;
+}
+
+a {
+    color: #2f51a2;
 }
 
 /* Background */
@@ -69,7 +73,7 @@ h6 {
             #e8dcc5 50%, 
             var(--parchment-color)
         );
-        border: 1px solid var(--accent-color);
+        border: 2px solid var(--accent-color);
 }
 
 .card-title, .card-subtitle {
@@ -117,5 +121,17 @@ button[type="submit"]:focus {
 
 button[type="submit"]:hover {
     background-color: #c6971a;
+}
+
+/* Alerts */
+
+.alert-warning, .alert-error {
+    background-color: #5D1717 ;
+    color: var(--parchment-color);
+    border: 1px solid var(--accent-color);
+}
+
+.alert-success {
+    background-color: var(--parchment-color);
 }
 
