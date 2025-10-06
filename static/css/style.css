@@ -104,6 +104,12 @@ a {
     background-color: var(--accent-color);
     font-family: var(--title-font);
     font-size: 1.5rem;
+    color: black;
+    border: 1px solid black;
+}
+
+.btn:active, .btn.active {
+    background-color: #c6971a;
 }
 
 .btn:focus {
@@ -120,6 +126,7 @@ button[type="submit"] {
     background-color: var(--accent-color);
     font-family: var(--title-font);
     font-size: 1.5rem;
+    border-radius: 0.375rem;
 }
 
 button[type="submit"]:focus {

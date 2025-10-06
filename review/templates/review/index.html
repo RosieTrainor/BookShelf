@@ -3,10 +3,11 @@
 
 {% block buttons %}
 {% if user.is_authenticated %}
-<button type="button" id="add-review" class="btn m-2">Add Review</button>
+<div class="d-flex justify-content-center">
+<button type="button" id="add-review" class="btn m-3 me-5 px-2">Add Review</button>
 {% endif %}
-<div class="dropdown">
-  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+<div class="dropdown m-3">
+  <a class="btn dropdown-toggle px-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Sort by:
   </a>
   <ul class="dropdown-menu">
@@ -14,6 +15,7 @@
     <li><a class="dropdown-item" href="?sort=author">Author</a></li>
     <li><a class="dropdown-item" href="?sort=book">Book</a></li>
   </ul>
+</div>
 </div>
 {% endblock %}
 
