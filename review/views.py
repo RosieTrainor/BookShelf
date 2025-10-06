@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
+from django.db.models import Min, Value
 from django.forms import HiddenInput
 from django.db import IntegrityError
 from django.core.exceptions import ValidationError
@@ -14,9 +15,27 @@ from .forms import ReviewForm
 
 class AllReviewList(generic.ListView):
 
-    queryset = Review.objects.all()
     template_name = "review/index.html"
     paginate_by = 12
+
+    def get_queryset(self):
+        print('called')
+        queryset = Review.objects.all()
+        queryset = queryset.annotate(
+            first_author=Min('book__authors__name'))
+        print(queryset.query)
+        ordering = self.get_ordering()
+        if ordering:
+            queryset = queryset.order_by(ordering)
+        return queryset
+    
+    def get_ordering(self):
+        sort_option = self.request.GET.get('sort')
+        if sort_option == 'book':
+            return 'book__title'
+        elif sort_option == 'author':
+            return 'first_author'
+        return sort_option
 
 
 class UserReviewList(LoginRequiredMixin, generic.ListView):
