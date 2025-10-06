@@ -13,7 +13,7 @@ def star_rating(value):
     for i in range(1, 6):
         if (i - 0.5) == value:
             half_star += 1
-        elif i < value:
+        elif i <= value:
             full_star += 1
         else:
             empty_star += 1
