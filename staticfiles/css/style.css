@@ -81,7 +81,13 @@ a {
 }
 
 .card-text {
-    font-family: 'Crimson Pro', sans-serif;
+    font-family: var(--body-font);
+}
+
+/* Star rating */
+
+.star-rating {
+    color: #9F7509;
 }
 
 /* Login */
@@ -109,6 +115,7 @@ a {
 }
 
 /* For allauth template buttons */
+
 button[type="submit"] {
     background-color: var(--accent-color);
     font-family: var(--title-font);
