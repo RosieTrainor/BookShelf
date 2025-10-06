@@ -19,11 +19,10 @@ class AllReviewList(generic.ListView):
     paginate_by = 12
 
     def get_queryset(self):
-        print('called')
         queryset = Review.objects.all()
         queryset = queryset.annotate(
             first_author=Min('book__authors__name'))
-        print(queryset.query)
+        
         ordering = self.get_ordering()
         if ordering:
             queryset = queryset.order_by(ordering)
