@@ -68,6 +68,7 @@ The site was deployed on Heroku:
 ## Future Features
 <!-- reading stats, all reviews for book, author pages, draft reviews, filter reviews, images for book covers, search function, further check for adding book/author -->
 <!-- suggest book/author deletion  -->
+<!-- QoL - login/out on enter - although can tab -->
 ## Database Design and ERD
 <!-- Rational -->
 ## UX 
@@ -129,6 +130,17 @@ I considered using a monospaced or typewriter style font, but on testing this wa
 
 ### Accessibility
 
+#### Colour Contrast
+
+All the colours used on the site were tested against WCAG colour contrast standards, to ensure each component stood out against the background for visually impaired users.
+
+All compoments meet at least WCAG AA standards, with many meeting AAA.
+
+The navigation section has a wood image as its background, with many colours within it. To test this I extracted the lightest colour found in the background and tested it against the font colour. It met WCAG for large text. All other colours in the image met WCAG AAA for both large and small text. Since the lightest colour in the image is not at all prevalent, I was happy with this result.
+
+As a result of this test, I did have to darken the stars for the ratings slightly (to #9F7509), as the accent colour that's used elsewhere did not contrast well enough with the parchment of the review cards. With the darkened colour, the result was WCAG AA for icons.
+
+<!-- Level AA: Essential Level A requirements include: Color contrast is, in most instances, at least 4.5:1; Alt text or a similar solution is used for images that convey meaning; Navigation elements are consistent throughout the site; Form fields have accurate labels; Status updates can be conveyed through a screen reader; Headings are used in logical order. -->
 ### Lighthouse
 
 ### Manual 
