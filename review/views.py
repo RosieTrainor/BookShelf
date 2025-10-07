@@ -29,7 +29,7 @@ class AllReviewList(generic.ListView):
         else:
             queryset = queryset.order_by('-updated_on')
         return queryset
-    
+
     def get_ordering(self):
         sort_option = self.request.GET.get('sort', '-updated_on')
         if sort_option == 'book':
@@ -41,11 +41,28 @@ class AllReviewList(generic.ListView):
 
 class UserReviewList(LoginRequiredMixin, generic.ListView):
 
-    def get_queryset(self):
-        return Review.objects.filter(reviewer=self.request.user)
-
     template_name = "review/user_review_list.html"
     paginate_by = 12
+
+    def get_queryset(self):
+        queryset = Review.objects.filter(reviewer=self.request.user)
+        queryset = queryset.annotate(
+            first_author=Min('book__authors__name'))
+
+        ordering = self.get_ordering()
+        if ordering:
+            queryset = queryset.order_by(ordering)
+        else:
+            queryset = queryset.order_by('-updated_on')
+        return queryset
+
+    def get_ordering(self):
+        sort_option = self.request.GET.get('sort', '-updated_on')
+        if sort_option == 'book':
+            return 'book__title'
+        elif sort_option == 'author':
+            return 'first_author'
+        return sort_option
 
 
 def review_detail(request, pk):
@@ -78,7 +95,7 @@ def add_review(request):
                 name = name.strip().title()
                 author, created = Author.objects.get_or_create(name=name)
                 authors.append(author)
-            
+
             book_title = review_form.cleaned_data['book'].strip().title()
             # if book with those authors already exists, use that book object
             # if not, create it and set authors
@@ -162,7 +179,7 @@ def edit_review(request, pk):
                 )
 
         return redirect('review_detail', pk=review.pk)
-    
+
     else:
         review_form = ReviewForm(instance=review)
         review_form.fields['book'].initial = review.book.title

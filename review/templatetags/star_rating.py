@@ -24,6 +24,5 @@ def star_rating(value):
         rating.append("<i class='bi bi-star-half'></i>")
     for star in range(empty_star):
         rating.append("<i class='bi bi-star'></i>")
- 
-    return mark_safe("".join(rating))
 
+    return mark_safe("".join(rating))

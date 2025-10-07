@@ -6,9 +6,21 @@
 {% endblock %}
 
 {% block buttons %}
+<div class="d-flex justify-content-center">
     {% if user.is_authenticated %}
-        <button type="button" id="add-review" class="btn m-2">Add Review</button>
+    <button type="button" id="add-review" class="btn m-3 me-5 px-2">Add Review</button>
     {% endif %}
+    <div class="dropdown m-3">
+        <a class="btn dropdown-toggle px-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Sort by:
+        </a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="?sort=-rating">Rating</a></li>
+            <li><a class="dropdown-item" href="?sort=author">Author</a></li>
+            <li><a class="dropdown-item" href="?sort=book">Book</a></li>
+        </ul>
+    </div>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -17,36 +29,38 @@
     <div class="col-12 col-md-4 mb-4">
         <div class="card my-2 shadow p-2 bg-white rounded">
             <div class="card-body">
-            <h4 class="card-title text-center mb-2"><a href="{% url 'review_detail' review.pk %}">
-                    {{ review.book.title }}
-                </a></h4>
-            <h5 class="card-subtitle mb-2 text-body-secondary">{{ review.book.authors.all|join:", " }}</h5>
-            <div class="star-rating mb-2">{{ review.rating|star_rating }}</div>
-            <p class="card-text">{{ review.content_preview }}...</p>
+                <h4 class="card-title text-center mb-2"><a href="{% url 'review_detail' review.pk %}">
+                        {{ review.book.title }}
+                    </a></h4>
+                <h5 class="card-subtitle mb-2 text-body-secondary">{{ review.book.authors.all|join:", " }}</h5>
+                <div class="star-rating mb-2">{{ review.rating|star_rating }}</div>
+                <p class="card-text">{{ review.content_preview }}...</p>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="col-12">
+        <div class="card my-2 shadow p-2 mb-5 bg-white rounded">
+            <div class=" card-body">
+            <h5 class="card-title text-center mb-5">You haven't written any reviews yet.</h5>
+            <p class="card-text">Use the 'Add Review' button above to begin. Happy Reading!</p>
         </div>
     </div>
 </div>
-{% empty %}
-<div class="col-12">
-    <div class="card my-2 shadow p-2 mb-5 bg-white rounded"">
-            <div class=" card-body">
-        <h5 class="card-title text-center mb-5">You haven't written any reviews yet.</h5>
-        <p class="card-text">Use the 'Add Review' button above to begin. Happy Reading!</p>
-    </div>
-</div>
-</div>
 {% endfor %}
 {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}" class="btn"> &laquo; PREV</a></li>
-            {% endif %}
-            {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="btn"> NEXT &raquo;</a></li>
-            {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li><a href="?page={{ page_obj.previous_page_number }}&sort={{ request.GET.sort }}" class="btn"> &laquo;
+                PREV</a></li>
+        {% endif %}
+        {% if page_obj.has_next %}
+        <li><a href="?page={{ page_obj.next_page_number }}&sort={{ request.GET.sort }}" class="btn"> NEXT
+                &raquo;</a></li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
 </div>
 {% endblock %}
