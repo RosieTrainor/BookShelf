@@ -22,7 +22,7 @@ class AllReviewList(generic.ListView):
         queryset = Review.objects.all()
         queryset = queryset.annotate(
             first_author=Min('book__authors__name'))
-        
+
         ordering = self.get_ordering()
         if ordering:
             queryset = queryset.order_by(ordering)
