@@ -2,8 +2,8 @@
 {% load star_rating %}
 
 {% block buttons %}
-{% if user.is_authenticated %}
 <div class="d-flex justify-content-center">
+{% if user.is_authenticated %}
     <button type="button" id="add-review" class="btn m-3 me-5 px-2">Add Review</button>
     {% endif %}
     <div class="dropdown m-3">
