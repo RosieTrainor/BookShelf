@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
-from django.db.models import Min, Value
+from django.db.models import Min
 from django.forms import HiddenInput
 from django.db import IntegrityError
 from django.core.exceptions import ValidationError
@@ -29,7 +29,7 @@ class AllReviewList(generic.ListView):
         return queryset
     
     def get_ordering(self):
-        sort_option = self.request.GET.get('sort')
+        sort_option = self.request.GET.get('sort', '-updated_on')
         if sort_option == 'book':
             return 'book__title'
         elif sort_option == 'author':
