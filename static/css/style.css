@@ -28,6 +28,11 @@ a {
     color: #2f51a2;
 }
 
+.link-style {
+    /* override bootstrap */
+    --bs-card-title-color: #2f51a2;
+}
+
 h4.card-title a {
     font-size: inherit;
 }
