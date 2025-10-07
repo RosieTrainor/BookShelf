@@ -15,6 +15,7 @@
     - [Fonts](#fonts)
     - [Colour Scheme](#colour-scheme)
     - [Wireframes](#wireframes)
+    - [Responsivity](#responsivity)
     - [User Stories](#user-stories)
     - [Agile](#agile)
 - [Tech Used](#tech-used)
@@ -25,11 +26,24 @@
   - [Unit Tests](#unit-tests)
   - [Validation](#validation)
 - [AI Use](#ai-use)
+- [Deployment](#deployment)
 - [Credits](#credits)
 
 ## Deployed site
 
+The site was deployed on Heroku:
+[BookShelf](https://book-shelf-app-cdf881ab4579.herokuapp.com/)
+
 ## Features
+
+### Main Pages
+<!-- all review, my bookshelf, review detail -->
+<!-- message for no reviews -->
+<!-- sorting -->
+<!-- header changes -->
+### Login/Signup
+
+### CRUD Functionaliy
 
 ### Messages
 
@@ -45,6 +59,8 @@
 #### Colour Scheme
 
 #### Wireframes
+
+### Responsivity
 
 #### User stories
 
@@ -63,6 +79,8 @@
 ### Unit tests
 
 ### Validation
+
+## Deployment
 
 ## AI use
 
