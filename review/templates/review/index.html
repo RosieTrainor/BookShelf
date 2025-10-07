@@ -2,11 +2,11 @@
 {% load star_rating %}
 
 {% block buttons %}
-<div class="d-flex justify-content-center">
+<div class="d-flex flex-column flex-md-row justify-content-center">
 {% if user.is_authenticated %}
     <button type="button" id="add-review" class="btn m-3 me-5 px-2">Add Review</button>
     {% endif %}
-    <div class="dropdown m-3">
+    <div class="dropdown m-3 ms-md-5">
         <a class="btn dropdown-toggle px-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Sort by:
         </a>
