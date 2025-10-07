@@ -37,22 +37,31 @@ The site was deployed on Heroku:
 ## Features
 
 ### Main Pages
-<!-- all review, my bookshelf, review detail -->
+<!-- all review, my bookshelf, review detail (rating stars)-->
 <!-- message for no reviews -->
 <!-- sorting -->
 <!-- header changes -->
 ### Login/Signup
+<!-- pages -->
+<!-- login/out indication -->
+<!-- messages for login/out -->
 
+<!-- admin access -->
 ### CRUD Functionaliy
-
-### Messages
-
+<!-- Add review form, validation, limitations? -->
+<!-- edit review, validation -->
+<!-- delete review -->
+<!-- messages for all -->
+### Defensive Programming
+<!-- messages/prevention of deletion/edit -->
+<!-- attempt to access login pages -->
 ## Future Features
-
+<!-- reading stats, all reviews for book, author pages, draft reviews, filter reviews, images for book covers, search function, further check for adding book/author -->
+<!-- suggest book/author deletion  -->
+## Database Design and ERD
+<!-- Rational -->
 ## UX 
 ### Design
-
-#### ERD
 
 #### Fonts
 
@@ -62,9 +71,9 @@ The site was deployed on Heroku:
 
 ### Responsivity
 
-#### User stories
+### User stories
 
-#### Agile
+### Agile
 
 ## Tech used 
 
@@ -79,6 +88,8 @@ The site was deployed on Heroku:
 ### Unit tests
 
 ### Validation
+
+### Extant Bugs
 
 ## Deployment
 
