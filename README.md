@@ -76,7 +76,6 @@ The site was deployed on Heroku:
 Overall, for the design I wanted to evoke an old journal, or library. My design choices were made with this in mind.
 
 #### Colour Scheme
-<!-- Design here - old book journal or library. Parchment colour, ink colour for links. Red leather background. Scroll down the side - decorated old books. navbar/header - wood effect to mimic a bookshelf -->
 
 | Colour      | Hex Code    |
 | ----------- | ----------- |
@@ -87,11 +86,9 @@ Overall, for the design I wanted to evoke an old journal, or library. My design 
 | Wood Brown  | #452819   |
 
 
-
-The header has a dark wood effect image as the background, evoking a book shelf.
+The header/navigation has a dark wood effect image as the background, evoking a book shelf.
 
 The centre section has a red background, with a slight gradient, mimicking the red leather you might find on an old book. 
-
 
 Down the side, the site has decorative scrollwork on a parchment background - like you might find on old illustrated books.
 
@@ -99,18 +96,30 @@ The review cards have a parchment (off-white) colour to them, with a slight grad
 
 The titles for each review are in a dark blue to mimic fountain pen ink. 
 
-Accents, such as buttons or borders, are in a bronze/gold colour such as you might find on journal clasps. Buttons have an inset box-shadow applied in a lighter shade, to make them seem as if they have a shine and appear more 3D.
-
-
-
+Accents, such as buttons or borders, are in a bronze/gold colour such as you might find on journal clasps. Buttons have an inset box-shadow applied in a lighter shade, to make them seem as if they have a shine, and appear more 3D.
 
 #### Fonts
+
+| Section     | Font         |
+| ----------- | ------------- |
+| Navbar      | Macondo       |
+| Headers     | Caveat        |
+| Content     | Source Sans 3 |
+
+The header/navigation font is Macondo - a stylised cal'igraphy font, used because it looks like an old bokshop sign. It is only used for larger text, so legibility isn't a concern.
+
+Review headers are Caveat - mimics handwriting as you might find in a journal. This style might be harder to read in large blocks of text, but it is only used for shorter content such as book titles.
+
+Review bodies are in Source Sans 3 - sans serif and uncomplicated. As the content of the reviews are longer sections of text, a more legible and easy to read font is used for accessibility.  
+I considered using a monospaced or typewriter style font, but on testing this was too distracting and difficult to read in large sections. 
 
 #### Wireframes
 
 ### Responsivity
 
 ### User stories
+
+
 
 ### Agile
 
@@ -135,3 +144,4 @@ Accents, such as buttons or borders, are in a bronze/gold colour such as you mig
 ## AI use
 
 ## Credits
+<!-- google fonts -->
