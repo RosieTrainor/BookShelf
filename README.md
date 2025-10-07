@@ -183,10 +183,42 @@ As a result of this test, I did have to darken the stars for the ratings slightl
 <!-- Aria labels -->
 ### Lighthouse
 
-### Manual 
+### Manual Tests
 <!-- test main features - your user stories , middle column is expected result, then actual result -->
+<details>
+<summary>Manual Test Log</summary>
 
-### Unit tests
+| User Story | Expected Outcome | Actual Outcome |
+|------------|------------------|----------------|
+| As a new user, I want to register an account so I can create and manage my own book reviews. | | |
+| As a user, I want to be able to log in to see my personal book reviews so I can see and add to my reading log. | | |
+| As a user, I want to have clear indication that I am logged in so I know I can access/edit my reviews. | | |
+| As a user, I want to see an error message and/or be redirected when I try to access a page without permission, so I understand what went wrong and how to fix it. | | |
+| As a user, I want to be able to see all of my book reviews so I can get an overview of my reading and/or find the review I want to read. | | |
+| As a user, I want to view a list of my book reviews with titles and ratings so I can quickly scan what I’ve read and how I felt about it. | | |
+| As a user, I want to be able to view a review in detail, so I can remember what I thought about a book and when I read it. | | |
+| As a user, I want to be able to add a new book review so I can record my thoughts and opinions on what I’ve read. | | |
+| As a user, I want to be able to edit a review I’ve submitted so I can update or change my thoughts over time. | | |
+| As a user, I want to be able to delete a review so I can remove mistakes or books I no longer want in my history. | ||
+| As a user, I want to see clear confirmation messages after adding, editing, or deleting a review so I know the action was successful. || |
+| As a user with accessibility needs, I want to be able to access the site fully so I can record my reading. | | |
+| As a user, I want to be able to easily navigate the site so I can quickly get to the actions I want. | | |
+| As a mobile/desktop user, I want to be able to visit the site on all platforms so I can view and update my reading logs. | | |
+| As a user, I want to be able to rate my books easily, so I can quickly see what I thought without having to read the whole review. | | |
+| As a user, I want to see a confirmation message when I log in or log out, so I know the action was successful. | | |
+| As a new account holder, I want to see a clear message on my dashboard when it's empty so I know something hasn't gone wrong. | | |
+| As a visual user, I want to able to see book ratings in a star format, so I can easily see what rating was given. | | |
+| As a user, I want to be able to sort reviews by rating so I can see which books I most enjoyed, or that others enjoyed. | | |
+| As a user, I want to be able to sort reviews by author or book so I can find what I or other think of their work. | | |
+| As a user, I want to filter reviews (e.g. by author or rating) so I can find specific types of reviews. | | |
+| As busy user, I want to be able to save a review as a draft so I can come back and finish it later. | | |
+| As a visual user, I want to see the book covers associated with reviews so I can easily remember the book they're referencing. | | |
+
+<!-- Also test on other browsers -->
+</details>
+
+
+### Unit Tests
 
 ### Validation
 
