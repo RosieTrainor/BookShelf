@@ -26,6 +26,8 @@ class AllReviewList(generic.ListView):
         ordering = self.get_ordering()
         if ordering:
             queryset = queryset.order_by(ordering)
+        else:
+            queryset = queryset.order_by('-updated_on')
         return queryset
     
     def get_ordering(self):
