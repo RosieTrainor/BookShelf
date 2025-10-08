@@ -70,7 +70,30 @@ The site was deployed on Heroku:
 <!-- suggest book/author deletion  -->
 <!-- QoL - login/out on enter - although can tab -->
 ## Database Design and ERD
-<!-- Rational -->
+
+<!-- Add ERD -->
+
+My database uses Django's ORM with 3 custom models: Author, Book, and Review. It also linked to the User model, which is provided by Django.  
+The Review model has a foreign key to User, which denotes which user posted which review. It also has a foreign key to Book, which has a many-to-many relationship to Author, allowing there to be multiple authors for one book. 
+
+I did consider simply having a single Review model with a foreign key to User, where the book and author fields are simple CharFields. This probably would have been sufficient for my project's MVP. However, I decided against this for several reasons:  
+
+-- Real-world modeling: The current database structure mimics the realtionships between these objects in the real world.  
+
+--Scalability:  You can more easily fetch all books by an author, or reviews for a book. This means you could implement future features such as author bios linked to their books, pages for all reviews for a certain book, or most liked books. On the one custom model design, this wouldn't be possible.  
+
+--Flexibility: You can add more fields to the book and author models such as biography to Author, or genre to Book, without having to modify the Review model.  
+
+--Enforcing Constraints: The unique constraint where each user can only have one review for a book is more easily enforced with a foreign key to Book. 
+
+--Avoid Redundancy: With no Author or Book model, each review would store the book and author, leading to many duplicates of the same book and author data.  
+However, my project does not completely ensure there is no duplication as I decided to render the author and book fields on the add_review form as CharFields, not dropdowns (the Django defualt for foreign keys and ManytoMany fields). This decision was made becuase I believe it to be a poor user experience to have to scroll through a long list of books or authors to find the one you want, and then discover no one has added it yet.  
+
+I have added some data validation and normalisation within the form and view to reduce the risk of duplicate entries for authors and books. These checks ensure that identical entries are not created when the same name is entered, regardless of case used or whitespace. However, it is not sufficient to prevent duplicate objects due to misspelling a book title or author's name. I would like to add more validation in future to reduce this risk, such as an autocomplete feature or stricter backend validation. For now, I consider it an acceptable trade off between data consistency and user experience.
+
+I also considered using an API to fetch book and author details. Although this would handle the validation for me, I decided against this as part of the purpose of this project was to further my understanding of database management and input validation within Django. 
+
+
 ## UX 
 ### Design
 
@@ -97,7 +120,7 @@ The review cards have a parchment (off-white) colour to them, with a slight grad
 
 The titles for each review are in a dark blue to mimic fountain pen ink. 
 
-Accents, such as buttons or borders, are in a bronze/gold colour such as you might find on journal clasps. Buttons have an inset box-shadow applied in a lighter shade, to make them seem as if they have a shine, and appear more 3D.
+Accents, such as buttons or borders, are in a bronze/gold colour such as you might find on journal clasps.
 
 #### Fonts
 
@@ -120,7 +143,7 @@ I considered using a monospaced or typewriter style font but, on testing, this w
 
 ### User stories
 
-My user stories focused on CRUD functionality, ease of use, account management, and accessibility. 
+My user stories focused on CRUD functionality, ease of use, account management, and accessibility.  
 
 I used MoSCoW prioritisation and aimed for 60-70% must-have stories, in line with best practices.
 
@@ -159,6 +182,18 @@ I haven't detailed my won't-haves here, but some I considered are in the Future 
 
 ### Agile
 
+I took an agile approach to this project. I based my development tasks off user stories, and worked towards my MVP (must-haves). After completing the MVP, I revisited the should-have features and selected those that I felt would bring the most user value whilst being reasonable to achieve in the remaining time. The deadline did not allow for me to reach implementation of my could-haves in this iteration.
+
+To generate my user stories, I had several epics which I then used as my milestones for the project, allowing me to track my progress towards the MVP functionality. My epics included 'CRUD Functionality', 'User Authentication', and 'Front-End' (including accessibility, ease of use, responsivity etc).
+
+I used a Github Kanban Project Board to track and manage tasks throughout development. I had 3 columns - todo, in progress, and done. This way I could easily see what I had left to work on, and prioritise my tasks for the day.
+
+[Github Project Board](https://github.com/users/RosieTrainor/projects/9)  
+
+I also added bugs to my Kanban Board as I found them. This helped workflow since I could then track these and not have to fix them immediately or worry about forgetting to do so. I could instead come back when it was convientient, and not disrupt the flow of the project.
+
+In reflection, this workflow worked well to keep me organised and on track.  
+In future, I plan to weight my user stories by ease of implementation as well as importance, as some were much more work than others. This would help me track my progress more accurately and allow me to more easily scope the tasks for each day.
 
 
 ## Tech used 
