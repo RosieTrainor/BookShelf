@@ -137,7 +137,7 @@ I haven't detailed my won't-haves here, but some I considered are in the Future 
 | As a user, I want to see an error message and/or be redirected when I try to access a page without permission, so I understand what went wrong and how to fix it. | Must-have |
 | As a user, I want to be able to see all of my book reviews so I can get an overview of my reading and/or find the review I want to read. | Must-have |
 | As a user, I want to view a list of my book reviews with titles and ratings so I can quickly scan what I’ve read and how I felt about it. | Must-have |
-| As a user, I want to be able to view a review in detail, so I can remember what I thought about a book and when I read it. | Must-have |
+| As a user, I want to be able to view a review in detail, so I can remember what I thought about a book when I read it. | Must-have |
 | As a user, I want to be able to add a new book review so I can record my thoughts and opinions on what I’ve read. | Must-have |
 | As a user, I want to be able to edit a review I’ve submitted so I can update or change my thoughts over time. | Must-have |
 | As a user, I want to be able to delete a review so I can remove mistakes or books I no longer want in my history. | Must-have |
