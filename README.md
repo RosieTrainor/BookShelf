@@ -159,7 +159,18 @@ I haven't detailed my won't-haves here, but some I considered are in the Future 
 
 ### Agile
 
+
+
 ## Tech used 
+
+Python, JavaScript, HTML, CSS: Languages Used  
+[Git](https://git-scm.com/), [Github](https://github.com/): Version Control  
+[Django](https://www.djangoproject.com/): Full-stack Framework  
+[Django-Allauth](https://docs.allauth.org/en/latest/): User Account Management  
+[Heroku](https://www.heroku.com/): Deployment  
+[Bootstrap](https://getbootstrap.com/): Front-End Framework  
+[PostgreSQL](https://www.postgresql.org/): Database  
+ 
 
 ## Testing
 
@@ -226,6 +237,41 @@ As a result of this test, I did have to darken the stars for the ratings slightl
 
 ## Deployment
 
+This project was deployed on Heroku, pulling from Github.
+
+#### To enable deployement:  
+
+Ensure all sensitive information, such as your SECRET_KEY and DATABASE_URL, are stored as environment variables and not visible in your project code
+
+Install gunicorn  
+Add a Procfile at the root of your project, with the content: "web: gunicorn {project_name}.wsgi"  
+
+Add '.herokuapp.com' to ALLOWED_HOSTS within your project's settings.py  
+Add 'https://*.herokuapp.com' to CSRF_TRUSTED_ORIGINS within your project's settings.py  
+
+Install whitenoise to serve static files  
+Set a STATIC_ROOT in your settings.py to show where the static files are located  
+Run 'python manage.py collectstatic' to collect the static files to a staticfiles directory for deployment  
+
+Commit and push your code to Github, on the branch you want to deploy from  
+
+#### To deploy:
+Navigate to your Heroku dashboard  
+Create a new Heroku app  
+Select the region closest to you for deployment 
+
+Generate a secret key to be used with Heroku. This should be a different key to the one used in your project code    
+Go to the settings tab and select Config Vars  
+Add these two keys:  
+-- DATABASE_URL : {your_project's_database_url}  
+-- SECRET_KEY : {your_secret_key}  
+
+Navigate to the deploy tab  
+Connect to Github and select your project repository  
+Select 'Manual Deploy' and choose the branch you want to deploy from  
+Click 'Deploy Branch'  
+
+
 ## AI use
 <!-- code creation -->
 <!-- debugging -->
@@ -233,4 +279,19 @@ As a result of this test, I did have to darken the stars for the ratings slightl
 <!-- Unit tests -->
 <!-- AI influenced workflow, focusing on efficiency and outcomes without in-depth prompt documentation -->
 ## Credits
-<!-- google fonts -->
+Technology intergral to the project are credited in the 'Tech Used' Section, while this section highlights additional tools and resources used throughout development.
+  
+ 
+[Google Fonts](https://fonts.google.com/): Fonts throughout site  
+[Bootstrap Icons](https://icons.getbootstrap.com/): Star rating icons  
+[Balsamiq](): Wireframe mock-ups  
+[visual-paradigm](https://online.visual-paradigm.com/diagrams/templates/entity-relationship-diagram/): ERD Creation  
+[WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/): Check WCAG Colour Contrast  
+[imagecolorpicker](https://imagecolorpicker.com/): Check header image colours  
+[mdgi.tools](https://mdigi.tools/lighten-color/): Choose lighter/darker colours for the colour scheme  
+[favicon.io](https://favicon.io/favicon-converter/): Create favicon from an image  
+[freepik](https://www.freepik.com/): Favicon image, scrollwork image, wood pattern header image  
+[ChatGPT](): Debugging   
+[Github Copilot](): Debugging, Unit Test Generation    
+[Chrome Devtools](): Debugging, Lighthouse Testing  
+
