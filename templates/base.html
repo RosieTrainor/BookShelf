@@ -58,22 +58,18 @@
                             </li>
                             {% if user.is_authenticated %}
                             <li class="nav-item">
-                                <a class="nav-link {% if request.path == user_reviews %}active" aria-current="page
-                                    {% endif %}" href="{% url 'user_review_list' %}">My
+                                <a class="nav-link {% if request.path == user_reviews %}active" aria-current="page{% endif %}" href="{% url 'user_review_list' %}">My
                                     BookShelf</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {% if request.path == logout_url %}active" aria-current="page
-                                    {% endif %}" href="{{ logout_url }}">Logout</a>
+                                <a class="nav-link {% if request.path == logout_url %}active" aria-current="page{% endif %}" href="{{ logout_url }}">Logout</a>
                             </li>
                             {% else %}
                             <li class="nav-item">
-                                <a class="nav-link {% if request.path == login_url %}active" aria-current="page
-                                    {% endif %}" href="{{ login_url }}">Login</a>
+                                <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{{ login_url }}">Login</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {% if request.path == signup_url %}active" aria-current="page
-                                    {% endif %}" href="{{ signup_url }}">Sign Up</a>
+                                <a class="nav-link {% if request.path == signup_url %}active" aria-current="page{% endif %}" href="{{ signup_url }}">Sign Up</a>
                             </li>
                             {% endif %}
                         </ul>

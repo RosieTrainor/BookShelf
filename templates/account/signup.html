@@ -9,7 +9,6 @@
         <div class="card my-2 shadow p-2 mb-5 bg-white rounded">
             <div class="card-body">
                 <h5 class="card-title text-center">{% trans "Sign Up" %}</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">{{ review.book.authors.all|join:", " }}</h6>
                 <div class="card-text">{% setvar link %}
                     <a href="{{ login_url }}">
                         {% endsetvar %}
