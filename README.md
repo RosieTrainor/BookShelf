@@ -223,7 +223,7 @@ As a result of this test, I did have to darken the stars for the ratings slightl
 
 <!-- Tab through site -->
 <!-- naviagation consistent -->
-<!-- labels on form fields -->
+<!-- labels on form fields /aria labels-->
 <!-- status updates screen reader - can screen readers read django messages -->
 <!-- Semantic HTML/header order -->
 <!-- Aria labels -->
@@ -266,7 +266,26 @@ As a result of this test, I did have to darken the stars for the ratings slightl
 
 ### Unit Tests
 
-<!-- Do this -->
+I implemented unit tests for my add_review form because manually testing all possible cases would be challenging. It was especially important to ensure the form functioned correctly and handled edge cases effectively before I began to add data. 
+
+These tests covered:
+
+#### Data Management:  
+When a user posts a review:
+- the author is associated with the book
+- the book is associated with the review
+- no book or author duplicate objects are created if the author or book already exists
+- the author is not amended if the book has the same title as an existing book but a different author (allowing multiple books named e.g. "The Secret" by different authors)
+- case insensitivity and/or whitespace does not create duplicate objects
+- the reviewer can only have one review per book
+
+#### Form Validation: 
+The form ensures:
+- rating is required
+- content is required
+- book title is required
+- author is required, with valid input being either a single author, or multiple authors split by commas
+ 
 
 ### Validation
 
