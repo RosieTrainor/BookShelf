@@ -65,7 +65,7 @@ class ReviewFormTests(TestCase):
         form = ReviewForm(data=form_data)
         self.assertFalse(form.is_valid())
         self.assertIn('book', form.errors)
-   
+
     def test_missing_content(self):
         form_data = {
             'authors': 'George Orwell',
@@ -301,7 +301,7 @@ class ReviewFormTests(TestCase):
             review.reviewer = self.user1
             review.book = book
             review.save()
-        
+
     def test_author_does_not_change_if_same_title_different_author(self):
         # Create a book with one author
         author1 = Author.objects.create(name="George Orwell")
