@@ -268,6 +268,56 @@ As a result of this test, I did have to darken the stars for the ratings slightl
 
 ### Validation
 
+#### CSS
+
+I used the W3C CSS Validator and found no errors.  
+<!-- image -->
+
+#### HTML
+
+I used the W3C HTML Validator.  
+Most pages had no errors, but my add review page had an error where a form element was within a p element which is invalid HTML. I changed the p to a div and this resolved the issue.
+<!-- image -->
+
+There are some errors generated from Django-allauth's form field element template, within the signup.html page.
+Although I had customised the signup.html template, the errors originate from django-allauth's elements HTML code, not any written by me. As this issue comes from third-party code, addressing it falls outside the scope of this project.
+
+<details>
+<summary>Allauth Template Errors</summary>
+
+&lt;p&gt;↩
+    &lt;label for=&quot;id_password1&quot;&gt;Password:&lt;/label&gt;↩
+    &lt;input type=&quot;password&quot; name=&quot;password1&quot; placeholder=&quot;Password&quot; autocomplete=&quot;new-password&quot; required aria-describedby=&quot;id_password1_helptext&quot; id=&quot;id_password1&quot;&gt;↩
+    ↩
+      &lt;span class=&quot;helptext&quot; id=&quot;id_password1_helptext&quot;&gt;&lt;ul&gt;&lt;li&gt;Your password can’t be too similar to your other personal information.&lt;/li&gt;&lt;li&gt;Your password must contain at least 8 characters.&lt;/li&gt;&lt;li&gt;Your password can’t be a commonly used password.&lt;/li&gt;&lt;li&gt;Your password can’t be entirely numeric.&lt;/li&gt;&lt;/ul&gt;&lt;/span&gt;↩
+    ↩
+    ↩
+  &lt;/p&gt;
+
+Error: End tag p implied, but there were open elements.
+
+Error: Unclosed element span.
+
+Error: Stray end tag span.
+
+Error: No p element in scope but a p end tag seen.
+
+</details>
+
+
+#### JavaScript
+
+I used the JSHint Validator. I had an error for a missing semicolon, which I fixed. The linter gave me warnings for using "const" and template literals which are not supported in earlier (pre-ES6) versions of JavaScript. However, modern browsers fully support ES6 and it is best practice to use this, so I configured the linter to allow ES6 this removed the warnings. 
+
+Additionally, I had a warning for an undeclared variable ('bootstrap', referring to my Bootstrap modal). However, the Bootstrap JavaScript is correctly loaded in my base HTML template, and no errors appear in the browser console on pages using the modal. This warning is due to the static analysis of script.js in isolation and not an issue with the code or the project as a whole.
+<!-- image -->
+
+#### Python
+
+I used Code Institute's Python Linter. I had some warnings for whitespace within blank lines, which I then fixed.
+
+<!-- image -->
+
 ### Extant Bugs
 
 ## Deployment
@@ -317,7 +367,6 @@ Click 'Deploy Branch'.
 ## Credits
 Technology intergral to the project are credited in the 'Tech Used' Section, while this section highlights additional tools and resources used throughout development.
   
- 
 [Google Fonts](https://fonts.google.com/): Fonts throughout site  
 [Bootstrap Icons](https://icons.getbootstrap.com/): Star rating icons  
 [Balsamiq](): Wireframe mock-ups  
@@ -327,6 +376,12 @@ Technology intergral to the project are credited in the 'Tech Used' Section, whi
 [mdgi.tools](https://mdigi.tools/lighten-color/): Choose lighter/darker colours for the colour scheme  
 [favicon.io](https://favicon.io/favicon-converter/): Create favicon from an image  
 [freepik](https://www.freepik.com/): Favicon image, scrollwork image, wood pattern header image  
+
+[W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
+[W3C HTML Validator](https://validator.w3.org/)
+[JSHint JavaScript Validator](https://jshint.com/)
+[Code Institute Python Validator](https://pep8ci.herokuapp.com/)  
+
 [ChatGPT](): Debugging   
 [Github Copilot](): Debugging, Unit Test Generation    
 [Chrome Devtools](): Debugging, Lighthouse Testing  
