@@ -28,6 +28,11 @@ a {
     color: #2f51a2;
 }
 
+.link-style {
+    /* override bootstrap */
+    --bs-card-title-color: #2f51a2;
+}
+
 h4.card-title a {
     font-size: inherit;
 }
@@ -161,3 +166,14 @@ button[type="submit"]:hover {
     background-color: var(--parchment-color);
 }
 
+/* Media Queries */
+
+/* prevent long username's overflowing on small screens */
+@media (max-width: 576px) {
+    .navbar-brand {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 250px;
+    }
+}

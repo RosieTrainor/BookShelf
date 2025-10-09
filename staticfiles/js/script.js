@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (document.querySelector('#delete-review')) {
         handleDeleteModal();
     }
-})
+});
 
 // Add-review button
 function handleAddReviewButton() {
@@ -29,7 +29,7 @@ function handleEditReviewButton() {
 
 // Trigger delete modal and set delete confirm button to delete review url
 function handleDeleteModal() {
-    const deleteModalButton = document.querySelector('#delete-review')
+    const deleteModalButton = document.querySelector('#delete-review');
     const deleteModal = new bootstrap.Modal(document.querySelector('#delete-modal'));
     const deleteConfirmButton = document.querySelector('#delete-confirm');
 
@@ -38,7 +38,7 @@ function handleDeleteModal() {
         deleteModalButton.addEventListener('click', function() {
             deleteConfirmButton.setAttribute('href', `/my-reviews/delete/${reviewPk}/`);
             deleteModal.show();
-        })
+        });
     }
 }
 
