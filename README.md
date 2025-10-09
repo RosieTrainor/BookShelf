@@ -276,35 +276,36 @@ This project was deployed on Heroku, pulling from Github.
 
 #### To enable deployement:  
 
-Ensure all sensitive information, such as your SECRET_KEY and DATABASE_URL, are stored as environment variables and not visible in your project code
+Ensure all sensitive information, such as your SECRET_KEY and DATABASE_URL, are stored as environment variables and not visible in your project code.
 
-Install gunicorn  
-Add a Procfile at the root of your project, with the content: "web: gunicorn {project_name}.wsgi"  
+Install requirements.txt - the important installations for deployment are gunicorn for serving the application, and whitenoise for handling static files.  
 
-Add '.herokuapp.com' to ALLOWED_HOSTS within your project's settings.py  
-Add 'https://*.herokuapp.com' to CSRF_TRUSTED_ORIGINS within your project's settings.py  
+Add a Procfile at the root of your project, with the content: "web: gunicorn {project_name}.wsgi".  
 
-Install whitenoise to serve static files  
-Set a STATIC_ROOT in your settings.py to show where the static files are located  
-Run 'python manage.py collectstatic' to collect the static files to a staticfiles directory for deployment  
+Add '.herokuapp.com' to ALLOWED_HOSTS within your project's settings.py.  
+Add 'https://*.herokuapp.com' to CSRF_TRUSTED_ORIGINS within your project's settings.  
 
-Commit and push your code to Github, on the branch you want to deploy from  
+
+Set a STATIC_ROOT in your settings.py to show where the static files are located.  
+Run 'python manage.py collectstatic' to collect the static files to a staticfiles directory for deployment.   
+
+Commit and push your code to Github, on the branch you want to deploy from.   
 
 #### To deploy:
-Navigate to your Heroku dashboard  
-Create a new Heroku app  
-Select the region closest to you for deployment 
+Navigate to your Heroku dashboard.  
+Create a new Heroku app.  
+Select the region closest to you for deployment. 
 
-Generate a secret key to be used with Heroku. This should be a different key to the one used in your project code    
-Go to the settings tab and select Config Vars  
+Generate a secret key to be used with Heroku. This should be a different key to the one used in your project code.    
+Go to the settings tab and select Config Vars.  
 Add these two keys:  
 -- DATABASE_URL : {your_project's_database_url}  
 -- SECRET_KEY : {your_secret_key}  
 
-Navigate to the deploy tab  
-Connect to Github and select your project repository  
-Select 'Manual Deploy' and choose the branch you want to deploy from  
-Click 'Deploy Branch'  
+Navigate to the deploy tab.  
+Connect to Github and select your project repository.  
+Select 'Manual Deploy' and choose the branch you want to deploy from.  
+Click 'Deploy Branch'.    
 
 
 ## AI use
