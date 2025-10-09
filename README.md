@@ -377,10 +377,10 @@ Technology intergral to the project are credited in the 'Tech Used' Section, whi
 [favicon.io](https://favicon.io/favicon-converter/): Create favicon from an image  
 [freepik](https://www.freepik.com/): Favicon image, scrollwork image, wood pattern header image  
 
-[W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
-[W3C HTML Validator](https://validator.w3.org/)
-[JSHint JavaScript Validator](https://jshint.com/)
-[Code Institute Python Validator](https://pep8ci.herokuapp.com/)  
+[W3C CSS Validator](https://jigsaw.w3.org/css-validator/)  
+[W3C HTML Validator](https://validator.w3.org/)  
+[JSHint JavaScript Validator](https://jshint.com/)  
+[Code Institute Python Validator](https://pep8ci.herokuapp.com/)    
 
 [ChatGPT](): Debugging   
 [Github Copilot](): Debugging, Unit Test Generation    
