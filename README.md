@@ -266,6 +266,8 @@ As a result of this test, I did have to darken the stars for the ratings slightl
 
 ### Unit Tests
 
+<!-- Do this -->
+
 ### Validation
 
 #### CSS
@@ -276,7 +278,7 @@ I used the W3C CSS Validator and found no errors.
 #### HTML
 
 I used the W3C HTML Validator.  
-Most pages had no errors, but my add review page had an error where a form element was within a p element which is invalid HTML. I changed the p to a div and this resolved the issue.
+Most pages had no errors, but my add_review page had an error where a form element was within a p element which is invalid HTML. I changed the p to a div and this resolved the issue.
 <!-- image -->
 
 There are some errors generated from Django-allauth's form field element template, within the signup.html page.
@@ -326,11 +328,12 @@ This project was deployed on Heroku, pulling from Github.
 
 #### To enable deployement:  
 
-Ensure all sensitive information, such as your SECRET_KEY and DATABASE_URL, are stored as environment variables and not visible in your project code.
+Ensure all sensitive information, such as your SECRET_KEY and DATABASE_URL, are stored as environment variables and not visible in your project code. Set DEBUG in settings.py to 'False'.
 
 Install requirements.txt - the important installations for deployment are gunicorn for serving the application, and whitenoise for handling static files.  
 
 Add a Procfile at the root of your project, with the content: "web: gunicorn {project_name}.wsgi".  
+Add a .python-version file specifying your version of python.
 
 Add '.herokuapp.com' to ALLOWED_HOSTS within your project's settings.py.  
 Add 'https://*.herokuapp.com' to CSRF_TRUSTED_ORIGINS within your project's settings.  
@@ -359,11 +362,61 @@ Click 'Deploy Branch'.
 
 
 ## AI use
-<!-- code creation -->
-<!-- debugging -->
-<!-- performance and UX improvements -->
-<!-- Unit tests -->
-<!-- AI influenced workflow, focusing on efficiency and outcomes without in-depth prompt documentation -->
+
+### Debugging 
+
+AI (ChatGPT, GitHub Copilot) was used for debugging throughout this project. I found it most useful when the issue was something easily overlooked, especially within large sections of code. 
+
+Examples of AI debugging:
+-- My homepage layout was incorrect, Copilot helped me find the issue: a div was nested incorrectly. 
+-- My user_review_list template wasn't rendering. Copliot highlighted this issue: I had forgotten to add a trailing slash to a url. 
+-- My sorting functions weren't preserved if you navigated to the next page.Copilot suggested adding the necessary code to the pagination buttons to ensure the sorting functionality was maintained. 
+-- You cannot perform operations on floats within django's template logic, which I needed to do for rendering my ratings as stars. Copilot suggeted adding a custom template tag to work around this.
+
+However, AI has limitations. In my final example above, Copilot at first suggested using the Django template filters 'add' and 'floatformat'. However, after reading the documentation for these filters, they would not work in the way Copilot suggested. I had to tell Copilot this and ask for other suggestions. I then checked these suggestions against online resources and Django documentation to use the most suitable one. 
+
+In another case, Copilot told me the incorrect file path for overriding allauth templates. I checked the allauth documentation and example projects to ensure I had the correct path.
+
+I find that AI is best used for simpler errors such as syntax errors, pointing our errors in logic, and for suggestions on where to look for answers when you are stuck. However, you should always double check any suggestions using online resources and official documentation, and ensure that what AI is telling you is both correct and suitable for your project.
+
+### UX and Performance
+
+I used ChatGPT in the design of my site. I gave it the general idea of what I wanted it to look like and asked for some colour hex codes that would fit this e.g. a parchment colour for the review cards. This saved me time in picking the colour scheme. I took ChatGPT's suggestions and use online colour tools to find lighter or darker shades if necessary, rather than trying to pick the colours manually. 
+
+ChatGPT was also used to refine my user stories where I was unsure how to phrase them.
+<!-- performance !!! -->
+
+### Code Generation
+
+Given AI's limitations and the fact that this was an educational project, I mostly avoided using AI for code generation during this project. I would code the section myself, and use Copilot to check my work to see if there's anything I hadn't considered. I found this very useful. 
+
+The exceptions to this were for styling and unit testing. If I couldn't remember the style rule or bootstrap class for something, I would ask Copilot. This was quicker than searching online for the same thing.
+
+With unit testing, I used AI to generate tests for my add_review form as this was much quicker than writing them out myself. However, whilst some of these tests worked as expected, many required significant amendments because they did not test the correct functionality. 
+
+For example, I wanted to test that creating a second review for an existing book object would not create a duplicate book object, but associate the review with the existing object. The AI generated test for this created a second review form, but did not save it to the database. This meant that whilst test passed  (a second book object was not created) it was not because the second review was associated with the existing book, but because the second review was never saved. 
+
+Additionally, the AI failed to anticipate that some logic for associating books and authors existed within the add_review view, not form. This meant that the tests generated were giving erroneous results. To fix this I added a utility function to my tests to simulate the view logic and ensure the data was processed correctly. 
+
+Overall, using AI to generate these tests did save time. However, they had to be carefully analysed and amended to ensure the tests fulfilled their function. 
+
+### AI Influence on Workflow 
+
+Using AI in this project sped up development:
+
+Less interuptions to workflow: 
+-- Rather than having to search for syntax errors in large code sections, I could highlight and ask copilot. 
+-- Rather than searching the internet for style rules, bootstrap classes, or Django template filters, I could ask Copilot. 
+
+Faster access to resources:
+-- If I couldn't find a section of documentation, or online resource that I needed, I would ask Copilot to link me to the correct page. This was helpful as sometimes I was unsure where to find the answers within the documentation, or what exactly to google. I could instead just explain the problem to Copilot and it would show me where to find answers. This wasn't foolproof as Copilot would sometimes link to outdated documentation, but it sped things up. 
+
+Anticipating bugs:
+-- If I was unsure that a section of code would work as expected, I could ask Copilot. This meant that rather than reacting to errors, some bugs were caught prior to testing. I would always double check by running the code, but it saved time. 
+
+However, there were times when using AI caused frustration - AI would insist that it was correct when the documentation contradicted it, or when the solution it suggested was obviously wrong. In these cases I learnt to give Copilot a link to the documentation to help prompt, or to move to using purely online resources rather than 'arguing' with AI.
+
+
 ## Credits
 Technology intergral to the project are credited in the 'Tech Used' Section, while this section highlights additional tools and resources used throughout development.
   
