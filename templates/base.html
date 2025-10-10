@@ -21,18 +21,27 @@
     <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
     <link rel="manifest" href="{% static 'images/site.webmanifest' %}">
     <!-- Bootstap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" as="style"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    </noscript>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Caveat:ital,wght@0,400;0,500;1,400;1,500&family=Macondo&family=Source+Sans+3:wght@400;500&display=swap">
     <link
-        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Macondo&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Caveat:ital,wght@0,400;0,500;1,400;1,500&family=Macondo&family=Source+Sans+3:wght@400;500&display=swap"
         rel="stylesheet">
     <!-- Custom CSS -->
+    <link rel="preload" href="{% static 'css/style.css' %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </noscript>
+    <!-- Preload navbar image -->
+    <link rel="preload" href="{% static 'images/woodpattern1.webp' %}" as="image">
 </head>
 
 <body>
@@ -58,18 +67,22 @@
                             </li>
                             {% if user.is_authenticated %}
                             <li class="nav-item">
-                                <a class="nav-link {% if request.path == user_reviews %}active" aria-current="page{% endif %}" href="{% url 'user_review_list' %}">My
+                                <a class="nav-link {% if request.path == user_reviews %}active"
+                                    aria-current="page{% endif %}" href="{% url 'user_review_list' %}">My
                                     BookShelf</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {% if request.path == logout_url %}active" aria-current="page{% endif %}" href="{{ logout_url }}">Logout</a>
+                                <a class="nav-link {% if request.path == logout_url %}active"
+                                    aria-current="page{% endif %}" href="{{ logout_url }}">Logout</a>
                             </li>
                             {% else %}
                             <li class="nav-item">
-                                <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{{ login_url }}">Login</a>
+                                <a class="nav-link {% if request.path == login_url %}active"
+                                    aria-current="page{% endif %}" href="{{ login_url }}">Login</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {% if request.path == signup_url %}active" aria-current="page{% endif %}" href="{{ signup_url }}">Sign Up</a>
+                                <a class="nav-link {% if request.path == signup_url %}active"
+                                    aria-current="page{% endif %}" href="{{ signup_url }}">Sign Up</a>
                             </li>
                             {% endif %}
                         </ul>
@@ -108,9 +121,9 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous" defer>
     </script>
-    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/script.js' %}" defer></script>
 </body>
 
 </html>
