@@ -40,8 +40,10 @@
     <noscript>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     </noscript>
-    <!-- Preload navbar image -->
-    <link rel="preload" href="{% static 'images/woodpattern1.webp' %}" as="image">
+    <!-- Preload background images -->
+    <link rel="preload" href="{% static 'images/woodpattern1.webp' %}" as="image" fetchpriority="high">
+    <link rel="preload" href="{% static 'images/scroll.webp' %}" as="image">
+    <link rel="preload" href="{% static 'images/parchment.webp' %}" as="image">
 </head>
 
 <body>
