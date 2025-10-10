@@ -42,9 +42,7 @@ class Review(models.Model):
         )
     book = models.ForeignKey(Book, on_delete=models.PROTECT)
     content = models.TextField(max_length=2000)
-
-    def content_preview(self):
-        return self.content[:200]
+    content_preview = models.TextField(max_length=200, blank=True, null=True)
 
     rating = models.DecimalField(
         max_digits=2,
@@ -62,6 +60,10 @@ class Review(models.Model):
                 name='unique_user_review_for_book'
             )
         ]
+
+    def save(self, *args, **kwargs):
+        self.content_preview = self.content[:200]
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.book} Review | written by {self.reviewer}"
