@@ -11,7 +11,7 @@ register = template.Library()
 @lru_cache(maxsize=3)
 def load_svg(file_url):
     """
-    Load the content of an SVG file from the static directory.
+    Load the content of an SVG
     """
     try:
         file_path = os.path.join(settings.BASE_DIR, "static", file_url)

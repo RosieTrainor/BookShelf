@@ -47,21 +47,49 @@ The site was deployed on Heroku:
 ## Features
 
 ### Main Pages
-<!-- all review, my bookshelf, review detail (rating stars)-->
-<!-- message for no reviews -->
-<!-- sorting -->
-<!-- header changes -->
-### Login/Signup
-<!-- pages -->
-<!-- login/out indication -->
-<!-- messages for login/out -->
 
-<!-- admin access -->
+The site has three main pages, as well as pages for adding or editing reviews, and sign up, login, and log out pages. 
+
+The homepage contains all the reviews on the site. These reviews contain usernames so you can see who posted which reviews. 
+
+The user review page contains only the reviews for the user, so they can easily access and track their own reading. These reviews contain a date, so they can see what they read and when. If they haven't submitted any reviews yet, a message is shown to make this clear.  The user's username is shown in the header.
+
+These pages allow sorting by rating, book, or author via a dropdown so users can see the highest or lowest rated books, or can search for their favourite author or book.
+
+These pages are paginated, by 12 reviews so there is a managable amount of content shown. Pages can be changed through buttons at the bottom, and sorting is maintained throughout.
+
+The review detail page (linked through the book title) shows the whole content of a review so they can read what was said in more detail. 
+
+If the user is viewing a review that they submitted, their username is also shown in the header.
+
+Naviagtion is through the header, which shows 'login' and 'sign up' if the user is not logged in. If they are, it shows 'log out', and a link to their reviews page. 
+
+On mobile, the navigation collapses into a toggle.
+
+
 ### CRUD Functionaliy
-<!-- Add review form, validation, limitations? -->
-<!-- edit review, validation -->
-<!-- delete review -->
-<!-- messages for all -->
+
+The form to add a review is accessed by a button, visible to logged in users. 
+
+The form contains validation, ensuring it is filled out correctly.
+If they have not filled out the form correctly, a message is shown. If they try to post more than one review for a book, it is disallowed and a message is shown.
+
+Users can edit or delete their own reviews through buttons below the review detail. 
+
+A modal is created when a user tries to delete their review, asking for confirmation.
+
+Users are notified when they they post a new review, edit a review, or delete a review.
+
+<!-- favicon -->
+### Login/Signup
+There are sign up, log in, and log out pages.
+
+User's are notified for these actions.
+
+When a user signs up or logs in, they are redirected to their user review page.
+
+Superusers can access the admin page through the url '/admin', when they are logged in. Here they can edit or delete delete reviews, books, or users.
+
 ### Defensive Programming
 <!-- messages & prevention of deletion/edit -->
 <!-- attempt to access login pages -->
@@ -69,6 +97,9 @@ The site was deployed on Heroku:
 <!-- reading stats, all reviews for book, author pages, draft reviews -could, filter reviews - could, images for book covers -could , search function, further check for adding book/author -->
 <!-- suggest book/author deletion  -->
 <!-- QoL - login/out on enter - although can tab -->
+<!-- 
+Other improvements: 
+better validation back-end validation, similarity to prevent duplicates. simplified favicon - too small -->
 ## Database Design and ERD
 
 <!-- Add ERD -->
@@ -140,6 +171,24 @@ I considered using a monospaced or typewriter style font but, on testing, this w
 #### Wireframes
 
 ### Responsivity
+
+The site is fully responsive for mobile, tablet, and desktop. 
+
+Mobile:
+-- Decorative scrollwork down the sides of the site is removed, allowing more space for content.
+-- Sort and add review buttons are stacked vertically.
+-- Reviews are stacked vertically.
+-- Navigation collapses into a toggle.
+
+Tablet:
+-- Scrollwork is visible.
+-- Sort and add review buttons are centered horizontally.
+-- Reviews are three to a row.
+-- Naviagtion collapses into a toggle.
+
+Desktop:
+-- Scrollwork, reviews, and buttons are as with tablets.
+-- Navigation within header.
 
 ### User stories
 
@@ -221,13 +270,30 @@ The navigation section has a wood image as its background, with many colours wit
 
 As a result of this test, I did have to darken the stars for the ratings slightly (to #9F7509), as the accent colour that's used elsewhere did not contrast well enough with the parchment of the review cards. With the darkened colour, the result was WCAG AA for icons.
 
-<!-- Tab through site -->
-<!-- naviagation consistent -->
-<!-- labels on form fields /aria labels-->
-<!-- status updates screen reader - can screen readers read django messages -->
-<!-- Semantic HTML/header order -->
-<!-- Aria labels -->
+#### Navigation and Screen Readers
+
+You can tab through the site in a logical order.
+
+The navigation is consistent throughout.
+
+All form fields have labels, and buttons have clear descriptions.
+
+Semantic HTML was used and headings are in a logical order.
+
+Messages have a role="alert" set for screenreaders.
+
 ### Lighthouse
+
+I tested the main pages of my site: Homepage (while logged in, or logged out), User Review List, Add Review, Edit Review.
+
+Accessibility: 100
+SEO: 100
+Best Practices: 100
+
+Performance: 93-97 (varied between pages)  
+Initially, my performance score was around 80. I made several changes: preloading images and css files, compressing images, using locally stored icons rather than Bootstrap Icons CDN, and optomising database queries, which then increased the scores.
+
+<!-- images -->
 
 ### Manual Tests
 <!-- test main features - your user stories , middle column is expected result, then actual result -->
@@ -339,8 +405,6 @@ I used Code Institute's Python Linter. I had some warnings for whitespace within
 
 <!-- image -->
 
-### Extant Bugs
-
 ## Deployment
 
 This project was deployed on Heroku, pulling from Github.
@@ -403,7 +467,10 @@ I find that AI is best used for simpler errors such as syntax errors, pointing o
 I used ChatGPT in the design of my site. I gave it the general idea of what I wanted it to look like and asked for some colour hex codes that would fit this e.g. a parchment colour for the review cards. This saved me time in picking the colour scheme. I took ChatGPT's suggestions and use online colour tools to find lighter or darker shades if necessary, rather than trying to pick the colours manually. 
 
 ChatGPT was also used to refine my user stories where I was unsure how to phrase them.
-<!-- performance !!! -->
+
+Copilot aided me with improving the site's performance. As I was only using three icons from bootstrap icons, I stored these locally instead of using Bootstrap Icons CDN. Copilot helped take me through linking to SVG's within a templatetag, ensuring they were correctly referenced.
+
+I also asked Copilot for further performance enhancements I could implement. It suggested using prefetch_realted and select_related on my database queries to avoid repeated queries.
 
 ### Code Generation
 
@@ -448,6 +515,9 @@ Technology intergral to the project are credited in the 'Tech Used' Section, whi
 [mdgi.tools](https://mdigi.tools/lighten-color/): Choose lighter/darker colours for the colour scheme  
 [favicon.io](https://favicon.io/favicon-converter/): Create favicon from an image  
 [freepik](https://www.freepik.com/): Favicon image, scrollwork image, wood pattern header image  
+[Sqoosh](https://squoosh.app/): convert images
+[tinyPNG](https://tinypng.com/): compress images
+
 
 [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)  
 [W3C HTML Validator](https://validator.w3.org/)  
