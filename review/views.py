@@ -7,6 +7,7 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+
 from .models import Review, Author, Book
 from .forms import ReviewForm
 
@@ -19,7 +20,11 @@ class AllReviewList(generic.ListView):
     paginate_by = 12
 
     def get_queryset(self):
-        queryset = Review.objects.all()
+        queryset = (
+            Review.objects.all()
+            .select_related('book')
+            .prefetch_related('book__authors')
+        )
         queryset = queryset.annotate(
             first_author=Min('book__authors__name'))
 
@@ -45,7 +50,11 @@ class UserReviewList(LoginRequiredMixin, generic.ListView):
     paginate_by = 12
 
     def get_queryset(self):
-        queryset = Review.objects.filter(reviewer=self.request.user)
+        queryset = (
+            Review.objects.filter(reviewer=self.request.user)
+            .select_related('book')
+            .prefetch_related('book__authors')
+        )
         queryset = queryset.annotate(
             first_author=Min('book__authors__name'))
 
@@ -67,7 +76,11 @@ class UserReviewList(LoginRequiredMixin, generic.ListView):
 
 def review_detail(request, pk):
 
-    queryset = Review.objects.all()
+    queryset = (
+        Review.objects.all()
+        .select_related('book')
+        .prefetch_related('book__authors')
+    )
     review = get_object_or_404(queryset, pk=pk)
     is_own_review = False
     if review.reviewer == request.user:
