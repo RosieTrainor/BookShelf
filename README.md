@@ -224,7 +224,7 @@ I haven't detailed my won't-haves here, but some I considered are in the Future 
 | As a user, I want to be able to log in to see my personal book reviews so I can see and add to my reading log. | Must-have |
 | As a user, I want to have clear indication that I am logged in so I know I can access/edit my reviews. | Must-have |
 | As a user, I want to see an error message and/or be redirected when I try to access a page without permission, so I understand what went wrong and how to fix it. | Must-have |
-| As a user, I want to be able to see all of my book reviews so I can get an overview of my reading and/or find the review I want to read. | Must-have |
+| As a user, I want to be able to see book reviews by others so I can see what they think of books I've read. | Must-have |
 | As a user, I want to view a list of my book reviews with titles and ratings so I can quickly scan what I’ve read and how I felt about it. | Must-have |
 | As a user, I want to be able to view a review in detail, so I can remember what I thought about a book when I read it. | Must-have |
 | As a user, I want to be able to add a new book review so I can record my thoughts and opinions on what I’ve read. | Must-have |
@@ -323,8 +323,8 @@ Initially, my performance score was around 80. I made several changes: preloadin
 | As a user, I want to be able to log in to see my personal book reviews so I can see and add to my reading log. | User can log in | |
 | As a user, I want to have clear indication that I am logged in so I know I can access/edit my reviews. | 'log out', 'My BookShelf' in header | |
 | As a user, I want to see an error message and/or be redirected when I try to access a page without permission, so I understand what went wrong and how to fix it. | User redirected with message | |
-<!-- | As a user, I want to be able to see all of my book reviews so I can get an overview of my reading and/or find the review I want to read. | | |
-| As a user, I want to view a list of my book reviews with titles and ratings so I can quickly scan what I’ve read and how I felt about it. | List of user's reviews on 'My BookShelf' | | -->
+| As a user, I want to be able to see book reviews by others so I can see what they think of books I've read. | | |
+| As a user, I want to view a list of my book reviews with titles and ratings so I can quickly scan what I’ve read and how I felt about it. | List of user's reviews on 'My BookShelf' | |
 | As a user, I want to be able to view a review in detail, so I can remember what I thought about a book and when I read it. | Link to review detail, review is shown | |
 | As a user, I want to be able to add a new book review so I can record my thoughts and opinions on what I’ve read. | Add button obvious, review is added to database and page | |
 | As a user, I want to be able to edit a review I’ve submitted so I can update or change my thoughts over time. | Edit button obvious, review is updated after editing | |
