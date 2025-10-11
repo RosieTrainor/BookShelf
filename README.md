@@ -60,22 +60,44 @@ The site has three main pages, as well as pages for adding or editing reviews, a
 
 The homepage contains all the reviews on the site. These reviews contain usernames so you can see who posted which reviews. 
 
-The user review page contains only the reviews for the user, so they can easily access and track their own reading. These reviews contain a date, so they can see what they read and when. If they haven't submitted any reviews yet, a message is shown to make this clear.  The user's username is shown in the header.
+![Homepage](documentation/all-reviews.png)
+
+The user review page (My BookShelf) contains only the reviews for the user, so they can easily access and track their own reading. These reviews contain a date, so they can see what they read and when. If they haven't submitted any reviews yet, a message is shown to make this clear.  The user's username is shown in the header.
+
+![User page](documentation/my-bookshelf.png)
+
+![No reviews written](documentation/no-reviews.png)
 
 These pages allow sorting by rating, book, or author via a dropdown so users can see the highest or lowest rated books, or can search for their favourite author or book.
 
+![Sorting](documentation/sorting.png)
+
 These pages are paginated, by 12 reviews so there is a managable amount of content shown. Pages can be changed through buttons at the bottom, and sorting is maintained throughout.
+
+![Pagination](documentation/pagination.png)
 
 The review detail page (linked through the book title) shows the whole content of a review so they can read what was said in more detail. 
 
 If the user is viewing a review that they submitted, their username is also shown in the header.
 
+![Review detail](documentation/review-detail.png)
+
 Naviagtion is through the header, which shows 'login' and 'sign up' if the user is not logged in. If they are, it shows 'log out', and a link to their reviews page. 
+
+![Logged in](documentation/nav-loggedin.png)
+
+![Logged out](documentation/nav-logged-out.png)
+
 
 On mobile, the navigation collapses into a toggle.
 
-There is a favcicon of a book for the site.
+![Toggle closed](documentation/toggle-closed.png)
 
+![Toggle open](documentation/toggle-open.png)
+
+There is a favicon of a book for the site.
+
+![Favicon](documentation/favicon.png)
 
 ### CRUD Functionaliy
 
@@ -121,6 +143,10 @@ Book covers on reviews: Each review has an image with it. Either fectch book cov
 Autocomplete: Authocomplete on book and author fields on the form with previously entered information. This would reduce dupilcates through misspelling, and improve the user experience as they wouldn't have to type everything out, or if they forgot a name.
 
 Search function: Users can search for reviews about a book or author.
+
+Other improvements:
+-- Change favicon to something simpler so it is more easily seen.
+-- Add extra validation to books/authors.
 
 ## Database Design and ERD
 
