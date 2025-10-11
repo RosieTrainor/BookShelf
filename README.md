@@ -14,28 +14,36 @@ BookShelf is a reading log app for book lovers who want to keep track of their r
 
 ## Table of Contents
 
+## Table of Contents
+
 - [Introduction](#introduction)
 - [Deployed Site](#deployed-site)
 - [Features](#features)
-  - [Messages](#messages)
+  - [Main Pages](#main-pages)
+  - [CRUD Functionality](#crud-functionality)
+  - [Login/Signup](#login-signup)
 - [Future Features](#future-features)
+- [Database Design and ERD](#database-design-and-erd)
 - [UX](#ux)
   - [Design](#design)
-    - [ERD](#erd)
-    - [Fonts](#fonts)
     - [Colour Scheme](#colour-scheme)
+    - [Fonts](#fonts)
     - [Wireframes](#wireframes)
     - [Responsivity](#responsivity)
-    - [User Stories](#user-stories)
-    - [Agile](#agile)
+  - [User Stories](#user-stories)
+  - [Agile](#agile)
 - [Tech Used](#tech-used)
 - [Testing](#testing)
   - [Accessibility](#accessibility)
   - [Lighthouse](#lighthouse)
-  - [Manual](#manual)
+  - [Manual Tests](#manual-tests)
   - [Unit Tests](#unit-tests)
   - [Validation](#validation)
 - [AI Use](#ai-use)
+  - [Debugging](#debugging)
+  - [UX and Performance](#ux-and-performance)
+  - [Code Generation](#code-generation)
+  - [AI Influence on Workflow](#ai-influence-on-workflow)
 - [Deployment](#deployment)
 - [Credits](#credits)
 
@@ -66,6 +74,8 @@ Naviagtion is through the header, which shows 'login' and 'sign up' if the user 
 
 On mobile, the navigation collapses into a toggle.
 
+There is a favcicon of a book for the site.
+
 
 ### CRUD Functionaliy
 
@@ -80,8 +90,16 @@ A modal is created when a user tries to delete their review, asking for confirma
 
 Users are notified when they they post a new review, edit a review, or delete a review.
 
-<!-- favicon -->
+If users attempt to visit a page or complete an action that they are not allowed to, they are redirected and a message is shown:
+
+-- Visit My BookShelf when not logged in
+
+-- Edit a review other than your own
+
+-- Delete a review other than your own
+
 ### Login/Signup
+
 There are sign up, log in, and log out pages.
 
 User's are notified for these actions.
@@ -90,33 +108,20 @@ When a user signs up or logs in, they are redirected to their user review page.
 
 Superusers can access the admin page through the url '/admin', when they are logged in. Here they can edit or delete delete reviews, books, or users.
 
-### Defensive Programming
-<!-- messages & prevention of deletion/edit -->
-<!-- attempt to access login pages -->
 ## Future Features
 
-Reading stats: Users have a section on their bookshelves for how many books reviewed last month, their highest rated and lowest rated books or authors, the month they read the most books. 
--- This would keep users motivated to read and review as they can see their stats clearly and want to improve them.
+Reading stats: Users have a section on their bookshelves for how many books reviewed last month, their highest rated and lowest rated books or authors, the month they read the most books. This would keep users motivated to read and review as they can see their stats clearly and want to improve them.
 
 Book specific reviews: A page for all reviews for a certain book so users can see what others thought of the book.
--- This would be quite easy to implement given my database model.
 
-<!-- Save reviews as draft: Users could save their reviews as a draft to finish later if they didn't have time. ? can currently save then edit -->
+Author pages: A bio page for each auther, with links to the reviews of their books.
 
-<!-- Book covers on reviews
+Book covers on reviews: Each review has an image with it. Either fectch book covers via an API or allow users to upload their own.
 
-Autocomplete for book/author fields on form - reduce duplicates due to misspelling, ux for forgetting book/author
+Autocomplete: Authocomplete on book and author fields on the form with previously entered information. This would reduce dupilcates through misspelling, and improve the user experience as they wouldn't have to type everything out, or if they forgot a name.
 
-Suggested deletion to admin
+Search function: Users can search for reviews about a book or author.
 
-page numbers on buttons
-
-filter reviews/search function
-
--->
-<!--
-Other improvements: 
-better validation back-end validation, similarity to prevent duplicates. simplified favicon - too small --> -->
 ## Database Design and ERD
 
 <!-- Add ERD -->
@@ -191,21 +196,6 @@ I considered using a monospaced or typewriter style font but, on testing, this w
 
 The site is fully responsive for mobile, tablet, and desktop. 
 
-Mobile:
--- Decorative scrollwork down the sides of the site is removed, allowing more space for content.
--- Sort and add review buttons are stacked vertically.
--- Reviews are stacked vertically.
--- Navigation collapses into a toggle.
-
-Tablet:
--- Scrollwork is visible.
--- Sort and add review buttons are centered horizontally.
--- Reviews are three to a row.
--- Naviagtion collapses into a toggle.
-
-Desktop:
--- Scrollwork, reviews, and buttons are as with tablets.
--- Navigation within header.
 
 ### User stories
 
@@ -319,33 +309,33 @@ Initially, my performance score was around 80. I made several changes: preloadin
 
 | User Story | Expected Outcome | Actual Outcome |
 |------------|------------------|----------------|
-| As a new user, I want to register an account so I can create and manage my own book reviews. | User can register new account | |
-| As a user, I want to be able to log in to see my personal book reviews so I can see and add to my reading log. | User can log in | |
-| As a user, I want to have clear indication that I am logged in so I know I can access/edit my reviews. | 'log out', 'My BookShelf' in header | |
-| As a user, I want to see an error message and/or be redirected when I try to access a page without permission, so I understand what went wrong and how to fix it. | User redirected with message | |
-| As a user, I want to be able to see book reviews by others so I can see what they think of books I've read. | | |
-| As a user, I want to view a list of my book reviews with titles and ratings so I can quickly scan what I’ve read and how I felt about it. | List of user's reviews on 'My BookShelf' | |
-| As a user, I want to be able to view a review in detail, so I can remember what I thought about a book and when I read it. | Link to review detail, review is shown | |
-| As a user, I want to be able to add a new book review so I can record my thoughts and opinions on what I’ve read. | Add button obvious, review is added to database and page | |
-| As a user, I want to be able to edit a review I’ve submitted so I can update or change my thoughts over time. | Edit button obvious, review is updated after editing | |
-| As a user, I want to be able to delete a review so I can remove mistakes or books I no longer want in my history. | Review deleted from database and page ||
-| As a user, I want to see clear confirmation messages after adding, editing, or deleting a review so I know the action was successful. | Messages shown for actions | |
+| As a new user, I want to register an account so I can create and manage my own book reviews. | User can register new account | Pass  | 
+| As a user, I want to be able to log in to see my personal book reviews so I can see and add to my reading log. | User can log in | Pass |
+| As a user, I want to have clear indication that I am logged in so I know I can access/edit my reviews. | 'log out', 'My BookShelf' in header | Pass |
+| As a user, I want to see an error message and/or be redirected when I try to access a page without permission, so I understand what went wrong and how to fix it. | User redirected with message | Pass |
+| As a user, I want to be able to see book reviews by others so I can see what they think of books I've read. | All Reviews page | Pass |
+| As a user, I want to view a list of my book reviews with titles and ratings so I can quickly scan what I’ve read and how I felt about it. | List of user's reviews on 'My BookShelf' | Pass |
+| As a user, I want to be able to view a review in detail, so I can remember what I thought about a book and when I read it. | Link to review detail, review is shown | Pass |
+| As a user, I want to be able to add a new book review so I can record my thoughts and opinions on what I’ve read. | Add button obvious, review is added to database and page | Pass |
+| As a user, I want to be able to edit a review I’ve submitted so I can update or change my thoughts over time. | Edit button, review is updated after editing | Pass |
+| As a user, I want to be able to delete a review so I can remove mistakes or books I no longer want in my history. | Review deleted from database and page | Pass |
+| As a user, I want to see clear confirmation messages after adding, editing, or deleting a review so I know the action was successful. | Messages shown for actions | Pass |
 | As a user with accessibility needs, I want to be able to access the site fully so I can record my reading. | Tab through site, labels for screenreaders, colour contrast good | Pass (additional testing in accessibilty section) |
-| As a user, I want to be able to easily navigate the site so I can quickly get to the actions I want. | Navbar and buttons clearly labelled, all links work | |
-| As a mobile/desktop user, I want to be able to visit the site on all platforms so I can view and update my reading logs. | Site functional and easy to use on mobile/tablet/desktop | |
-| As a user, I want to be able to rate my books easily, so I can quickly see what I thought without having to read the whole review. | Rating via dropdown on form, shown on reviews | |
-| As a user, I want to see a confirmation message when I log in or log out, so I know the action was successful. | Messages shown when log in/out | |
-| As a new account holder, I want to see a clear message on my dashboard when it's empty so I know something hasn't gone wrong. | Message shown when no user reviews | |
-| As a visual user, I want to able to see book ratings in a star format, so I can easily see what rating was given. | Ratings rendered as stars including half stars | |
-| As a user, I want to be able to sort reviews by rating so I can see which books I most enjoyed, or that others enjoyed. | Reviews are sorted by rating | |
-| As a user, I want to be able to sort reviews by author or book so I can find what I or other think of their work. | Reviews are sorted by author, or book | |
+| As a user, I want to be able to easily navigate the site so I can quickly get to the actions I want. | Navbar and buttons clearly labelled, all links work | Pass |
+| As a mobile/desktop user, I want to be able to visit the site on all platforms so I can view and update my reading logs. | Site functional and easy to use on mobile/tablet/desktop | Pass |
+| As a user, I want to be able to rate my books easily, so I can quickly see what I thought without having to read the whole review. | Rating via dropdown on form, shown on reviews | Pass |
+| As a user, I want to see a confirmation message when I log in or log out, so I know the action was successful. | Messages shown when log in/out | Pass |
+| As a new account holder, I want to see a clear message on my dashboard when it's empty so I know something hasn't gone wrong. | Message shown when no user reviews | Pass |
+| As a visual user, I want to able to see book ratings in a star format, so I can easily see what rating was given. | Ratings rendered as stars including half stars | Pass |
+| As a user, I want to be able to sort reviews by rating so I can see which books I most enjoyed, or that others enjoyed. | Reviews are sorted by rating | Pass |
+| As a user, I want to be able to sort reviews by author or book so I can find what I or other think of their work. | Reviews are sorted by author, or book | Pass |
 | As a user, I want to filter reviews (e.g. by author or rating) so I can find specific types of reviews. | Not Implemented | - |
 | As busy user, I want to be able to save a review as a draft so I can come back and finish it later. | Not Implemented | - |
 | As a visual user, I want to see the book covers associated with reviews so I can easily remember the book they're referencing. | Not Implemented | - |
 
-<!-- Also test on other browsers -->
 </details>
 
+The site was a also tested for functionality on Microsoft Edge, Safari, and Chrome. It worked as expected on these browsers.
 
 ### Unit Tests
 
