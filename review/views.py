@@ -15,6 +15,24 @@ from .forms import ReviewForm
 
 
 class AllReviewList(generic.ListView):
+    """
+    View to display a paginated list of all reviews.
+
+    - Fetches all reviews from the database.
+    - Annotates the queryset with the first author's name for sorting.
+    - Supports sorting by book title, author name, or last updated date.
+
+    Template:
+        - review/index.html
+
+    Pagination:
+        - 12 reviews per page.
+
+    Methods:
+        - get_queryset: Fetches reviews and related fields.
+        - get_ordering: Determines the ordering of the reviews based on
+          the 'sort' query parameter.
+    """
 
     template_name = "review/index.html"
     paginate_by = 12
@@ -46,6 +64,27 @@ class AllReviewList(generic.ListView):
 
 class UserReviewList(LoginRequiredMixin, generic.ListView):
 
+    class UserReviewList(LoginRequiredMixin, generic.ListView):
+        """
+        View to display a paginated list of reviews submitted by the logged-in 
+        user.
+
+        - Fetches reviews created by the currently logged-in user.
+        - Annotates the queryset with the first author's name for sorting.
+        - Supports sorting by book title, author name, or last updated date.
+
+        Template:
+            - review/user_review_list.html
+
+        Pagination:
+            - 12 reviews per page.
+
+        Methods:
+            - get_queryset: Fetches reviews and related fields.
+            - get_ordering: Determines the ordering of the reviews based on
+            the 'sort' query parameter.
+        """
+
     template_name = "review/user_review_list.html"
     paginate_by = 12
 
@@ -75,6 +114,20 @@ class UserReviewList(LoginRequiredMixin, generic.ListView):
 
 
 def review_detail(request, pk):
+    """
+    View to display the details of a specific review.
+
+    - Fetches the review with the given primary key.
+    - Determines if the logged-in user is the owner of the review.
+
+    Template:
+        - review/review_detail.html
+
+    Context:
+        - review: The review object to display.
+        - is_own_review: Boolean indicating if the review belongs to the
+          logged-in user.
+    """
 
     queryset = (
         Review.objects.all()
@@ -95,7 +148,28 @@ def review_detail(request, pk):
 
 @login_required
 def add_review(request):
+    """
+    View to add a new review.
 
+    Features:
+        - Handles form submission for creating a new review.
+        - Processes the 'authors' field to create or retrieve Author objects.
+        - Creates or retrieves a Book object based on the title and associated
+          authors.
+        - Associates the review with the logged-in user and the book.
+        - Prevents duplicate reviews for the same book by the same user.
+
+    Template:
+        - review/add_review.html
+
+    Context:
+        - review_form: The form for adding a new review.
+
+    Messages:
+        - Success: Displays a success message when the review is added.
+        - Error: Displays an error message if the user tries to add a duplicate
+          review for the same book.
+    """
     if request.method == "POST":
         review_form = ReviewForm(data=request.POST)
         if review_form.is_valid():
@@ -160,7 +234,26 @@ def add_review(request):
 
 @login_required
 def edit_review(request, pk):
+    """
+    View to edit an existing review.
 
+    - Fetches the review with the given primary key for editing.
+    - Ensures that only the owner of the review can edit it.
+    - Handles form submission for updating the review.
+    - Prevents duplicate reviews for the same book by the same user.
+
+    Template:
+        - Uses the "review/edit_review.html" template.
+
+    Context:
+        - review_form: The form for editing the review.
+        - review: The review object being edited.
+
+    Messages:
+        - Success: Displays a success message when the review is updated.
+        - Warning: Displays a warning message if there are validation errors
+          or if the user tries to edit a review they do not own.
+    """
     review = get_object_or_404(Review, pk=pk)
 
     if review.reviewer != request.user:
@@ -212,7 +305,21 @@ def edit_review(request, pk):
 @login_required
 def delete_review(request, pk):
     """
-    view to a delete a review
+    View to delete an existing review.
+
+    - Fetches the review with the given primary key (pk) for deletion.
+    - Ensures that only the owner of the review can delete it.
+    - Deletes the review from the database.
+
+    Redirects:
+        - Redirects to the review detail page if the user does not own the
+          review.
+        - Redirects to the user's review list after successful deletion.
+
+    Messages:
+        - Success: Displays a success message when the review is deleted.
+        - Warning: Displays a warning message if the user tries to delete a
+          review they do not own.
     """
     review = get_object_or_404(Review, pk=pk)
 

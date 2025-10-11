@@ -1,6 +1,7 @@
 from django.test import TestCase
 from django.db import IntegrityError
 from django.contrib.auth.models import User
+
 from .models import Author, Book, Review
 from .forms import ReviewForm
 
@@ -45,6 +46,9 @@ class ReviewFormTests(TestCase):
 # Tests for form validation
 
     def test_missing_authors(self):
+        """
+        Test that the form is invalid if the 'authors' field is empty.
+        """
         form_data = {
             'authors': '',
             'book': '1984',
@@ -56,6 +60,9 @@ class ReviewFormTests(TestCase):
         self.assertIn('authors', form.errors)
 
     def test_missing_book(self):
+        """
+        Test that the form is invalid if the 'book' field is empty.
+        """
         form_data = {
             'authors': 'George Orwell',
             'book': '',
@@ -67,6 +74,9 @@ class ReviewFormTests(TestCase):
         self.assertIn('book', form.errors)
 
     def test_missing_content(self):
+        """
+        Test that the form is invalid if the 'content' field is empty.
+        """
         form_data = {
             'authors': 'George Orwell',
             'book': '1984',
@@ -78,6 +88,9 @@ class ReviewFormTests(TestCase):
         self.assertIn('content', form.errors)
 
     def test_missing_rating(self):
+        """
+        Test that the form is invalid if the 'rating' field is empty.
+        """
         form_data = {
             'authors': 'George Orwell',
             'book': '1984',
@@ -89,6 +102,9 @@ class ReviewFormTests(TestCase):
         self.assertIn('rating', form.errors)
 
     def test_single_author_valid(self):
+        """
+        Test that the form is valid when a single author is provided.
+        """
         form_data = {
             'authors': 'George Orwell',
             'book': '1984',
@@ -99,6 +115,10 @@ class ReviewFormTests(TestCase):
         self.assertTrue(form.is_valid())
 
     def test_multiple_authors_with_commas_valid(self):
+        """
+        Test that the form is valid when multiple authors are provided,
+        separated by commas.
+        """
         form_data = {
             'authors': 'George Orwell, Aldous Huxley',
             'book': '1984',
@@ -109,6 +129,10 @@ class ReviewFormTests(TestCase):
         self.assertTrue(form.is_valid())
 
     def test_multiple_authors_without_commas_invalid(self):
+        """
+        Test that the form is invalid when multiple authors are provided
+        without commas.
+        """
         form_data = {
             'authors': 'George Orwell Aldous Huxley',
             'book': '1984',
@@ -124,7 +148,12 @@ class ReviewFormTests(TestCase):
         )
 
 # Tests for db interaction with submitted reviews
+
     def test_no_duplicate_book_or_author(self):
+        """
+        Test that submitting a review for an existing book and author does not
+        create duplicate book or author objects in the database.
+        """
         # Create an author and book
         author = Author.objects.create(name="George Orwell")
         book = Book.objects.create(title="1984")
@@ -163,6 +192,10 @@ class ReviewFormTests(TestCase):
         self.assertEqual(Review.objects.count(), 2)
 
     def test_case_insensitivity_author(self):
+        """
+        Test that author names are case-insensitive when creating or retrieving
+        Author objects.
+        """
         # Create an author and book with titlecase
         author = Author.objects.create(name="George Orwell")
         book = Book.objects.create(title="1984")
@@ -192,6 +225,10 @@ class ReviewFormTests(TestCase):
         self.assertEqual(Book.objects.count(), 1)
 
     def test_case_insensitivity_book(self):
+        """
+        Test that book titles are case-insensitive when creating or retrieving
+        Book objects.
+        """
         # Create an author and book with titlecase
         author = Author.objects.create(name="Jane Austen")
         book = Book.objects.create(title="Emma")
@@ -221,6 +258,10 @@ class ReviewFormTests(TestCase):
         self.assertEqual(Book.objects.count(), 1)
 
     def test_author_associated_with_book(self):
+        """
+        Test that an author is correctly associated with a book when a review
+        is submitted.
+        """
         # Submit a form with a new author and book
         form_data = {
             'authors': 'Aldous Huxley',
@@ -246,6 +287,10 @@ class ReviewFormTests(TestCase):
         self.assertEqual(book.authors.first().name, "Aldous Huxley")
 
     def test_book_associated_with_review(self):
+        """
+        Test that a book is correctly associated with a review when a review
+        is submitted.
+        """
         # Submit a form with a new book
         form_data = {
             'authors': 'Aldous Huxley',
@@ -269,6 +314,10 @@ class ReviewFormTests(TestCase):
         self.assertEqual(review.book.title, "Brave New World")
 
     def test_reviewer_has_one_review_per_book(self):
+        """
+        Test that a reviewer cannot submit more than one review for the same
+        book.
+        """
         # Create an author and book
         author = Author.objects.create(name="George Orwell")
         book = Book.objects.create(title="1984")
@@ -302,7 +351,12 @@ class ReviewFormTests(TestCase):
             review.book = book
             review.save()
 
-    def test_author_does_not_change_if_same_title_different_author(self):
+    def test_different_author_creates_new_book(self):
+        """
+        Test that a new book is created if the same title is submitted with a
+        different author, and the authors are correctly associated with their
+        respective books.
+        """
         # Create a book with one author
         author1 = Author.objects.create(name="George Orwell")
         book1 = Book.objects.create(title="Animal Farm")

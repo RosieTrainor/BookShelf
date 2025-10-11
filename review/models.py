@@ -21,6 +21,15 @@ RATING_CHOICES = [
 
 
 class Author(models.Model):
+    """
+    Represents an author of a book.
+
+    Fields:
+        - name: The name of the author (max length: 200 characters).
+
+    Methods:
+        - __str__: Returns the name of the author as a string.
+    """
     name = models.CharField(max_length=200)
 
     def __str__(self):
@@ -28,6 +37,16 @@ class Author(models.Model):
 
 
 class Book(models.Model):
+    """
+    Represents a book in the system.
+
+    Fields:
+        - title: The title of the book (max length: 200 characters).
+        - authors: A many-to-many relationship with the Author model.
+
+    Methods:
+        - __str__: Returns the book title and its authors as a string.
+    """
     title = models.CharField(max_length=200)
     authors = models.ManyToManyField(Author)
 
@@ -37,6 +56,33 @@ class Book(models.Model):
 
 
 class Review(models.Model):
+    """
+    Represents a review for a book written by a user.
+
+    Fields:
+        - reviewer: A foreign key to the User model, representing the user who
+          wrote the review.
+        - book: A foreign key to the Book model, representing the book being
+          reviewed.
+        - content: The full content of the review (max length: 2000
+          characters).
+        - content_preview: A preview of the review content (first 200
+          characters).
+        - rating: The rating given to the book, chosen from predefined
+          RATING_CHOICES.
+        - created_on: The timestamp when the review was created.
+        - updated_on: The timestamp when the review was last updated.
+
+    Meta:
+        - ordering: Orders reviews by the most recently updated.
+        - constraints: Ensures that a user can only write one review per book.
+
+    Methods:
+        - save: Automatically generates a content preview when saving the
+          review.
+        - __str__: Returns a string representation of the review, including the
+          book and reviewer.
+    """
     reviewer = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="user_reviews"
         )
