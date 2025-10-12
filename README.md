@@ -89,7 +89,7 @@ Naviagtion is through the header, which shows 'login' and 'sign up' if the user 
 ![Logged out](documentation/nav-logged-out.png)
 
 
-On mobile, the navigation collapses into a toggle.
+On mobile and tablet, the navigation collapses into a toggle.
 
 ![Toggle closed](documentation/toggle-closed.png)
 
@@ -103,32 +103,62 @@ There is a favicon of a book for the site.
 
 The form to add a review is accessed by a button, visible to logged in users. 
 
+![Add Review](documentation/add-review-button.png)
+
+![Mobile - Add Review](documentation/mobile-form.png)
+
 The form contains validation, ensuring it is filled out correctly.
 If they have not filled out the form correctly, a message is shown. If they try to post more than one review for a book, it is disallowed and a message is shown.
 
-Users can edit or delete their own reviews through buttons below the review detail. 
+Field Validation:  
+![Field Validation](documentation/form-validation1.png)
+
+More than one book review per user:
+![User Warning](documentation/duplicate-review.png)
+
+Users can edit or delete their own reviews through buttons below the review detail. The edit form is prepoluated with the previous content and rating.
+
+![Edit/Delete Buttons](documentation/edit-delete-buttons.png)
+
+![Edit Form](documentation/edit-form.png)
 
 A modal is created when a user tries to delete their review, asking for confirmation.
 
+![Delete Modal](documentation/delete-modal.png)
+
 Users are notified when they they post a new review, edit a review, or delete a review.
+
+![Add Review Message](documentation/add-msg.png)
+![Edit Review Message](documentation/edit-review-msg.png)
+![Delete Review Message](documentation/delete-msg.png)
 
 If users attempt to visit a page or complete an action that they are not allowed to, they are redirected and a message is shown:
 
--- Visit My BookShelf when not logged in
-
--- Edit a review other than your own
-
--- Delete a review other than your own
+-- Visit My BookShelf when not logged in:  
+![Log in to access](documentation/login-to-access.png)
+-- Edit a review other than your own:  
+![Cannot edit message](documentation/cannot-edit-message.png)
+-- Delete a review other than your own:  
+![Cannot delete message](documentation/delete-own-review-msg.png)
 
 ### Login/Signup
 
 There are sign up, log in, and log out pages.
 
+![Register](documentation/register-page.png)
+![Log in](documentation/log-in-page.png)
+![Log out](documentation/sign-out-page.png)
+
 User's are notified for these actions.
+
+![Signed in Message](documentation/sign-in-mg.png)
+![Signed out Message](documentation/sign-out-msg.png)
 
 When a user signs up or logs in, they are redirected to their user review page.
 
 Superusers can access the admin page through the url '/admin', when they are logged in. Here they can edit or delete delete reviews, books, or users.
+
+![Admin Page](documentation/admin.png)
 
 ## Future Features
 
@@ -144,9 +174,9 @@ Autocomplete: Authocomplete on book and author fields on the form with previousl
 
 Search function: Users can search for reviews about a book or author.
 
-Other improvements:
--- Change favicon to something simpler so it is more easily seen.
--- Add extra validation to books/authors.
+Other improvements:  
+-- Change favicon to something simpler so it is more easily seen.  
+-- Add extra validation to books/authors.  
 
 ## Database Design and ERD
 
@@ -253,7 +283,19 @@ Changes from wireframes to the impemented site - originally I had the mobile vie
 
 The site is fully responsive for mobile, tablet, and desktop. 
 
-<!--  images -->
+Mobile - BookShelf:  
+![Mobile View](documentation/mobile-bookshelf.png)
+
+Mobile - Add Review:  
+![Mobile - Add Review](documentation/mobile-form.png)
+
+Desktop:  
+![Desktop View](documentation/DesktopView.png)
+
+Tablet:  
+![Tablet View](documentation/TabletView.png)
+
+
 ### User stories
 
 My user stories focused on CRUD functionality, ease of use, account management, and accessibility.  
@@ -301,9 +343,10 @@ To generate my user stories, I had several epics which I then used as my milesto
 
 I used a Github Kanban Project Board to track and manage tasks throughout development. I had 3 columns - todo, in progress, and done. This way I could easily see what I had left to work on, and prioritise my tasks for the day.
 
-<!-- images  -->
-
 [Github Project Board](https://github.com/users/RosieTrainor/projects/9)  
+
+![Project Board](documentation/ProjectBoard1.png)
+![End of Project](documentation/ProjectBoard2.png)
 
 I also added bugs to my Kanban Board as I found them. This helped workflow since I could then track these and not have to fix them immediately or worry about forgetting to do so. I could instead come back when it was convientient, and not disrupt the flow of the project.
 
@@ -585,7 +628,7 @@ Technology intergral to the project are credited in the 'Tech Used' Section, whi
   
 [Google Fonts](https://fonts.google.com/): Fonts throughout site  
 [Bootstrap Icons](https://icons.getbootstrap.com/): Star rating icons  
-[Balsamiq](): Wireframe mock-ups  
+[Balsamiq](https://balsamiq.com/): Wireframe mock-ups  
 [visual-paradigm](https://online.visual-paradigm.com/diagrams/templates/entity-relationship-diagram/): ERD Creation  
 [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/): Check WCAG Colour Contrast  
 [imagecolorpicker](https://imagecolorpicker.com/): Check header image colours  
@@ -601,7 +644,7 @@ Technology intergral to the project are credited in the 'Tech Used' Section, whi
 [JSHint JavaScript Validator](https://jshint.com/)  
 [Code Institute Python Validator](https://pep8ci.herokuapp.com/)    
 
-[ChatGPT](): Debugging   
-[Github Copilot](): Debugging, Unit Test Generation    
-[Chrome Devtools](): Debugging, Lighthouse Testing  
+[ChatGPT](https://chatgpt.com/): Debugging   
+[Github Copilot](https://github.com/features/copilot): Debugging, Unit Test Generation    
+[Chrome Devtools](https://developer.chrome.com/docs/devtools): Debugging, Lighthouse Testing  
 
