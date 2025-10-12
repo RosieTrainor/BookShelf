@@ -23,7 +23,7 @@
 {% block content %}
 <div class="row">
     {% for review in review_list %}
-    <div class="col-12 col-md-4 mb-4">
+    <div class="col-12 col-md-6 col-lg-4 mb-4">
         <div class="card my-2 shadow p-2 bg-white rounded">
             <div class="card-body">
                 <h4 class="card-title text-center mb-2"><a href="{% url 'review_detail' review.pk %}">
