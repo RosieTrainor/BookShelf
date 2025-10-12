@@ -218,11 +218,42 @@ I considered using a monospaced or typewriter style font but, on testing, this w
 
 #### Wireframes
 
+Changes from wireframes to the site - originally I had the mobile view include the decorative scrollwork down the sides. However, after testing I found the content to be too cramped with this included. 
+
+
+<details>
+<summary>Mobile Wireframes</summary>
+
+![Homepage](documentation/wireframes/Mobile-ReviewList.png)
+![Alternate Homepage - with book covers](documentation/wireframes/Mobile-Covers-ReviewList.png)
+![Review Detail](documentation/wireframes/Mobile-ReviewDetail.png)
+![Add Review](documentation/wireframes/Mobile-AddReview.png)
+![Log In](documentation/wireframes/Mobile-LogIn.png)
+![Sign In](documentation/wireframes/Mobile-Register.png)
+
+</details>
+
+<details>
+<summary>Desktop Wireframes</summary>
+
+![Homepage](documentation/wireframes/Desktop-Homepage.png)
+![Review Detail](documentation/wireframes/Desktop-ReviewDetail.png)
+![Add Review](documentation/wireframes/Desktop-AddReview.png)
+
+</details>
+
+<details>
+<summary>Tablet Wireframes</summary>
+
+![Tablet - Homepage](documentation/wireframes/Tablet-Homepage.png)
+
+</details>
+
 ### Responsivity
 
 The site is fully responsive for mobile, tablet, and desktop. 
 
-
+<!--  images -->
 ### User stories
 
 My user stories focused on CRUD functionality, ease of use, account management, and accessibility.  
@@ -269,6 +300,8 @@ I took an agile approach to this project. I based my development tasks off user 
 To generate my user stories, I had several epics which I then used as my milestones for the project, allowing me to track my progress towards the MVP functionality. My epics included 'CRUD Functionality', 'User Authentication', and 'Front-End' (including accessibility, ease of use, responsivity etc).
 
 I used a Github Kanban Project Board to track and manage tasks throughout development. I had 3 columns - todo, in progress, and done. This way I could easily see what I had left to work on, and prioritise my tasks for the day.
+
+<!-- images  -->
 
 [Github Project Board](https://github.com/users/RosieTrainor/projects/9)  
 
