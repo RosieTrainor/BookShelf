@@ -218,7 +218,7 @@ I considered using a monospaced or typewriter style font but, on testing, this w
 
 #### Wireframes
 
-Changes from wireframes to the site - originally I had the mobile view include the decorative scrollwork down the sides. However, after testing I found the content to be too cramped with this included. 
+Changes from wireframes to the impemented site - originally I had the mobile view include the decorative scrollwork down the sides. However, after testing I found the content to be too cramped with this included.  
 
 
 <details>
@@ -352,14 +352,22 @@ Messages have a role="alert" set for screenreaders.
 
 I tested the main pages of my site: Homepage (while logged in, or logged out), User Review List, Add Review, Edit Review.
 
-Accessibility: 100
-SEO: 100
-Best Practices: 100
+Accessibility: 100  
+SEO: 100  
+Best Practices: 100  
+
+![SEO and Best Practices](documentation/SEO-best-practices.png)
+![Accessibility](documentation/lighthouse-accessibility.png)
 
 Performance: 93-97 (varied between pages)  
 Initially, my performance score was around 80. I made several changes: preloading images and css files, compressing images, using locally stored icons rather than Bootstrap Icons CDN, and optomising database queries, which then increased the scores.
 
-<!-- images -->
+Homepage:  
+![Performance - Homepage](documentation/Performance-AllReviews.png)
+My BookShelf:  
+![Performance - My BookShelf](documentation/Performance-UserReviews.png)
+Review Detail:  
+![Performance - Review Detail](documentation/Performance-ReviewDetail.png)
 
 ### Manual Tests
 
@@ -424,13 +432,15 @@ The form ensures:
 #### CSS
 
 I used the W3C CSS Validator and found no errors.  
-<!-- image -->
+
+![CSS Validation](documentation/css-validation.png)
 
 #### HTML
 
 I used the W3C HTML Validator.  
 Most pages had no errors, but my add_review page had an error where a form element was within a p element which is invalid HTML. I changed the p to a div and this resolved the issue.
-<!-- image -->
+
+![HTML Validation](documentation/HTML-validation.png)
 
 There are some errors generated from Django-allauth's form field element template, within the signup.html page.
 Although I had customised the signup.html template, the errors originate from django-allauth's elements HTML code, not any written by me. As this issue comes from third-party code, addressing it falls outside the scope of this project.
@@ -463,13 +473,14 @@ Error: No p element in scope but a p end tag seen.
 I used the JSHint Validator. I had an error for a missing semicolon, which I fixed. The linter gave me warnings for using "const" and template literals which are not supported in earlier (pre-ES6) versions of JavaScript. However, modern browsers fully support ES6 and it is best practice to use this, so I configured the linter to allow ES6 this removed the warnings. 
 
 Additionally, I had a warning for an undeclared variable ('bootstrap', referring to my Bootstrap modal). However, the Bootstrap JavaScript is correctly loaded in my base HTML template, and no errors appear in the browser console on pages using the modal. This warning is due to the static analysis of script.js in isolation and not an issue with the code or the project as a whole.
-<!-- image -->
+
+![JavaScript Validation](documentation/js-validation.png)
 
 #### Python
 
 I used Code Institute's Python Linter. I had some warnings for whitespace within blank lines, which I then fixed.
 
-<!-- image -->
+![Python Validation](documentation/Python-Validation.png)
 
 ## Deployment
 
