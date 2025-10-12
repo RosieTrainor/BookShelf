@@ -134,11 +134,11 @@ Users are notified when they they post a new review, edit a review, or delete a 
 
 If users attempt to visit a page or complete an action that they are not allowed to, they are redirected and a message is shown:
 
--- Visit My BookShelf when not logged in:  
+Visit My BookShelf when not logged in:  
 ![Log in to access](documentation/login-to-access.png)
--- Edit a review other than your own:  
+Edit a review other than your own:  
 ![Cannot edit message](documentation/cannot-edit-message.png)
--- Delete a review other than your own:  
+Delete a review other than your own:  
 ![Cannot delete message](documentation/delete-own-review-msg.png)
 
 ### Login/Signup
@@ -180,7 +180,7 @@ Other improvements:
 
 ## Database Design and ERD
 
-<!-- Add ERD -->
+![ERD](documentation/ERD.png)  
 
 My database uses Django's ORM with 3 custom models: Author, Book, and Review. It also linked to the User model, which is provided by Django.  
 The Review model has a foreign key to User, which denotes which user posted which review. It also has a foreign key to Book, which has a many-to-many relationship to Author, allowing there to be multiple authors for one book. 
@@ -254,20 +254,31 @@ Changes from wireframes to the impemented site - originally I had the mobile vie
 <details>
 <summary>Mobile Wireframes</summary>
 
-![Homepage](documentation/wireframes/Mobile-ReviewList.png)
-![Alternate Homepage - with book covers](documentation/wireframes/Mobile-Covers-ReviewList.png)
-![Review Detail](documentation/wireframes/Mobile-ReviewDetail.png)
-![Add Review](documentation/wireframes/Mobile-AddReview.png)
-![Log In](documentation/wireframes/Mobile-LogIn.png)
-![Sign In](documentation/wireframes/Mobile-Register.png)
+Homepage:  
+![Homepage](documentation/wireframes/Mobile-ReviewList.png)  
+Alternate - with book covers:  
+![Alternate Homepage - with book covers](documentation/wireframes/Mobile-Covers-ReviewList.png)  
+Review Detail:  
+![Review Detail](documentation/wireframes/Mobile-ReviewDetail.png)  
+Add Review Form:  
+![Add Review](documentation/wireframes/Mobile-AddReview.png)   
+Log in:  
+![Log In](documentation/wireframes/Mobile-LogIn.png)   
+Log out:  
+![Sign In](documentation/wireframes/Mobile-Register.png)   
 
 </details>
 
 <details>
 <summary>Desktop Wireframes</summary>
 
+Homepage:  
 ![Homepage](documentation/wireframes/Desktop-Homepage.png)
+
+Review Detail:  
 ![Review Detail](documentation/wireframes/Desktop-ReviewDetail.png)
+
+Add Review:  
 ![Add Review](documentation/wireframes/Desktop-AddReview.png)
 
 </details>
@@ -283,7 +294,7 @@ Changes from wireframes to the impemented site - originally I had the mobile vie
 
 The site is fully responsive for mobile, tablet, and desktop. 
 
-Mobile - BookShelf:  
+Mobile - BookShelf:   
 ![Mobile View](documentation/mobile-bookshelf.png)
 
 Mobile - Add Review:  
@@ -356,7 +367,7 @@ In future, I plan to weight my user stories by ease of implementation as well as
 
 ## Tech used 
 
-Python, JavaScript, HTML, CSS: Languages Used  
+Languages Used: Python, JavaScript, HTML, CSS
 [Git](https://git-scm.com/), [Github](https://github.com/): Version Control  
 [Django](https://www.djangoproject.com/): Full-stack Framework  
 [Django-Allauth](https://docs.allauth.org/en/latest/): User Account Management  
@@ -406,9 +417,11 @@ Performance: 93-97 (varied between pages)
 Initially, my performance score was around 80. I made several changes: preloading images and css files, compressing images, using locally stored icons rather than Bootstrap Icons CDN, and optomising database queries, which then increased the scores.
 
 Homepage:  
-![Performance - Homepage](documentation/Performance-AllReviews.png)
+![Performance - Homepage](documentation/Performance-AllReviews.png)  
+
 My BookShelf:  
-![Performance - My BookShelf](documentation/Performance-UserReviews.png)
+![Performance - My BookShelf](documentation/Performance-UserReviews.png)  
+
 Review Detail:  
 ![Performance - Review Detail](documentation/Performance-ReviewDetail.png)
 
@@ -570,10 +583,10 @@ Click 'Deploy Branch'.
 
 AI (ChatGPT, GitHub Copilot) was used for debugging throughout this project. I found it most useful when the issue was something easily overlooked, especially within large sections of code. 
 
-Examples of AI debugging:
--- My homepage layout was incorrect, Copilot helped me find the issue: a div was nested incorrectly. 
--- My user_review_list template wasn't rendering. Copliot highlighted this issue: I had forgotten to add a trailing slash to a url. 
--- My sorting functions weren't preserved if you navigated to the next page.Copilot suggested adding the necessary code to the pagination buttons to ensure the sorting functionality was maintained. 
+Examples of AI debugging:  
+-- My homepage layout was incorrect, Copilot helped me find the issue: a div was nested incorrectly.  
+-- My user_review_list template wasn't rendering. Copliot highlighted this issue: I had forgotten to add a trailing slash to a url.   
+-- My sorting functions weren't preserved if you navigated to the next page. Copilot suggested adding the necessary code to the pagination buttons to ensure the sorting functionality was maintained.   
 -- You cannot perform operations on floats within django's template logic, which I needed to do for rendering my ratings as stars. Copilot suggeted adding a custom template tag to work around this.
 
 However, AI has limitations. In my final example above, Copilot at first suggested using the Django template filters 'add' and 'floatformat'. However, after reading the documentation for these filters, they would not work in the way Copilot suggested. I had to tell Copilot this and ask for other suggestions. I then checked these suggestions against online resources and Django documentation to use the most suitable one. 
@@ -608,16 +621,16 @@ Overall, using AI to generate these tests did save time. However, they had to be
 
 ### AI Influence on Workflow 
 
-Using AI in this project sped up development:
+Using AI in this project sped up development:  
 
-Less interuptions to workflow: 
+Less interuptions to workflow:  
 -- Rather than having to search for syntax errors in large code sections, I could highlight and ask copilot. 
 -- Rather than searching the internet for style rules, bootstrap classes, or Django template filters, I could ask Copilot. 
 
-Faster access to resources:
+Faster access to resources:  
 -- If I couldn't find a section of documentation, or online resource that I needed, I would ask Copilot to link me to the correct page. This was helpful as sometimes I was unsure where to find the answers within the documentation, or what exactly to google. I could instead just explain the problem to Copilot and it would show me where to find answers. This wasn't foolproof as Copilot would sometimes link to outdated documentation, but it sped things up. 
 
-Anticipating bugs:
+Anticipating bugs:  
 -- If I was unsure that a section of code would work as expected, I could ask Copilot. This meant that rather than reacting to errors, some bugs were caught prior to testing. I would always double check by running the code, but it saved time. 
 
 However, there were times when using AI caused frustration - AI would insist that it was correct when the documentation contradicted it, or when the solution it suggested was obviously wrong. In these cases I learnt to give Copilot a link to the documentation to help prompt, or to move to using purely online resources rather than 'arguing' with AI.
@@ -635,7 +648,7 @@ Technology intergral to the project are credited in the 'Tech Used' Section, whi
 [mdgi.tools](https://mdigi.tools/lighten-color/): Choose lighter/darker colours for the colour scheme  
 [favicon.io](https://favicon.io/favicon-converter/): Create favicon from an image  
 [freepik](https://www.freepik.com/): Favicon image, scrollwork image, wood pattern header image  
-[Sqoosh](https://squoosh.app/): convert images
+[Sqoosh](https://squoosh.app/): convert images  
 [tinyPNG](https://tinypng.com/): compress images
 
 
