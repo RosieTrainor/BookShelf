@@ -229,7 +229,7 @@ The review cards have a parchment (off-white) colour to them, with a slight grad
 
 The titles for each review are in a dark blue to mimic fountain pen ink. 
 
-Accents, such as buttons or borders, use a bronze/gold color reminiscent of journal clasps.
+Accents, such as buttons or borders, use a bronze/gold colour reminiscent of journal clasps.
 
 #### Fonts
 
@@ -465,6 +465,8 @@ Review Detail:
 
 </details>
 
+Screenshots relating to manual tests can be found in the Features section where I have shown buttons, messages, sorting dropdown, the add review form, and any other functionality.
+
 The site was also tested for functionality on Microsoft Edge, Safari, and Chrome. It worked as expected on these browsers.
 
 ### Unit Tests
@@ -488,6 +490,8 @@ The form ensures:
 - content is required `[Pass]`  
 - book title is required `[Pass]`  
 - author is required, with valid input being either a single author, or multiple authors split by commas `[Pass]`  
+
+![Unit Test Results](documentation/unit-tests.png)  
 
 My unit tests focus solely on the functionality of the form and do not cover the entire application (e.g. views, models, or other components). Therefore, including coverage metrics would not provide a meaningful representation of the overall test coverage for the project. Instead, my manual tests cover the functionality required by my user stories, and confirmed that the application behaves as expected across all key features.
 
