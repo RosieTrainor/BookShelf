@@ -175,7 +175,7 @@ Autocomplete: Autocomplete on book and author fields on the form with previously
 Search function: Users can search for reviews about a book or author.
 
 Other improvements:  
--- Add extra validation to books/authors when added via the form e.g. implementing fuzzy matching to detect and correct misspelled names, or ensuring special characters in author names or book titles are handled correctly.
+-- Add extra validation to books/authors when added via the form e.g. implementing fuzzy matching to detect and correct misspelled names, or ensuring special characters in author names or book titles are handled correctly.  
 -- Implement further unit tests for the form, handling additional edge cases such as invalid rating inputs.
 
 ## Database Design and ERD
@@ -503,7 +503,7 @@ I used the W3C CSS Validator and found no errors.
 I used the W3C HTML Validator.  
 Most pages had no errors, but my add_review page had an error where a form element was within a p element, which is invalid in HTML. I changed the p to a div and this resolved the issue.
 
-![HTML Validation](documentation/HTML-validation.png)
+![HTML Validation](documentation/HTML-Validation.png)
 
 There are some errors generated from Django-allauth's form field element template ('field.html'), within the 'signup.html' page.
 Although I had customised the 'signup.html' template, the errors originate from django-allauth's elements HTML code, not any written by me. As this issue comes from third-party code, addressing it falls outside the scope of this project.
@@ -653,7 +653,7 @@ Technology integral to the project are credited in the 'Tech Used' Section, whil
 [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/): Check WCAG Colour Contrast  
 [imagecolorpicker](https://imagecolorpicker.com/): Check header image colours  
 [mdgi.tools](https://mdigi.tools/lighten-color/): Choose lighter/darker colours for the colour scheme  
-[amiresponsive](https://amiresponsive.co.uk/)
+[amiresponsive](https://amiresponsive.co.uk/): Testing responiveness, generating responsive screenshots  
 [favicon.io](https://favicon.io/favicon-converter/): Create favicon from an image  
 [freepik](https://www.freepik.com/): Favicon image, scrollwork image, wood pattern header image  
 [Sqoosh](https://squoosh.app/): Convert images  
