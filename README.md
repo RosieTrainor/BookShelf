@@ -439,26 +439,26 @@ Review Detail:
 
 | User Story | Expected Outcome | Actual Outcome |
 |------------|------------------|----------------|
-| As a new user, I want to register an account so I can create and manage my own book reviews. | User can register new account | Pass  | 
+| As a new user, I want to register an account so I can create and manage my own book reviews. | User can register new account | Pass | 
 | As a user, I want to be able to log in to see my personal book reviews so I can see and add to my reading log. | User can log in | Pass |
 | As a user, I want to have clear indication that I am logged in so I know I can access/edit my reviews. | 'log out', 'My BookShelf' in header | Pass |
 | As a user, I want to see an error message and/or be redirected when I try to access a page without permission, so I understand what went wrong and how to fix it. | User redirected with message | Pass |
-| As a user, I want to be able to see book reviews by others so I can see what they think of books I've read. | All Reviews page | Pass |
-| As a user, I want to view a list of my book reviews with titles and ratings so I can quickly scan what I’ve read and how I felt about it. | List of user's reviews on 'My BookShelf' | Pass |
-| As a user, I want to be able to view a review in detail, so I can remember what I thought about a book and when I read it. | Link to review detail, review is shown | Pass |
-| As a user, I want to be able to add a new book review so I can record my thoughts and opinions on what I’ve read. | Add button obvious, review is added to database and page | Pass |
-| As a user, I want to be able to edit a review I’ve submitted so I can update or change my thoughts over time. | Edit button, review is updated after editing | Pass |
-| As a user, I want to be able to delete a review so I can remove mistakes or books I no longer want in my history. | Review deleted from database and page | Pass |
+| As a user, I want to be able to see book reviews by others so I can see what they think of books I've read. | All Reviews page accessible | Pass |
+| As a user, I want to view a list of my book reviews with titles and ratings so I can quickly scan what I’ve read and how I felt about it. | List of user's reviews on 'My BookShelf', titles and ratings show | Pass |
+| As a user, I want to be able to view a review in detail, so I can remember what I thought about a book and when I read it. | Link to review detail visible and works, review is shown | Pass |
+| As a user, I want to be able to add a new book review so I can record my thoughts and opinions on what I’ve read. | Add button visible and works, review is added to database and site | Pass |
+| As a user, I want to be able to edit a review I’ve submitted so I can update or change my thoughts over time. | Edit button visible and works, review is updated after editing on site and database | Pass |
+| As a user, I want to be able to delete a review so I can remove mistakes or books I no longer want in my history. | Delete button visible and works, review deleted from database and site | Pass |
 | As a user, I want to see clear confirmation messages after adding, editing, or deleting a review so I know the action was successful. | Messages shown for actions | Pass |
 | As a user with accessibility needs, I want to be able to access the site fully so I can record my reading. | Tab through site, labels for screen readers, colour contrast good | Pass (additional testing in accessibilty section) |
 | As a user, I want to be able to easily navigate the site so I can quickly get to the actions I want. | Navbar and buttons clearly labelled, all links work | Pass |
 | As a mobile/desktop user, I want to be able to visit the site on all platforms so I can view and update my reading logs. | Site functional and easy to use on mobile/tablet/desktop | Pass |
-| As a user, I want to be able to rate my books easily, so I can quickly see what I thought without having to read the whole review. | Rating via dropdown on form, shown on reviews | Pass |
+| As a user, I want to be able to rate my books easily, so I can quickly see what I thought without having to read the whole review. | Rating given via dropdown on add review form, then shown on reviews | Pass |
 | As a user, I want to see a confirmation message when I log in or log out, so I know the action was successful. | Messages shown when log in/out | Pass |
 | As a new account holder, I want to see a clear message on my dashboard when it's empty so I know something hasn't gone wrong. | Message shown when no user reviews | Pass |
 | As a visual user, I want to be able to see book ratings in a star format, so I can easily see what rating was given. | Ratings rendered as stars including half stars | Pass |
-| As a user, I want to be able to sort reviews by rating so I can see which books I most enjoyed, or that others enjoyed. | Reviews are sorted by rating | Pass |
-| As a user, I want to be able to sort reviews by author or book so I can find what I or other think of their work. | Reviews are sorted by author, or book | Pass |
+| As a user, I want to be able to sort reviews by rating so I can see which books I most enjoyed, or that others enjoyed. | Sorting dropdown visible, reviews are sorted by rating | Pass |
+| As a user, I want to be able to sort reviews by author or book so I can find what I or other think of their work. | Sorting dropdown visible, reviews are sorted by author, or book | Pass |
 | As a user, I want to filter reviews (e.g. by author or rating) so I can find specific types of reviews. | Not Implemented | - |
 | As a busy user, I want to be able to save a review as a draft so I can come back and finish it later. | Not Implemented | - |
 | As a visual user, I want to see the book covers associated with reviews so I can easily remember the book they're referencing. | Not Implemented | - |
