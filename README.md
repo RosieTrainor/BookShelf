@@ -583,6 +583,9 @@ Add these two keys:
 -- DATABASE_URL : {your_project's_database_url}  
 -- SECRET_KEY : {your_secret_key}  
 
+You could also set this for safety, although it should be set to False in your settings.py:
+-- DEBUG : False  
+
 Navigate to the deploy tab.  
 Connect to GitHub and select your project repository.  
 Select 'Manual Deploy' and choose the branch you want to deploy from.  
