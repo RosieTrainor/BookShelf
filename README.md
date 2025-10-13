@@ -488,7 +488,8 @@ The form ensures:
 - content is required `[Pass]`  
 - book title is required `[Pass]`  
 - author is required, with valid input being either a single author, or multiple authors split by commas `[Pass]`  
- 
+
+My unit tests focus solely on the functionality of the form and do not cover the entire application (e.g. views, models, or other components). Therefore, including coverage metrics would not provide a meaningful representation of the overall test coverage for the project. Instead, my manual tests cover the functionality required by my user stories, and confirmed that the application behaves as expected across all key features.
 
 ### Validation
 
@@ -506,7 +507,7 @@ Most pages had no errors, but my add_review page had an error where a form eleme
 ![HTML Validation](documentation/HTML-Validation.png)
 
 There are some errors generated from Django-allauth's form field element template ('field.html'), within the 'signup.html' page.
-Although I had customised the 'signup.html' template, the errors originate from django-allauth's elements HTML code, not any written by me. As this issue comes from third-party code, addressing it falls outside the scope of this project.
+Although I had customised the 'signup.html' template, the errors originate from Django-allauth's elements HTML code, not any written by me. As this issue comes from third-party code, addressing it falls outside the scope of this project.
 
 <details>
 <summary>Allauth Template Errors</summary>
@@ -594,7 +595,7 @@ Examples of AI debugging:
 -- Copilot helped identify an issue with my homepage layout caused by an incorrectly nested div.  
 -- My user_review_list template wasn't rendering. Copilot highlighted this issue: I had forgotten to add a trailing slash to a url.   
 -- My sorting functions weren't preserved if you navigated to the next page. Copilot suggested adding the necessary code to the pagination buttons to ensure the sorting functionality was maintained.   
--- You cannot perform operations on floats within django's template logic, which I needed to do for rendering my ratings as stars. Copilot suggested adding a custom template tag to work around this.
+-- You cannot perform operations on floats within Django's template logic, which I needed to do for rendering my ratings as stars. Copilot suggested adding a custom template tag to work around this.
 
 However, AI has limitations. In my final example above, Copilot at first suggested using the Django template filters 'add' and 'floatformat'. However, after reading the documentation for these filters, they would not work in the way Copilot suggested. I had to tell Copilot this and ask for other suggestions. I then checked these suggestions against online resources and Django documentation to use the most suitable one. 
 
@@ -631,7 +632,7 @@ Overall, using AI to generate these tests did save time. However, they had to be
 Using AI in this project sped up development:  
 
 Less interruptions to workflow:  
--- Rather than having to search for syntax errors in large code sections, I could highlight and ask copilot. 
+-- Rather than having to search for syntax errors in large code sections, I could highlight and ask Copilot. 
 -- Rather than searching the internet for style rules, bootstrap classes, or Django template filters, I could ask Copilot. 
 
 Faster access to resources:  
