@@ -175,8 +175,7 @@ Autocomplete: Authocomplete on book and author fields on the form with previousl
 Search function: Users can search for reviews about a book or author.
 
 Other improvements:  
--- Change favicon to something simpler so it is more easily seen.  
--- Add extra validation to books/authors.  
+-- Add extra validation to books/authors when added via the form.  
 
 ## Database Design and ERD
 
