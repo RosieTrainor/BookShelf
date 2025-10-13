@@ -6,13 +6,12 @@ BookShelf is a reading log app for book lovers who want to keep track of their r
 
 **Personalised Reviews:** Log the books you’ve read, write detailed reviews, and rate them.  
 
-**Edit and Manage:** Update or delete your reviews as your thoughts evolve, or on subsequent reads.  
+**Edit and Manage:** Update or delete your reviews as your thoughts evolve, or after rereading a book.  
 
-**Discover New Reads:** Browse the homepage to see reviews from other readers to see what they thought of a book, or discover new recommendations.  
+**Discover New Reads:** Explore reviews from other readers to gain insights or find new book recommendations.  
 
-**Sort Easily:** Sort reviews by rating, book, or author, to quickly find what you’re looking for.
+**Sort Easily:** Quickly sort reviews by rating, book, or author to find what you’re looking for.
 
-## Table of Contents
 
 ## Table of Contents
 
@@ -49,8 +48,10 @@ BookShelf is a reading log app for book lovers who want to keep track of their r
 
 ## Deployed site
 
-The site was deployed on Heroku:
+The site was deployed on Heroku and can be accessed at:
 [BookShelf](https://book-shelf-app-cdf881ab4579.herokuapp.com/)
+
+This is the live version of the app where users can explore its features, including adding, editing, and viewing book reviews.
 
 ## Features
 
@@ -58,7 +59,7 @@ The site was deployed on Heroku:
 
 The site has three main pages, as well as pages for adding or editing reviews, and sign up, login, and log out pages. 
 
-The homepage contains all the reviews on the site. These reviews contain usernames so you can see who posted which reviews. 
+The homepage displays all reviews along with the usernames of the reviewers, so you can see who the review is associated with.
 
 ![Homepage](documentation/all-reviews.png)
 
@@ -72,7 +73,7 @@ These pages allow sorting by rating, book, or author via a dropdown so users can
 
 ![Sorting](documentation/sorting.png)
 
-These pages are paginated, by 12 reviews so there is a managable amount of content shown. Pages can be changed through buttons at the bottom, and sorting is maintained throughout.
+These pages are paginated, by 12 reviews so there is a manageable amount of content shown. Users can navigate between pages using buttons at the bottom, and sorting is maintained throughout.
 
 ![Pagination](documentation/pagination.png)
 
@@ -82,7 +83,7 @@ If the user is viewing a review that they submitted, their username is also show
 
 ![Review detail](documentation/review-detail.png)
 
-Naviagtion is through the header, which shows 'login' and 'sign up' if the user is not logged in. If they are, it shows 'log out', and a link to their reviews page. 
+Navigation is through the header, which shows 'login' and 'sign up' if the user is not logged in. If they are logged in, it shows 'log out', and a link to their reviews page. 
 
 ![Logged in](documentation/nav-loggedin.png)
 
@@ -95,11 +96,11 @@ On mobile and tablet, the navigation collapses into a toggle.
 
 ![Toggle open](documentation/toggle-open.png)
 
-There is a favicon of a book for the site.
+There is a favicon of a book.
 
 ![Favicon](documentation/favicon.png)
 
-### CRUD Functionaliy
+### CRUD Functionality
 
 The form to add a review is accessed by a button, visible to logged in users. 
 
@@ -107,8 +108,7 @@ The form to add a review is accessed by a button, visible to logged in users.
 
 ![Mobile - Add Review](documentation/mobile-form.png)
 
-The form contains validation, ensuring it is filled out correctly.
-If they have not filled out the form correctly, a message is shown. If they try to post more than one review for a book, it is disallowed and a message is shown.
+The form contains validation, ensuring it is filled out correctly. If the form is incomplete or the user attempts to post more than one review for the same book, an appropriate error message is displayed.
 
 Field Validation:  
 ![Field Validation](documentation/form-validation1.png)
@@ -116,17 +116,17 @@ Field Validation:
 More than one book review per user:
 ![User Warning](documentation/duplicate-review.png)
 
-Users can edit or delete their own reviews through buttons below the review detail. The edit form is prepoluated with the previous content and rating.
+Users can edit or delete their own reviews through buttons below the review detail. The edit form is prepopulated with the previous content and rating.
 
 ![Edit/Delete Buttons](documentation/edit-delete-buttons.png)
 
 ![Edit Form](documentation/edit-form.png)
 
-A modal is created when a user tries to delete their review, asking for confirmation.
+A confirmation modal appears when a user attempts to delete their review.
 
 ![Delete Modal](documentation/delete-modal.png)
 
-Users are notified when they they post a new review, edit a review, or delete a review.
+Users are notified when they post a new review, edit a review, or delete a review.
 
 ![Add Review Message](documentation/add-msg.png)
 ![Edit Review Message](documentation/edit-review-msg.png)
@@ -149,33 +149,34 @@ There are sign up, log in, and log out pages.
 ![Log in](documentation/log-in-page.png)
 ![Log out](documentation/sign-out-page.png)
 
-User's are notified for these actions.
+Users are notified for these actions.
 
 ![Signed in Message](documentation/sign-in-mg.png)
 ![Signed out Message](documentation/sign-out-msg.png)
 
-When a user signs up or logs in, they are redirected to their user review page.
+After signing up or logging in, users are redirected to their personal review page.
 
-Superusers can access the admin page through the url '/admin', when they are logged in. Here they can edit or delete delete reviews, books, or users.
+Superusers can access the admin page at '/admin' when logged in. Here they can edit or delete reviews, books, or users.
 
 ![Admin Page](documentation/admin.png)
 
 ## Future Features
 
-Reading stats: Users have a section on their bookshelves for how many books reviewed last month, their highest rated and lowest rated books or authors, the month they read the most books. This would keep users motivated to read and review as they can see their stats clearly and want to improve them.
+Reading stats: Users can view statistics, such as the number of books reviewed last month, their highest rated and lowest rated books or authors, or the month they read the most books. This would motivate users to read and review by providing insights into their progress.
 
 Book specific reviews: A page for all reviews for a certain book so users can see what others thought of the book.
 
-Author pages: A bio page for each auther, with links to the reviews of their books.
+Author pages: A bio page for each author, with links to the reviews of their books.
 
-Book covers on reviews: Each review has an image with it. Either fectch book covers via an API or allow users to upload their own.
+Book covers on reviews: Each review includes a book cover, which could be fetched via an API or uploaded by users.
 
-Autocomplete: Authocomplete on book and author fields on the form with previously entered information. This would reduce dupilcates through misspelling, and improve the user experience as they wouldn't have to type everything out, or if they forgot a name.
+Autocomplete: Autocomplete on book and author fields on the form with previously entered information. This would reduce duplicates through misspelling, and improve the user experience as they wouldn't have to type everything out, or if they forgot a name.
 
 Search function: Users can search for reviews about a book or author.
 
 Other improvements:  
--- Add extra validation to books/authors when added via the form.  
+-- Add extra validation to books/authors when added via the form e.g. implementing fuzzy matching to detect and correct misspelled names, or ensuring special characters in author names or book titles are handled correctly.
+-- Implement further unit tests for the form, handling additional edge cases such as invalid rating inputs.
 
 ## Database Design and ERD
 
@@ -186,18 +187,18 @@ The Review model has a foreign key to User, which denotes which user posted whic
 
 I did consider simply having a single Review model with a foreign key to User, where the book and author fields are simple CharFields. This probably would have been sufficient for my project's MVP. However, I decided against this for several reasons:  
 
--- Real-world modeling: The current database structure mimics the realtionships between these objects in the real world.  
+-- Real-world modeling: The current database structure mimics the relationships between these objects in the real world.  
 
---Scalability:  You can more easily fetch all books by an author, or reviews for a book. This means you could implement future features such as author bios linked to their books, pages for all reviews for a certain book, or most liked books. On the one custom model design, this wouldn't be possible.  
+--Scalability: You can more easily fetch all books by an author, or reviews for a book. This means you could implement future features such as author bios linked to their books, pages for all reviews for a certain book, or most liked books. On the one custom model design, this wouldn't be possible.  
 
 --Flexibility: You can add more fields to the book and author models such as biography to Author, or genre to Book, without having to modify the Review model.  
 
 --Enforcing Constraints: The unique constraint where each user can only have one review for a book is more easily enforced with a foreign key to Book. 
 
 --Avoid Redundancy: With no Author or Book model, each review would store the book and author, leading to many duplicates of the same book and author data.  
-However, my project does not completely ensure there is no duplication as I decided to render the author and book fields on the add_review form as CharFields, not dropdowns (the Django defualt for foreign keys and ManytoMany fields). This decision was made becuase I believe it to be a poor user experience to have to scroll through a long list of books or authors to find the one you want, and then discover no one has added it yet.  
+However, my project does not completely ensure there is no duplication as I decided to render the author and book fields on the add_review form as CharFields, not dropdowns (the Django default for foreign keys and ManytoMany fields). This decision was made because I believe it to be a poor user experience to have to scroll through a long list of books or authors to find the one you want, and then discover no one has added it yet.  
 
-I have added some data validation and normalisation within the form and view to reduce the risk of duplicate entries for authors and books. These checks ensure that identical entries are not created when the same name is entered, regardless of case used or whitespace. However, it is not sufficient to prevent duplicate objects due to misspelling a book title or author's name. I would like to add more validation in future to reduce this risk, such as an autocomplete feature or stricter backend validation. For now, I consider it an acceptable trade off between data consistency and user experience.
+I have added some data validation and normalisation within the form and view to reduce the risk of duplicate entries for authors and books. These checks ensure that identical entries are not created when the same name is entered, regardless of case used or whitespace. However, it is not sufficient to prevent duplicate objects due to misspelling a book title or author's name. I would like to add more validation in future to reduce this risk, such as an autocomplete feature or stricter backend validation. For now, I consider it an acceptable trade-off between data consistency and user experience.
 
 I also considered using an API to fetch book and author details. Although this would handle the validation for me, I decided against this as part of the purpose of this project was to further my understanding of database management and input validation within Django. 
 
@@ -291,7 +292,7 @@ Add Review:
 
 ### Responsivity
 
-The site is fully responsive for mobile, tablet, and desktop. 
+The site is fully responsive for mobile, tablet, and desktop. It was tested on Chrome Devtools and desktop and mobile devices.
 
 Mobile - BookShelf:   
 ![Mobile View](documentation/mobile-bookshelf.png)
@@ -351,7 +352,7 @@ I took an agile approach to this project. I based my development tasks off user 
 
 To generate my user stories, I had several epics which I then used as my milestones for the project, allowing me to track my progress towards the MVP functionality. My epics included 'CRUD Functionality', 'User Authentication', and 'Front-End' (including accessibility, ease of use, responsivity etc).
 
-I used a Github Kanban Project Board to track and manage tasks throughout development. I had 3 columns - todo, in progress, and done. This way I could easily see what I had left to work on, and prioritise my tasks for the day.
+I used a Github Kanban Project Board to track and manage tasks throughout development. I had 3 columns - todo, in progress, and done. I moved the issues between these columns. This way I could easily see what I had left to work on, and prioritise my tasks for the day.
 
 [Github Project Board](https://github.com/users/RosieTrainor/projects/9)  
 
@@ -461,7 +462,7 @@ The site was a also tested for functionality on Microsoft Edge, Safari, and Chro
 
 ### Unit Tests
 
-I implemented unit tests for my add_review form because manually testing all possible cases would be challenging. It was especially important to ensure the form functioned correctly and handled edge cases effectively before I began to add data. 
+I implemented unit tests for my add_review form because manually testing all possible cases would be challenging. It was especially important to ensure the form functioned correctly before I began to add data. 
 
 These tests covered:
 
