@@ -156,7 +156,7 @@ Users are notified for these actions.
 
 After signing up or logging in, users are redirected to their personal review page.
 
-Superusers can access the admin page at '/admin' when logged in. Here they can edit or delete reviews, books, or users.
+Superusers can access the admin page at '/admin' when logged in. Here they can edit or delete reviews, books, or users. If you try to access this when not logged in as a superuser, you are redirected to a log in page.
 
 ![Admin Page](documentation/admin.png)
 
