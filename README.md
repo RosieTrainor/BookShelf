@@ -359,7 +359,7 @@ I used a GitHub Kanban Project Board to track and manage tasks throughout develo
 ![Project Board](documentation/ProjectBoard1.png)
 ![End of Project](documentation/ProjectBoard2.png)
 
-I also added bugs to my Kanban Board as I found them. This helped workflow since I could then track these and not have to fix them immediately or worry about forgetting to do so. I could instead come back when it was convenient, and not disrupt the flow of the project.
+I also added bugs to my Kanban Board as I found them. This allowed me to track and address them later without disrupting the workflow. I could instead come back when it was convenient, and not disrupt the flow of the project.
 
 In reflection, this workflow worked well to keep me organised and on track.  
 In future, I plan to weight my user stories by ease of implementation as well as importance, as some were much more work than others. This would help me track my progress more accurately and allow me to more easily scope the tasks for each day.
@@ -414,7 +414,7 @@ Best Practices: 100
 ![Accessibility](documentation/lighthouse-accessibility.png)
 
 Performance: 93-97 (varied between pages)  
-Initially, my performance score was around 80. I made several changes: preloading images and CSS files, compressing images, using locally stored icons rather than Bootstrap Icons CDN, and optomising database queries, which then increased the scores.
+Initially, my performance score was around 80. I made several changes: preloading images and CSS files, compressing images, using locally stored icons rather than Bootstrap Icons CDN, and optomising database queries, which then increased the scores to 93-97.
 
 Homepage:  
 ![Performance - Homepage](documentation/Performance-AllReviews.png)  
@@ -577,14 +577,14 @@ Select 'Manual Deploy' and choose the branch you want to deploy from.
 Click 'Deploy Branch'.    
 
 
-## AI use
+## AI Use
 
 ### Debugging 
 
 AI (ChatGPT, GitHub Copilot) was used for debugging throughout this project. I found it most useful when the issue was something easily overlooked, especially within large sections of code. 
 
 Examples of AI debugging:  
--- My homepage layout was incorrect, Copilot helped me find the issue: a div was nested incorrectly.  
+-- Copilot helped identify an issue with my homepage layout caused by an incorrectly nested div.  
 -- My user_review_list template wasn't rendering. Copilot highlighted this issue: I had forgotten to add a trailing slash to a url.   
 -- My sorting functions weren't preserved if you navigated to the next page. Copilot suggested adding the necessary code to the pagination buttons to ensure the sorting functionality was maintained.   
 -- You cannot perform operations on floats within django's template logic, which I needed to do for rendering my ratings as stars. Copilot suggested adding a custom template tag to work around this.
@@ -593,7 +593,7 @@ However, AI has limitations. In my final example above, Copilot at first suggest
 
 In another case, Copilot told me the incorrect file path for overriding allauth templates. I checked the allauth documentation and example projects to ensure I had the correct path.
 
-I find that AI is best used for simpler errors such as syntax errors, pointing our errors in logic, and for suggestions on where to look for answers when you are stuck. However, you should always double-check any suggestions using online resources and official documentation, and ensure that what AI is telling you is both correct and suitable for your project.
+I find that AI is best used for simpler errors such as syntax errors, pointing out errors in logic, and for suggestions on where to look for answers when you are stuck. However, you should always double-check any suggestions using online resources and official documentation, and ensure that what AI is telling you is both correct and suitable for your project.
 
 ### UX and Performance
 
@@ -633,7 +633,7 @@ Faster access to resources:
 Anticipating bugs:  
 -- If I was unsure that a section of code would work as expected, I could ask Copilot. This meant that rather than reacting to errors, some bugs were caught prior to testing. I would always double check by running the code, but it saved time. 
 
-However, there were times when using AI caused frustration - AI would insist that it was correct when the documentation contradicted it, or when the solution it suggested was obviously wrong. In these cases I learnt to give Copilot a link to the documentation to help prompt, or to move to using purely online resources rather than 'arguing' with AI.
+However, there were times when AI caused frustration, such as insisting on incorrect solutions that contradicted official documentation or suggesting obviously unsuitable fixes. In these cases I learnt to give Copilot a link to the documentation to help prompt, or to move to using purely online resources rather than 'arguing' with AI.
 
 
 ## Credits
