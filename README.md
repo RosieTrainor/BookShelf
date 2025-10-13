@@ -250,6 +250,8 @@ I considered using a monospaced or typewriter style font but, on testing, this w
 
 Changes from wireframes to the implemented site: in my wireframes, the mobile view include the decorative scrollwork down the sides. However, after testing I found the content to be too cramped with this included.  
 
+My final implementation was very close to the wireframes.
+
 
 <details>
 <summary>Mobile Wireframes</summary>
@@ -468,19 +470,19 @@ These tests covered:
 
 #### Data Management:  
 When a user posts a review:
-- the author is associated with the book
-- the book is associated with the review
-- no book or author duplicate objects are created if the author or book already exists
-- the author is not amended if the book has the same title as an existing book but a different author (allowing multiple books named e.g. "The Secret" by different authors)
-- case insensitivity and/or whitespace does not create duplicate objects
-- the reviewer can only have one review per book
+- the author is associated with the book `[Pass]`  
+- the book is associated with the review `[Pass]`  
+- no book or author duplicate objects are created if the author or book already exists  `[Pass]`  
+- the author is not amended if the book has the same title as an existing book but a different author (allowing multiple books named e.g. "The Secret" by different authors)  `[Pass]`  
+- case insensitivity and/or whitespace does not create duplicate objects  `[Pass]`  
+- the reviewer can only have one review per book  `[Pass]`  
 
 #### Form Validation: 
 The form ensures:
-- rating is required
-- content is required
-- book title is required
-- author is required, with valid input being either a single author, or multiple authors split by commas
+- rating is required `[Pass]`  
+- content is required `[Pass]`  
+- book title is required `[Pass]`  
+- author is required, with valid input being either a single author, or multiple authors split by commas `[Pass]`  
  
 
 ### Validation
@@ -498,7 +500,7 @@ Most pages had no errors, but my add_review page had an error where a form eleme
 
 ![HTML Validation](documentation/HTML-validation.png)
 
-There are some errors generated from Django-allauth's form field element template, within the 'signup.html' page.
+There are some errors generated from Django-allauth's form field element template ('field.html'), within the 'signup.html' page.
 Although I had customised the 'signup.html' template, the errors originate from django-allauth's elements HTML code, not any written by me. As this issue comes from third-party code, addressing it falls outside the scope of this project.
 
 <details>
