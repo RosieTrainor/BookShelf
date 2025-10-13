@@ -294,7 +294,12 @@ Add Review:
 
 ### Responsivity
 
-The site is fully responsive for mobile, tablet, and desktop. It was tested on Chrome Devtools and desktop and mobile devices.
+The site is fully responsive for mobile, tablet, and desktop. It was tested on Chrome Devtools, amiresponsive.co.uk, and desktop and mobile devices.
+
+All devices:
+
+![amiresponsive](documentation/amiresponsive.png)  
+
 
 Mobile - BookShelf:   
 ![Mobile View](documentation/mobile-bookshelf.png)
@@ -648,6 +653,7 @@ Technology integral to the project are credited in the 'Tech Used' Section, whil
 [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/): Check WCAG Colour Contrast  
 [imagecolorpicker](https://imagecolorpicker.com/): Check header image colours  
 [mdgi.tools](https://mdigi.tools/lighten-color/): Choose lighter/darker colours for the colour scheme  
+[amiresponsive](https://amiresponsive.co.uk/)
 [favicon.io](https://favicon.io/favicon-converter/): Create favicon from an image  
 [freepik](https://www.freepik.com/): Favicon image, scrollwork image, wood pattern header image  
 [Sqoosh](https://squoosh.app/): Convert images  
