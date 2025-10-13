@@ -229,7 +229,7 @@ The review cards have a parchment (off-white) colour to them, with a slight grad
 
 The titles for each review are in a dark blue to mimic fountain pen ink. 
 
-Accents, such as buttons or borders, are in a bronze/gold colour such as you might find on journal clasps.
+Accents, such as buttons or borders, use a bronze/gold color reminiscent of journal clasps.
 
 #### Fonts
 
@@ -239,7 +239,7 @@ Accents, such as buttons or borders, are in a bronze/gold colour such as you mig
 | Headers     | Caveat        |
 | Content     | Source Sans 3 |
 
-The header/navigation font is Macondo - a stylised cal'igraphy font, used because it looks like an old bokshop sign. It is only used for larger text, so legibility isn't a concern.
+The header/navigation font is Macondo - a stylised calligraphy font, used because it looks like an old bookshop sign. It is only used for larger text, so legibility isn't a concern.
 
 Review headers are Caveat - mimics handwriting as you might find in a journal. This style might be harder to read in large blocks of text, but it is only used for shorter content such as book titles.
 
@@ -248,7 +248,7 @@ I considered using a monospaced or typewriter style font but, on testing, this w
 
 #### Wireframes
 
-Changes from wireframes to the impemented site - originally I had the mobile view include the decorative scrollwork down the sides. However, after testing I found the content to be too cramped with this included.  
+Changes from wireframes to the implemented site: in my wireframes, the mobile view include the decorative scrollwork down the sides. However, after testing I found the content to be too cramped with this included.  
 
 
 <details>
@@ -313,12 +313,12 @@ My user stories focused on CRUD functionality, ease of use, account management, 
 
 I used MoSCoW prioritisation and aimed for 60-70% must-have stories, in line with best practices.
 
-I haven't detailed my won't-haves here, but some I considered are in the Future Features section above.
+I haven't detailed the 'won't-have' features here, but some are mentioned in the Future Features section.
 
 <details>
 <summary>Complete User Stories</summary>
 
-| User Story | Priorisation |
+| User Story | Prioritisation |
 |------------|--------------|
 | As a new user, I want to register an account so I can create and manage my own book reviews. | Must-have |
 | As a user, I want to be able to log in to see my personal book reviews so I can see and add to my reading log. | Must-have |
@@ -337,11 +337,11 @@ I haven't detailed my won't-haves here, but some I considered are in the Future 
 | As a user, I want to be able to rate my books easily, so I can quickly see what I thought without having to read the whole review. | Should-have |
 | As a user, I want to see a confirmation message when I log in or log out, so I know the action was successful. | Should-have |
 | As a new account holder, I want to see a clear message on my dashboard when it's empty so I know something hasn't gone wrong. | Should-have |
-| As a visual user, I want to able to see book ratings in a star format, so I can easily see what rating was given. | Should-have |
+| As a visual user, I want to be able to see book ratings in a star format, so I can easily see what rating was given. | Should-have |
 | As a user, I want to be able to sort reviews by rating so I can see which books I most enjoyed, or that others enjoyed. | Should-have |
 | As a user, I want to be able to sort reviews by author or book so I can find what I or other think of their work. | Should-have |
 | As a user, I want to filter reviews (e.g. by author or rating) so I can find specific types of reviews. | Could-have |
-| As busy user, I want to be able to save a review as a draft so I can come back and finish it later. | Could-have |
+| As a busy user, I want to be able to save a review as a draft so I can come back and finish it later. | Could-have |
 | As a visual user, I want to see the book covers associated with reviews so I can easily remember the book they're referencing. | Could-have |
 
 </details>
@@ -352,14 +352,14 @@ I took an agile approach to this project. I based my development tasks off user 
 
 To generate my user stories, I had several epics which I then used as my milestones for the project, allowing me to track my progress towards the MVP functionality. My epics included 'CRUD Functionality', 'User Authentication', and 'Front-End' (including accessibility, ease of use, responsivity etc).
 
-I used a Github Kanban Project Board to track and manage tasks throughout development. I had 3 columns - todo, in progress, and done. I moved the issues between these columns. This way I could easily see what I had left to work on, and prioritise my tasks for the day.
+I used a GitHub Kanban Project Board to track and manage tasks throughout development. I had 3 columns - to-do, in progress, and done. I moved the issues between these columns. This way I could easily see what I had left to work on, and prioritise my tasks for the day.
 
 [Github Project Board](https://github.com/users/RosieTrainor/projects/9)  
 
 ![Project Board](documentation/ProjectBoard1.png)
 ![End of Project](documentation/ProjectBoard2.png)
 
-I also added bugs to my Kanban Board as I found them. This helped workflow since I could then track these and not have to fix them immediately or worry about forgetting to do so. I could instead come back when it was convientient, and not disrupt the flow of the project.
+I also added bugs to my Kanban Board as I found them. This helped workflow since I could then track these and not have to fix them immediately or worry about forgetting to do so. I could instead come back when it was convenient, and not disrupt the flow of the project.
 
 In reflection, this workflow worked well to keep me organised and on track.  
 In future, I plan to weight my user stories by ease of implementation as well as importance, as some were much more work than others. This would help me track my progress more accurately and allow me to more easily scope the tasks for each day.
@@ -368,7 +368,7 @@ In future, I plan to weight my user stories by ease of implementation as well as
 ## Tech used 
 
 Languages Used: Python, JavaScript, HTML, CSS
-[Git](https://git-scm.com/), [Github](https://github.com/): Version Control  
+[Git](https://git-scm.com/), [GitHub](https://github.com/): Version Control  
 [Django](https://www.djangoproject.com/): Full-stack Framework  
 [Django-Allauth](https://docs.allauth.org/en/latest/): User Account Management  
 [Heroku](https://www.heroku.com/): Deployment  
@@ -384,7 +384,7 @@ Languages Used: Python, JavaScript, HTML, CSS
 
 All the colours used on the site were tested against WCAG colour contrast standards, to ensure each component stood out against the background for visually impaired users.
 
-All compoments meet at least WCAG AA standards, with many meeting AAA.
+All components meet at least WCAG AA standards, with many meeting AAA.
 
 The navigation section has a wood image as its background, with many colours within it. To test this I extracted the lightest colour found in the background and tested it against the font colour. It met WCAG for large text. All other colours in the image met WCAG AAA for both large and small text. Since the lightest colour in the image is not at all prevalent, I was happy with this result.
 
@@ -400,7 +400,7 @@ All form fields have labels, and buttons have clear descriptions.
 
 Semantic HTML was used and headings are in a logical order.
 
-Messages have a role="alert" set for screenreaders.
+Messages have a role="alert" set for screen readers.
 
 ### Lighthouse
 
@@ -414,7 +414,7 @@ Best Practices: 100
 ![Accessibility](documentation/lighthouse-accessibility.png)
 
 Performance: 93-97 (varied between pages)  
-Initially, my performance score was around 80. I made several changes: preloading images and css files, compressing images, using locally stored icons rather than Bootstrap Icons CDN, and optomising database queries, which then increased the scores.
+Initially, my performance score was around 80. I made several changes: preloading images and CSS files, compressing images, using locally stored icons rather than Bootstrap Icons CDN, and optomising database queries, which then increased the scores.
 
 Homepage:  
 ![Performance - Homepage](documentation/Performance-AllReviews.png)  
@@ -443,26 +443,26 @@ Review Detail:
 | As a user, I want to be able to edit a review I’ve submitted so I can update or change my thoughts over time. | Edit button, review is updated after editing | Pass |
 | As a user, I want to be able to delete a review so I can remove mistakes or books I no longer want in my history. | Review deleted from database and page | Pass |
 | As a user, I want to see clear confirmation messages after adding, editing, or deleting a review so I know the action was successful. | Messages shown for actions | Pass |
-| As a user with accessibility needs, I want to be able to access the site fully so I can record my reading. | Tab through site, labels for screenreaders, colour contrast good | Pass (additional testing in accessibilty section) |
+| As a user with accessibility needs, I want to be able to access the site fully so I can record my reading. | Tab through site, labels for screen readers, colour contrast good | Pass (additional testing in accessibilty section) |
 | As a user, I want to be able to easily navigate the site so I can quickly get to the actions I want. | Navbar and buttons clearly labelled, all links work | Pass |
 | As a mobile/desktop user, I want to be able to visit the site on all platforms so I can view and update my reading logs. | Site functional and easy to use on mobile/tablet/desktop | Pass |
 | As a user, I want to be able to rate my books easily, so I can quickly see what I thought without having to read the whole review. | Rating via dropdown on form, shown on reviews | Pass |
 | As a user, I want to see a confirmation message when I log in or log out, so I know the action was successful. | Messages shown when log in/out | Pass |
 | As a new account holder, I want to see a clear message on my dashboard when it's empty so I know something hasn't gone wrong. | Message shown when no user reviews | Pass |
-| As a visual user, I want to able to see book ratings in a star format, so I can easily see what rating was given. | Ratings rendered as stars including half stars | Pass |
+| As a visual user, I want to be able to see book ratings in a star format, so I can easily see what rating was given. | Ratings rendered as stars including half stars | Pass |
 | As a user, I want to be able to sort reviews by rating so I can see which books I most enjoyed, or that others enjoyed. | Reviews are sorted by rating | Pass |
 | As a user, I want to be able to sort reviews by author or book so I can find what I or other think of their work. | Reviews are sorted by author, or book | Pass |
 | As a user, I want to filter reviews (e.g. by author or rating) so I can find specific types of reviews. | Not Implemented | - |
-| As busy user, I want to be able to save a review as a draft so I can come back and finish it later. | Not Implemented | - |
+| As a busy user, I want to be able to save a review as a draft so I can come back and finish it later. | Not Implemented | - |
 | As a visual user, I want to see the book covers associated with reviews so I can easily remember the book they're referencing. | Not Implemented | - |
 
 </details>
 
-The site was a also tested for functionality on Microsoft Edge, Safari, and Chrome. It worked as expected on these browsers.
+The site was also tested for functionality on Microsoft Edge, Safari, and Chrome. It worked as expected on these browsers.
 
 ### Unit Tests
 
-I implemented unit tests for my add_review form because manually testing all possible cases would be challenging. It was especially important to ensure the form functioned correctly before I began to add data. 
+I implemented unit tests for my "add review" form because manually testing all possible cases would be challenging. It was especially important to ensure the form functioned correctly before I began to add data. 
 
 These tests covered:
 
@@ -494,12 +494,12 @@ I used the W3C CSS Validator and found no errors.
 #### HTML
 
 I used the W3C HTML Validator.  
-Most pages had no errors, but my add_review page had an error where a form element was within a p element which is invalid HTML. I changed the p to a div and this resolved the issue.
+Most pages had no errors, but my add_review page had an error where a form element was within a p element, which is invalid in HTML. I changed the p to a div and this resolved the issue.
 
 ![HTML Validation](documentation/HTML-validation.png)
 
-There are some errors generated from Django-allauth's form field element template, within the signup.html page.
-Although I had customised the signup.html template, the errors originate from django-allauth's elements HTML code, not any written by me. As this issue comes from third-party code, addressing it falls outside the scope of this project.
+There are some errors generated from Django-allauth's form field element template, within the 'signup.html' page.
+Although I had customised the 'signup.html' template, the errors originate from django-allauth's elements HTML code, not any written by me. As this issue comes from third-party code, addressing it falls outside the scope of this project.
 
 <details>
 <summary>Allauth Template Errors</summary>
@@ -540,16 +540,16 @@ I used Code Institute's Python Linter. I had some warnings for whitespace within
 
 ## Deployment
 
-This project was deployed on Heroku, pulling from Github.
+This project was deployed on Heroku, pulling from GitHub.
 
-#### To enable deployement:  
+#### To enable deployment:  
 
 Ensure all sensitive information, such as your SECRET_KEY and DATABASE_URL, are stored as environment variables and not visible in your project code. Set DEBUG in settings.py to 'False'.
 
 Install requirements.txt - the important installations for deployment are gunicorn for serving the application, and whitenoise for handling static files.  
 
 Add a Procfile at the root of your project, with the content: "web: gunicorn {project_name}.wsgi".  
-Add a .python-version file specifying your version of python.
+Add a .python-version file specifying your version of Python.
 
 Add '.herokuapp.com' to ALLOWED_HOSTS within your project's settings.py.  
 Add 'https://*.herokuapp.com' to CSRF_TRUSTED_ORIGINS within your project's settings.  
@@ -558,7 +558,7 @@ Add 'https://*.herokuapp.com' to CSRF_TRUSTED_ORIGINS within your project's sett
 Set a STATIC_ROOT in your settings.py to show where the static files are located.  
 Run 'python manage.py collectstatic' to collect the static files to a staticfiles directory for deployment.   
 
-Commit and push your code to Github, on the branch you want to deploy from.   
+Commit and push your code to GitHub, on the branch you want to deploy from.   
 
 #### To deploy:
 Navigate to your Heroku dashboard.  
@@ -572,7 +572,7 @@ Add these two keys:
 -- SECRET_KEY : {your_secret_key}  
 
 Navigate to the deploy tab.  
-Connect to Github and select your project repository.  
+Connect to GitHub and select your project repository.  
 Select 'Manual Deploy' and choose the branch you want to deploy from.  
 Click 'Deploy Branch'.    
 
@@ -585,15 +585,15 @@ AI (ChatGPT, GitHub Copilot) was used for debugging throughout this project. I f
 
 Examples of AI debugging:  
 -- My homepage layout was incorrect, Copilot helped me find the issue: a div was nested incorrectly.  
--- My user_review_list template wasn't rendering. Copliot highlighted this issue: I had forgotten to add a trailing slash to a url.   
+-- My user_review_list template wasn't rendering. Copilot highlighted this issue: I had forgotten to add a trailing slash to a url.   
 -- My sorting functions weren't preserved if you navigated to the next page. Copilot suggested adding the necessary code to the pagination buttons to ensure the sorting functionality was maintained.   
--- You cannot perform operations on floats within django's template logic, which I needed to do for rendering my ratings as stars. Copilot suggeted adding a custom template tag to work around this.
+-- You cannot perform operations on floats within django's template logic, which I needed to do for rendering my ratings as stars. Copilot suggested adding a custom template tag to work around this.
 
 However, AI has limitations. In my final example above, Copilot at first suggested using the Django template filters 'add' and 'floatformat'. However, after reading the documentation for these filters, they would not work in the way Copilot suggested. I had to tell Copilot this and ask for other suggestions. I then checked these suggestions against online resources and Django documentation to use the most suitable one. 
 
 In another case, Copilot told me the incorrect file path for overriding allauth templates. I checked the allauth documentation and example projects to ensure I had the correct path.
 
-I find that AI is best used for simpler errors such as syntax errors, pointing our errors in logic, and for suggestions on where to look for answers when you are stuck. However, you should always double check any suggestions using online resources and official documentation, and ensure that what AI is telling you is both correct and suitable for your project.
+I find that AI is best used for simpler errors such as syntax errors, pointing our errors in logic, and for suggestions on where to look for answers when you are stuck. However, you should always double-check any suggestions using online resources and official documentation, and ensure that what AI is telling you is both correct and suitable for your project.
 
 ### UX and Performance
 
@@ -601,9 +601,9 @@ I used ChatGPT in the design of my site. I gave it the general idea of what I wa
 
 ChatGPT was also used to refine my user stories where I was unsure how to phrase them.
 
-Copilot aided me with improving the site's performance. As I was only using three icons from bootstrap icons, I stored these locally instead of using Bootstrap Icons CDN. Copilot helped take me through linking to SVG's within a templatetag, ensuring they were correctly referenced.
+Copilot aided me with improving the site's performance. As I was only using three icons from bootstrap icons, I stored these locally instead of using Bootstrap Icons CDN. Copilot helped take me through linking to SVG's within a template tag, ensuring they were correctly referenced.
 
-I also asked Copilot for further performance enhancements I could implement. It suggested using prefetch_realted and select_related on my database queries to avoid repeated queries.
+I also asked Copilot for further performance enhancements I could implement. It suggested using prefetch_related and select_related on my database queries to avoid repeated queries.
 
 ### Code Generation
 
@@ -623,7 +623,7 @@ Overall, using AI to generate these tests did save time. However, they had to be
 
 Using AI in this project sped up development:  
 
-Less interuptions to workflow:  
+Less interruptions to workflow:  
 -- Rather than having to search for syntax errors in large code sections, I could highlight and ask copilot. 
 -- Rather than searching the internet for style rules, bootstrap classes, or Django template filters, I could ask Copilot. 
 
@@ -637,7 +637,7 @@ However, there were times when using AI caused frustration - AI would insist tha
 
 
 ## Credits
-Technology intergral to the project are credited in the 'Tech Used' Section, while this section highlights additional tools and resources used throughout development.
+Technology integral to the project are credited in the 'Tech Used' Section, while this section highlights additional tools and resources used throughout development.
   
 [Google Fonts](https://fonts.google.com/): Fonts throughout site  
 [Bootstrap Icons](https://icons.getbootstrap.com/): Star rating icons  
@@ -648,8 +648,8 @@ Technology intergral to the project are credited in the 'Tech Used' Section, whi
 [mdgi.tools](https://mdigi.tools/lighten-color/): Choose lighter/darker colours for the colour scheme  
 [favicon.io](https://favicon.io/favicon-converter/): Create favicon from an image  
 [freepik](https://www.freepik.com/): Favicon image, scrollwork image, wood pattern header image  
-[Sqoosh](https://squoosh.app/): convert images  
-[tinyPNG](https://tinypng.com/): compress images
+[Sqoosh](https://squoosh.app/): Convert images  
+[tinyPNG](https://tinypng.com/): Compress images
 
 
 [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)  
@@ -658,6 +658,6 @@ Technology intergral to the project are credited in the 'Tech Used' Section, whi
 [Code Institute Python Validator](https://pep8ci.herokuapp.com/)    
 
 [ChatGPT](https://chatgpt.com/): Debugging   
-[Github Copilot](https://github.com/features/copilot): Debugging, Unit Test Generation    
+[GitHub Copilot](https://github.com/features/copilot): Debugging, Unit Test Generation    
 [Chrome Devtools](https://developer.chrome.com/docs/devtools): Debugging, Lighthouse Testing  
 
